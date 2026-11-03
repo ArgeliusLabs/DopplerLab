@@ -5,8 +5,8 @@
 **Name:** Argelius Doppler Lab.
 **Repository:** [ArgeliusLabs/DopplerLab](https://github.com/ArgeliusLabs/DopplerLab).
 
-**One-sentence description:** An offline aircraft Doppler matching toolkit and practical
-OSINT lab for testing what background sound can reveal—and what it cannot prove.
+**One-sentence description:** An aircraft-audio investigation toolkit for acquiring
+flight data, testing location hypotheses and teaching the limits of sound-based OSINT.
 
 Lead with a reproducible investigation workflow: aircraft-data acquisition, candidate
 screening, transparent physical modeling and useful failure cases. Include original
@@ -21,6 +21,8 @@ an affiliation, universal exact geolocation or demonstrated nationwide precision
 - Research review, methodology, data-preparation guide and measured benchmark.
 - Student handout, instructor guide, rubric and field-validation protocol.
 - A source ZIP and a portable student handout/report pack, with SHA-256 checksums.
+- Tested Windows, Linux, Intel Mac and Apple Silicon executable archives, with build
+  provenance, dependency licenses and SHA-256 checksums; see [BINARIES.md](BINARIES.md).
 
 The source license allows reuse, including commercial use. It does not convey rights
 to the original YouTube media or third-party flight databases. No such data is bundled.
@@ -50,7 +52,7 @@ rate, interpretation errors and student feedback.
 Use the synthetic 39 m coarse-grid result only with its synthetic qualification on
 screen. The stronger story is “you can test this yourself,” not “we can locate anyone.”
 
-## Draft release announcement
+## Original v0.1.0 announcement draft
 
 > We're releasing Argelius Doppler Lab: an open-source toolkit and classroom exercise
 > inspired by colsto's aircraft Doppler demonstration.
@@ -71,17 +73,23 @@ The draft is provided for reuse; it does not imply that an announcement was post
 
 ## Release checklist
 
-On this repository's `main` branch, GitHub Actions publishes a prerelease for a new
-package version only after all four test jobs pass. It builds the source and student
-ZIPs, wheel, source distribution, source inventory and checksums on the release
-runner. Existing versioned releases are left unchanged; bump the package version
-and update the release notes for the next published version. The workflow does not
-publish to PyPI.
+Development pushes run tests and produce temporary native candidates; they do not
+publish a release. The next tagged release is held for two original recording cases.
+After those checks, update the version in `pyproject.toml` and `src/doppler_lab/__init__.py`
+and revise the release notes around the actual results. The manual workflow dispatch
+must explicitly set `publish_release` to true, and its release job requires all four
+test jobs and all four native build/smoke jobs to pass. It rejects `.dev` versions.
+
+The release job assembles source/student ZIPs, wheel, source distribution, source
+inventory, all four native archives and checksums. It leaves existing versioned
+releases unchanged and does not publish to PyPI. Build candidates and their expiry
+are described in [BINARIES.md](BINARIES.md).
 
 1. Review the source, input permissions, documentation and validation record for the version.
-2. Run the provided GitHub Actions matrix and resolve platform failures before claiming
-   support beyond the locally tested Windows environment.
-3. Attach the source/student archives and checksums to a versioned experimental release.
+2. Review every test and native smoke job, including the source commit and platform
+   limitations. Record original-recording outcomes, including unsuccessful cases.
+3. Run the manual publishing workflow for the reviewed version and verify its public
+   source/student/native assets, dependency notices and checksums.
 4. Add the video credit, project scope and field-validation limitations to the repository description.
 5. Record a demo using the supplied fictional data and clearly labeled results.
 6. Pilot the 110-minute lab with a small class; collect setup and learning feedback.
@@ -96,7 +104,10 @@ publish to PyPI.
 | 2 | Source-pitch and propagation sensitivity | Recovery and abstention behavior across realistic perturbations |
 | 3 | Licensed provider-specific importers | Fixtures with explicit units, datums, gaps and timestamp semantics |
 | 4 | Ridge annotation interface | Usability test; provenance for analyst choices |
-| 5 | Larger-area indexing and terrain support | Complete-search accounting, budgets, representative accuracy/runtime |
+| 5 | Terrain-aware broad screening and cross-day event pairing | Complete-search accounting, boundary tests, representative accuracy/runtime |
 
-Adding a broad search before validating the local model would multiply attractive
-false candidates. The local educational release is useful on its own.
+Large-area indexing and timing screening are now implemented and
+[benchmarked](REAL_DATA_BENCHMARK.md). Their millions of alternatives make local-model
+validation and competing-candidate checks essential before claiming useful field
+precision. The included fictional lab remains a reproducible teaching option while
+that investigation work continues.

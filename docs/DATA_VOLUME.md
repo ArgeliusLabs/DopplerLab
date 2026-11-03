@@ -3,8 +3,10 @@
 Checked **3 November 2026**. The byte counts below come from GitHub release-asset
 metadata for two complete UTC days. We subsequently downloaded the complete November 2
 archive: **3,501,931,008 bytes in 291.507 seconds (4 minutes 52 seconds)**, including
-writing and hashing the files. The bandwidth table remains a calculation; workspace
-reservations are planning estimates. Acquisition timing is not geolocation performance.
+writing and hashing the files. We also measured regional indexing and timing screens;
+see the [real-data benchmark](REAL_DATA_BENCHMARK.md) for complete results and settings.
+The bandwidth table remains a calculation; workspace reservations are planning
+estimates. Acquisition and screening timings are not geolocation accuracy measurements.
 
 ## A concrete open-data example
 
@@ -26,7 +28,9 @@ changes with traffic, reception, retention settings and outages.
 
 **For either the contiguous U.S. or Europe, this acquisition route starts with the
 same roughly 3.1–3.5 GB worldwide day.** Filter to the intended region after download.
-The U.S.-only and Europe-only extracts will differ; we have not measured their sizes.
+The measured normalized indexes were **0.930 GB for the U.S. rectangle** and
+**0.463 GB for the European rectangle** after source, height and quality filtering.
+These are compressed indexes of usable trajectory segments, not every regional flight.
 Do not estimate regional bytes from land area or promise that one network captures
 every flight. Coverage, low-altitude reception and available geometric heights vary.
 
@@ -69,7 +73,11 @@ For the larger, 3.502 GB example:
 | Original downloaded parts only | **3.5 GB** |
 | Parts plus extracted, still-gzipped records | **About 7 GB**, plus filesystem overhead |
 | Parts, an additional joined tar, and extracted gzipped records | **About 10.5 GB**, plus filesystem overhead |
-| Parsing, normalized regional data and search outputs | Additional space; not measured here |
+| U.S. normalized index | **0.930 GB** additional |
+| European normalized index | **0.463 GB** additional |
+| U.S. coarse timing-screen output | **13.889 GB** additional |
+| European coarse timing-screen output | **3.619 GB** additional |
+| Fully expanded trace JSON payloads | **17.632 GB**, based on gzip footer sizes; not written |
 
 Extracting the tar and decompressing every JSON record are different operations.
 The tar already holds compressed records. Expanding all JSON at once or loading it
@@ -79,9 +87,15 @@ Filesystem overhead can also matter when extracting many small files.
 For a first one-day experiment, **reserve 20–50 GB of free workspace** as a practical
 starting budget, not as a measured requirement or guaranteed ceiling. Preserve the
 download, process compressed traces incrementally, filter early and retain only the
-normalized data needed for the investigation. Measure actual peak disk and memory
-before setting hardware requirements. A streaming implementation need not load the
-whole archive into RAM; the current local solver is not a global archive processor.
+normalized data needed for the investigation. The development indexer reads split
+archives and compressed records directly: it creates neither a joined tar nor an
+extracted JSON tree. Broad searches can still produce multi-gigabyte candidate files.
+See the benchmark's retained-storage totals; those exclude temporary files and failed
+experiments. Measure peak disk and memory before setting hardware requirements.
+Measured indexer process RAM peaked near **192 MB** in 0.2-second samples, on a machine
+with about 64 GiB of RAM. That does not establish a minimum-memory requirement or account
+for the operating system's filesystem cache. The detailed local solver remains a
+separate bounded operation.
 
 Audio, DEM tiles, multiple days, extra provider coverage and repeated output copies
 consume additional space. Two adjacent global UTC days at the observed sizes would
@@ -100,15 +114,17 @@ require roughly 6.2–7.0 GB just for downloads.
    later parts present. GitHub's automatically generated "Source code" ZIP and tar.gz
    are the repository source, not the aircraft dataset.
 4. Preserve the original names, byte counts, download time, release URL and SHA-256
-   hashes. Join parts in suffix order using binary-safe tools, then extract into a new
-   folder. The provider documents a `cat ... | tar ...` streaming example for Unix.
+   hashes. Doppler Lab's development indexer streams parts in suffix order without
+   extraction. For independent manual processing, use binary-safe tools; the provider
+   documents a `cat ... | tar ...` streaming example for Unix.
    Do not use PowerShell text concatenation (`Get-Content`/`Set-Content`) for these bytes.
 5. Read the compressed trace records incrementally. Filter by the supported region
    and UTC interval, keeping boundary context, quality/source fields and compatible
    heights. Preserve the raw archive as evidence.
 6. Build the broad candidate shortlist, then prepare local cases using
    [DATA.md](DATA.md). The [investigation workflow](INVESTIGATION_WORKFLOW.md) explains
-   that shortlist stage; it is not implemented in the v0.1.0 CLI.
+   the method, and [BROAD_SEARCH.md](BROAD_SEARCH.md) provides the development commands.
+   The published v0.1.0 CLI predates the archive and shortlist commands.
 
 To independently recheck the published size without downloading the multi-gigabyte
 assets, this PowerShell example reads only public release metadata:
@@ -138,6 +154,9 @@ Tucson's local **3 November 2026** runs from **2026-11-03 07:00 UTC** to
 local day therefore touches two daily UTC archives, with extra boundary padding if
 required. A short recording with a known UTC time can need a much smaller time slice,
 but a bulk-only source still requires downloading the containing archive(s).
+The current shortlist operates on one index and does not join event pairs across daily
+indexes. A pair spanning midnight needs additional implementation; separate successful
+day searches do not establish that the boundary was covered.
 
 The current day is incomplete until it ends, and a daily archive is only available
 after the provider publishes it. To test a new recording before publication, collect
@@ -145,11 +164,16 @@ live trajectories concurrently through an access route whose rate limits support
 sampling you need, or wait for the historical data. Missing samples and coarse archived
 traces can prevent reliable local fitting even when downloading succeeds.
 
-## What remains to be benchmarked
+## Processing time after download
 
-The download is now measured. The [development workflow](BROAD_SEARCH.md) provides the
-indexer and timing screen, with a repeatable measurement wrapper. A useful benchmark
-must separately report download time, parsing/index creation, region filtering,
-candidate generation and detailed matching. Record hardware, storage type, sampling,
-retained points, rejected data, candidate count and peak RAM/disk. Until that exists,
-no claim such as "search all of Europe in ten minutes" is supported by this project.
+The [real-data benchmark](REAL_DATA_BENCHMARK.md) separates download, indexing, coarse
+candidate generation and regional refinement. U.S. indexing took **16 min 14 s**,
+followed by **46 min 46 s** for its coarse screen. European indexing took **13 minutes
+7 seconds**, followed by **23 minutes 47 seconds** for the deliberately broad timing
+screen. Starting from the existing U.S. index, a Tucson subset took **9.2 seconds** and
+its finer timing screen **26.4 seconds**. Reuse an index when testing another region or
+audio hypothesis; do not download and parse the global day again unnecessarily.
+
+Those searches used a hypothetical interval and a flat receiver height, with millions
+of broad alternatives. Audio interpretation, terrain, candidate comparison and detailed
+matching add work. Their complete real-recording cost and accuracy remain unmeasured.

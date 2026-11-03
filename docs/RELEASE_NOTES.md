@@ -11,10 +11,12 @@ build artifacts. A future manual release can attach all four native archives, li
 notices and checksums alongside the source/student packages.
 
 The local regression suite contains 39 tests. The downloaded November 2 global
-archive is 3.502 GB and took 4 minutes 52 seconds on the development connection. Regional
-indexing and screening are benchmarked separately. This is not field-accuracy evidence.
+archive is 3.502 GB and took 4 minutes 52 seconds on the development connection. The
+[real-data benchmark](REAL_DATA_BENCHMARK.md) reports completed U.S., European and Tucson
+indexing/screens, candidate counts, retained storage and sampled RAM. This is not
+field-accuracy evidence.
 
-**No new release is authorized until two original recording cases have been validated.**
+**The next tagged release is held until two original recording cases have been tested.**
 Those recordings are not yet available. Development pushes no longer publish releases
 automatically, and the manual publishing job rejects `.dev` versions. The existing
 v0.1.0 assets remain available. See [broad-search instructions](BROAD_SEARCH.md),

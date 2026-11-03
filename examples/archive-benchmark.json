@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "tool_version": "0.2.0.dev1",
+  "archive_utc_date": "2026-11-02",
+  "run_date": "2026-11-03",
+  "source_release": "https://github.com/adsblol/globe_history_2026/releases/tag/v2026.11.02-planes-readsb-prod-0",
+  "source_license": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "download_bytes": 3501931008,
+  "download_elapsed_s": 291.507,
+  "source_parts": [
+    {
+      "name": "v2026.11.02-planes-readsb-prod-0.tar.aa",
+      "bytes": 2000000000,
+      "sha256": "d81c23fcc56be2514ea1757cf91cdd3960b864a2cbf0d406ee4d64a4f91169c0"
+    },
+    {
+      "name": "v2026.11.02-planes-readsb-prod-0.tar.ab",
+      "bytes": 1501931008,
+      "sha256": "801bc0dbdf1fbb2952d4d6d909ac8dc8cd88d1674ec64e74fd26b4cbcdca6c21"
+    }
+  ],
+  "archive_layout": {
+    "regular_files": 63498,
+    "stored_member_bytes": 3453319211,
+    "trace_files": 63445,
+    "trace_stored_bytes": 2640374885,
+    "trace_decoded_bytes_from_gzip_footer": 17632352597,
+    "largest_decoded_trace_bytes": 437089251
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpus": 32,
+    "system_ram_bytes": 68456882176,
+    "sample_interval_s": 0.2
+  },
+  "reporting_environment": {
+    "python": "3.13.11",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "ijson": "3.6.0",
+      "certifi": "2026.10.23",
+      "psutil": "7.2.2"
+    },
+    "note": "Recorded when aggregating the completed runs, not by each original timing wrapper."
+  },
+  "measurements": [
+    {
+      "stage": "conus_index",
+      "elapsed_s": 973.536,
+      "sampled_peak_rss_bytes": 191905792,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "index-archive",
+        "work/archive-2026-11-02/v2026.11.02-planes-readsb-prod-0.tar.aa",
+        "work/archive-2026-11-02/v2026.11.02-planes-readsb-prod-0.tar.ab",
+        "--region",
+        "conus",
+        "--start",
+        "2026-11-02T00:00:00Z",
+        "--end",
+        "2026-11-03T00:00:00Z",
+        "--output",
+        "work/conus-2026-11-02-streamed"
+      ],
+      "counts": {
+        "archive_members": 63758,
+        "trace_files": 57246,
+        "input_points": 99067351,
+        "stale_or_invalid_trace_flags": 1981500,
+        "segments": 166858,
+        "retained_points": 41490648,
+        "short_segment_points": 130987,
+        "ground": 4813323,
+        "missing_or_invalid_geometric_height": 113780,
+        "outside_padded_region": 48485479,
+        "unsupported_position_source": 2051589,
+        "nonincreasing_or_conflicting_time": 1728,
+        "duplicate_points": 41,
+        "outside_time": 4
+      },
+      "manifest_sha256": "61054a38030c74d670b90a93b409c28b286df79cbcbe3beca62efa15b02cb80d",
+      "output_bytes": 930158069,
+      "index_bytes": 930156544,
+      "index_sha256": "49513eb3c4e30fddafd708359814ff5d8a72bc8ad50fafb2ff99dcfadb55b6d8",
+      "bounds": [
+        24,
+        -125,
+        50,
+        -66
+      ],
+      "padding_km": 30,
+      "max_gap_s": 30
+    },
+    {
+      "stage": "europe_index",
+      "elapsed_s": 787.228,
+      "sampled_peak_rss_bytes": 192303104,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "index-archive",
+        "work/archive-2026-11-02/v2026.11.02-planes-readsb-prod-0.tar.aa",
+        "work/archive-2026-11-02/v2026.11.02-planes-readsb-prod-0.tar.ab",
+        "--region",
+        "europe",
+        "--start",
+        "2026-11-02T00:00:00Z",
+        "--end",
+        "2026-11-03T00:00:00Z",
+        "--output",
+        "work/europe-2026-11-02-streamed"
+      ],
+      "counts": {
+        "archive_members": 63758,
+        "trace_files": 57246,
+        "input_points": 99067351,
+        "outside_padded_region": 68801437,
+        "short_segment_points": 1829108,
+        "stale_or_invalid_trace_flags": 1981500,
+        "segments": 81084,
+        "retained_points": 19900197,
+        "missing_or_invalid_geometric_height": 170899,
+        "unsupported_position_source": 1987448,
+        "ground": 4396663,
+        "nonincreasing_or_conflicting_time": 146293,
+        "duplicate_points": 95,
+        "outside_time": 4
+      },
+      "manifest_sha256": "00fabb0fbbe9a34719100bdcd71b6343e03a014c5828410ec72347ed7c55d04a",
+      "output_bytes": 463410677,
+      "index_bytes": 463409152,
+      "index_sha256": "e62822c6d9811599f44669eb0452eecefec4bebc5df3c8b9515fd140ec7f1629",
+      "bounds": [
+        34,
+        -25,
+        72,
+        45
+      ],
+      "padding_km": 30,
+      "max_gap_s": 30
+    },
+    {
+      "stage": "tucson_subset",
+      "elapsed_s": 9.248,
+      "sampled_peak_rss_bytes": 144822272,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "subset-index",
+        "work/conus-2026-11-02-streamed/index.sqlite",
+        "--bounds",
+        "32.15",
+        "-111.10",
+        "32.45",
+        "-110.60",
+        "--output",
+        "work/tucson-index-2026-11-02"
+      ],
+      "counts": {
+        "input_segments": 166858,
+        "segments": 2326,
+        "retained_points": 1178529
+      },
+      "manifest_sha256": "ff921d500f250b8ce95525b0482722d502ee96cdc6b27a886e6fde3a63d9cae4",
+      "output_bytes": 25589918,
+      "index_bytes": 25587712,
+      "index_sha256": "445c57dc939e3ee0ddd51167fb858d20b24bc02092701a6940eccd9c4eb02ddf",
+      "bounds": [
+        32.15,
+        -111.1,
+        32.45,
+        -110.6
+      ],
+      "padding_km": 30,
+      "max_gap_s": 30,
+      "source_commit": "36e2f2896320444844bc032202d4692ef8185197",
+      "source_sha256": {
+        "src/doppler_lab/__init__.py": "1db0b8a7a611cc25efcc0665f24d78b3defcf8e3ea81c261e4810b95f7a87723",
+        "src/doppler_lab/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+        "src/doppler_lab/adsb.py": "6a2bece7d14f1e1c04651144ca9e063a347999123eca170c2bef546aa8839bbd",
+        "src/doppler_lab/archive.py": "6790b1dddaffe6feb1493b5f25ba24027fdd81cd74d27f713a03a6041a62ff0f",
+        "src/doppler_lab/audio.py": "0b270cf385d6b0d6e1a3b5a841cb6606ce9ad997511a17dcb932a8f21782a5a9",
+        "src/doppler_lab/broad.py": "3e69702e7e93edcc359c84866cfbf491ec19c0e452c630f7a89524096641c790",
+        "src/doppler_lab/case.py": "77d546b8ea7ae957493cea409b44e6d35ddac9335671fa343aad387dda46d97b",
+        "src/doppler_lab/cli.py": "02d555753dd865be3eed0a55d98ac5289c90d3388f031a7e74f42d95b24990d7",
+        "src/doppler_lab/importers.py": "f20086b7ad863ca9bb525d34f158026192da2506283e2568839d497853ab6c3f",
+        "src/doppler_lab/measure.py": "30d725ffe34c76fc47ed81575c33161d09aaa4e6d239f3538c61db7fd5bfa4ad",
+        "src/doppler_lab/physics.py": "ef3a63fdaf4d63144dba560a814f44ebab7223d8c019b6b518456cf1901d676a",
+        "src/doppler_lab/report.py": "0f8ff206cecd26f5af7dfc2ed815d64702297604fc7fb9cc3b52ad4186e02636",
+        "src/doppler_lab/search.py": "d1a1fae81f16ba51bfd7821f572d0bc3c7d174b6572bdfb7e3a304794cecc1a2",
+        "src/doppler_lab/synthetic.py": "2f0185f90801b3e3fc42945b7c31007fa49599f0a5bb46752b22c17e8ddced9e"
+      }
+    },
+    {
+      "stage": "conus_screen",
+      "elapsed_s": 2806.416,
+      "sampled_peak_rss_bytes": 161832960,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "shortlist",
+        "work/conus-2026-11-02-streamed/index.sqlite",
+        "--interval",
+        "920",
+        "--tolerance",
+        "10",
+        "--grid-km",
+        "10",
+        "--radius-km",
+        "10",
+        "--receiver-height",
+        "0",
+        "--max-evaluations",
+        "1000000000",
+        "--max-passages",
+        "30000000",
+        "--max-pairs",
+        "50000000",
+        "--output",
+        "work/conus-screen-complete-2026-11-02"
+      ],
+      "counts": {
+        "edge_receiver_evaluations": 364140691,
+        "max_evaluations": 1000000000,
+        "speed_filtered_edges": 587242,
+        "merged_nearby_minima": 1155198,
+        "passages": 15530376,
+        "segments_processed": 166858,
+        "candidates": 48657675
+      },
+      "manifest_sha256": "d4467ccee3bbcbc977bce18c5ec81acfccb8afc5b91017a9bb48893d1268d574",
+      "output_bytes": 13889070635,
+      "index_sha256": "49513eb3c4e30fddafd708359814ff5d8a72bc8ad50fafb2ff99dcfadb55b6d8",
+      "interval_s": 920.0,
+      "tolerance_s": 10.0,
+      "grid_km": 10.0,
+      "radius_km": 10.0,
+      "receiver_height_m": 0.0,
+      "sound_speed_m_s": 343,
+      "speed_bounds_m_s": [
+        25,
+        300
+      ],
+      "max_pairs": 50000000,
+      "max_passages": 30000000,
+      "receiver_nodes": 151704,
+      "passage_generation_s": 1792.692,
+      "candidates_sha256": "758a3018ad6092a79faa51d586245aa692a34e9081e979c90ab71572ba67a83b",
+      "source_commit": "36e2f2896320444844bc032202d4692ef8185197",
+      "source_sha256": {
+        "src/doppler_lab/__init__.py": "1db0b8a7a611cc25efcc0665f24d78b3defcf8e3ea81c261e4810b95f7a87723",
+        "src/doppler_lab/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+        "src/doppler_lab/adsb.py": "6a2bece7d14f1e1c04651144ca9e063a347999123eca170c2bef546aa8839bbd",
+        "src/doppler_lab/archive.py": "6790b1dddaffe6feb1493b5f25ba24027fdd81cd74d27f713a03a6041a62ff0f",
+        "src/doppler_lab/audio.py": "0b270cf385d6b0d6e1a3b5a841cb6606ce9ad997511a17dcb932a8f21782a5a9",
+        "src/doppler_lab/broad.py": "3e69702e7e93edcc359c84866cfbf491ec19c0e452c630f7a89524096641c790",
+        "src/doppler_lab/case.py": "77d546b8ea7ae957493cea409b44e6d35ddac9335671fa343aad387dda46d97b",
+        "src/doppler_lab/cli.py": "02d555753dd865be3eed0a55d98ac5289c90d3388f031a7e74f42d95b24990d7",
+        "src/doppler_lab/importers.py": "f20086b7ad863ca9bb525d34f158026192da2506283e2568839d497853ab6c3f",
+        "src/doppler_lab/measure.py": "30d725ffe34c76fc47ed81575c33161d09aaa4e6d239f3538c61db7fd5bfa4ad",
+        "src/doppler_lab/physics.py": "ef3a63fdaf4d63144dba560a814f44ebab7223d8c019b6b518456cf1901d676a",
+        "src/doppler_lab/report.py": "0f8ff206cecd26f5af7dfc2ed815d64702297604fc7fb9cc3b52ad4186e02636",
+        "src/doppler_lab/search.py": "d1a1fae81f16ba51bfd7821f572d0bc3c7d174b6572bdfb7e3a304794cecc1a2",
+        "src/doppler_lab/synthetic.py": "2f0185f90801b3e3fc42945b7c31007fa49599f0a5bb46752b22c17e8ddced9e"
+      }
+    },
+    {
+      "stage": "europe_screen",
+      "elapsed_s": 1426.523,
+      "sampled_peak_rss_bytes": 164753408,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "shortlist",
+        "work/europe-2026-11-02-streamed/index.sqlite",
+        "--interval",
+        "920",
+        "--tolerance",
+        "10",
+        "--grid-km",
+        "10",
+        "--radius-km",
+        "10",
+        "--receiver-height",
+        "0",
+        "--max-evaluations",
+        "1000000000",
+        "--max-passages",
+        "30000000",
+        "--max-pairs",
+        "50000000",
+        "--output",
+        "work/europe-screen-complete-2026-11-02"
+      ],
+      "counts": {
+        "edge_receiver_evaluations": 167193588,
+        "max_evaluations": 1000000000,
+        "speed_filtered_edges": 255485,
+        "passages": 8677954,
+        "segments_processed": 81084,
+        "merged_nearby_minima": 514112,
+        "candidates": 11446891
+      },
+      "manifest_sha256": "5b235fefa04b13b0d64b8f89bf98ed8bd436669231917c3b2b16039408f51a9b",
+      "output_bytes": 3618520939,
+      "index_sha256": "e62822c6d9811599f44669eb0452eecefec4bebc5df3c8b9515fd140ec7f1629",
+      "interval_s": 920.0,
+      "tolerance_s": 10.0,
+      "grid_km": 10.0,
+      "radius_km": 10.0,
+      "receiver_height_m": 0.0,
+      "sound_speed_m_s": 343,
+      "speed_bounds_m_s": [
+        25,
+        300
+      ],
+      "max_pairs": 50000000,
+      "max_passages": 30000000,
+      "receiver_nodes": 196074,
+      "passage_generation_s": 1099.776,
+      "candidates_sha256": "f64724c8f8933464e64a10ad2c2b5d26e601aae8c34dad4114c3f6c8fbf0cca9",
+      "source_commit": "36e2f2896320444844bc032202d4692ef8185197",
+      "source_sha256": {
+        "src/doppler_lab/__init__.py": "1db0b8a7a611cc25efcc0665f24d78b3defcf8e3ea81c261e4810b95f7a87723",
+        "src/doppler_lab/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+        "src/doppler_lab/adsb.py": "6a2bece7d14f1e1c04651144ca9e063a347999123eca170c2bef546aa8839bbd",
+        "src/doppler_lab/archive.py": "6790b1dddaffe6feb1493b5f25ba24027fdd81cd74d27f713a03a6041a62ff0f",
+        "src/doppler_lab/audio.py": "0b270cf385d6b0d6e1a3b5a841cb6606ce9ad997511a17dcb932a8f21782a5a9",
+        "src/doppler_lab/broad.py": "3e69702e7e93edcc359c84866cfbf491ec19c0e452c630f7a89524096641c790",
+        "src/doppler_lab/case.py": "77d546b8ea7ae957493cea409b44e6d35ddac9335671fa343aad387dda46d97b",
+        "src/doppler_lab/cli.py": "02d555753dd865be3eed0a55d98ac5289c90d3388f031a7e74f42d95b24990d7",
+        "src/doppler_lab/importers.py": "f20086b7ad863ca9bb525d34f158026192da2506283e2568839d497853ab6c3f",
+        "src/doppler_lab/measure.py": "30d725ffe34c76fc47ed81575c33161d09aaa4e6d239f3538c61db7fd5bfa4ad",
+        "src/doppler_lab/physics.py": "ef3a63fdaf4d63144dba560a814f44ebab7223d8c019b6b518456cf1901d676a",
+        "src/doppler_lab/report.py": "0f8ff206cecd26f5af7dfc2ed815d64702297604fc7fb9cc3b52ad4186e02636",
+        "src/doppler_lab/search.py": "d1a1fae81f16ba51bfd7821f572d0bc3c7d174b6572bdfb7e3a304794cecc1a2",
+        "src/doppler_lab/synthetic.py": "2f0185f90801b3e3fc42945b7c31007fa49599f0a5bb46752b22c17e8ddced9e"
+      }
+    },
+    {
+      "stage": "tucson_screen",
+      "elapsed_s": 26.374,
+      "sampled_peak_rss_bytes": 153436160,
+      "command": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "doppler_lab",
+        "shortlist",
+        "work/tucson-index-2026-11-02/index.sqlite",
+        "--interval",
+        "920",
+        "--tolerance",
+        "10",
+        "--grid-km",
+        "1",
+        "--radius-km",
+        "10",
+        "--receiver-height",
+        "0",
+        "--output",
+        "work/tucson-screen-2026-11-02"
+      ],
+      "counts": {
+        "edge_receiver_evaluations": 7602367,
+        "max_evaluations": 500000000,
+        "speed_filtered_edges": 4048,
+        "segments_processed": 2326,
+        "passages": 201082,
+        "merged_nearby_minima": 38609,
+        "candidates": 51156
+      },
+      "manifest_sha256": "60dbae7cbc97d1a524bd7f71ae0bebb97627ae5c3547baea15a073e9089c51d7",
+      "output_bytes": 27221575,
+      "index_sha256": "445c57dc939e3ee0ddd51167fb858d20b24bc02092701a6940eccd9c4eb02ddf",
+      "interval_s": 920.0,
+      "tolerance_s": 10.0,
+      "grid_km": 1.0,
+      "radius_km": 10.0,
+      "receiver_height_m": 0.0,
+      "sound_speed_m_s": 343,
+      "speed_bounds_m_s": [
+        25,
+        300
+      ],
+      "max_pairs": 500000,
+      "max_passages": 5000000,
+      "receiver_nodes": 1707,
+      "passage_generation_s": 20.959,
+      "candidates_sha256": "8364373c673d145841f9fc07efca019c66a659e37fc7320a25d3a12b9f7f4b72",
+      "source_commit": "36e2f2896320444844bc032202d4692ef8185197",
+      "source_sha256": {
+        "src/doppler_lab/__init__.py": "1db0b8a7a611cc25efcc0665f24d78b3defcf8e3ea81c261e4810b95f7a87723",
+        "src/doppler_lab/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+        "src/doppler_lab/adsb.py": "6a2bece7d14f1e1c04651144ca9e063a347999123eca170c2bef546aa8839bbd",
+        "src/doppler_lab/archive.py": "6790b1dddaffe6feb1493b5f25ba24027fdd81cd74d27f713a03a6041a62ff0f",
+        "src/doppler_lab/audio.py": "0b270cf385d6b0d6e1a3b5a841cb6606ce9ad997511a17dcb932a8f21782a5a9",
+        "src/doppler_lab/broad.py": "3e69702e7e93edcc359c84866cfbf491ec19c0e452c630f7a89524096641c790",
+        "src/doppler_lab/case.py": "77d546b8ea7ae957493cea409b44e6d35ddac9335671fa343aad387dda46d97b",
+        "src/doppler_lab/cli.py": "02d555753dd865be3eed0a55d98ac5289c90d3388f031a7e74f42d95b24990d7",
+        "src/doppler_lab/importers.py": "f20086b7ad863ca9bb525d34f158026192da2506283e2568839d497853ab6c3f",
+        "src/doppler_lab/measure.py": "30d725ffe34c76fc47ed81575c33161d09aaa4e6d239f3538c61db7fd5bfa4ad",
+        "src/doppler_lab/physics.py": "ef3a63fdaf4d63144dba560a814f44ebab7223d8c019b6b518456cf1901d676a",
+        "src/doppler_lab/report.py": "0f8ff206cecd26f5af7dfc2ed815d64702297604fc7fb9cc3b52ad4186e02636",
+        "src/doppler_lab/search.py": "d1a1fae81f16ba51bfd7821f572d0bc3c7d174b6572bdfb7e3a304794cecc1a2",
+        "src/doppler_lab/synthetic.py": "2f0185f90801b3e3fc42945b7c31007fa49599f0a5bb46752b22c17e8ddced9e"
+      }
+    }
+  ],
+  "filter_demonstration": {
+    "hypothetical_constraints": true,
+    "counts": {
+      "input_candidates": 51156,
+      "candidates": 1121
+    },
+    "bounds": {
+      "speed_a_m_s": [
+        70.0,
+        110.0
+      ],
+      "speed_b_m_s": [
+        90.0,
+        140.0
+      ],
+      "slant_a_m": [
+        1000.0,
+        4000.0
+      ],
+      "slant_b_m": [
+        2000.0,
+        6000.0
+      ]
+    },
+    "internal_elapsed_s": 0.246,
+    "timing_scope": "Internal filtering only; excludes CLI startup and input hashing.",
+    "source_candidates_sha256": "8364373c673d145841f9fc07efca019c66a659e37fc7320a25d3a12b9f7f4b72",
+    "candidates_sha256": "be6684cfec8dfff892078c8168adfc5ea1f5c4133b9f73185acc728b7adc51fc"
+  },
+  "accepted_location": false,
+  "audio_validation_performed": false,
+  "notes": [
+    "Single development runs with warm filesystem caches and other development/benchmark tasks running concurrently.",
+    "Indexing measurements began before the final development commit; screening commands record source hashes.",
+    "A hypothetical 920-second interval and a flat 0 m ellipsoid receiver height were used for performance testing.",
+    "The first US screening pilot was stopped when observed counts projected beyond its 10-million passage budget. Its time is excluded from the successful rerun and partial files remain local.",
+    "The earlier full-record JSON reader stopped at its size limit; the measured index runs use the streaming reader.",
+    "Peak process-tree RSS is sampled every 0.2 seconds and can miss short-lived peaks.",
+    "The global archive is reused; do not charge its download separately for each region.",
+    "Only supported full ICAO trace filenames are parsed; other names, including non-ICAO addresses prefixed with ~, are excluded.",
+    "Gzip footer sizes describe expanded trace bytes; expanded JSON copies were not written.",
+    "These are acquisition and geometric screening measurements, not real-recording location accuracy."
+  ]
+}

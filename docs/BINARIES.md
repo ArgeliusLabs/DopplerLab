@@ -7,8 +7,13 @@ are bundled. The original v0.1.0 release does not include these executables.
 Development candidates appear as `native-*` artifacts on successful runs of
 [GitHub Actions](https://github.com/ArgeliusLabs/DopplerLab/actions). GitHub may require
 sign-in to download workflow artifacts; they expire after 30 days. They are not a
-published release. A future explicitly approved release includes the same tested native
-archives, source distributions and checksums as public release assets.
+published release. After the planned original-recording checks, a tagged release can
+include the tested native archives, source distributions and checksums as public assets.
+
+All four native build/smoke jobs passed for source commit `0b7e47a` in
+[this verified development run](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41739232065).
+Its `native-*` artifacts are available while their retention period lasts. This records
+one tested build; inspect the conclusion and source commit of any newer run you select.
 
 ## Choose a build
 
@@ -42,7 +47,8 @@ temporary directory when starting, which takes additional time and disk space.
 The demo and local matching run offline. Archive acquisition and live capture require
 internet access. FFmpeg remains a separate optional dependency for non-WAV extraction;
 it is not bundled. Use the main repository's acquisition and broad-search guide for
-the `download-day`, `index-archive`, `shortlist` and `export-candidate` commands.
+the `download-day`, `index-archive`, `subset-index`, `shortlist`, `filter-candidates`
+and `export-candidate` commands.
 
 ## Verify and reproduce
 

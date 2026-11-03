@@ -2,6 +2,8 @@
 
 import argparse
 import json
+import platform
+from importlib.metadata import version
 from pathlib import Path
 
 from doppler_lab.case import digest
@@ -83,6 +85,9 @@ def main():
             row["source_sha256"] = measured["source_sha256"]
         rows.append(row)
     machine = read("work/bench-conus-index.json")
+    filtered = read("work/tucson-filter-demonstration/screening.json")
+    if filtered["status"] != "complete":
+        raise ValueError("Illustrative candidate filtering did not complete.")
     result = {
         "schema_version": 1,
         "tool_version": "0.2.0.dev1",
@@ -104,7 +109,24 @@ def main():
                 "sample_interval_s",
             ]
         },
+        "reporting_environment": {
+            "python": platform.python_version(),
+            "packages": {
+                name: version(name)
+                for name in ["numpy", "scipy", "matplotlib", "ijson", "certifi", "psutil"]
+            },
+            "note": "Recorded when aggregating the completed runs, not by each original timing wrapper.",
+        },
         "measurements": rows,
+        "filter_demonstration": {
+            "hypothetical_constraints": True,
+            "counts": filtered["counts"],
+            "bounds": filtered["filter_bounds"],
+            "internal_elapsed_s": filtered["elapsed_s"],
+            "timing_scope": "Internal filtering only; excludes CLI startup and input hashing.",
+            "source_candidates_sha256": filtered["source_candidates_sha256"],
+            "candidates_sha256": filtered["candidates_sha256"],
+        },
         "accepted_location": False,
         "audio_validation_performed": False,
         "notes": [

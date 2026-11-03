@@ -77,6 +77,7 @@ def main():
         "DATA.md",
         "INVESTIGATION_WORKFLOW.md",
         "DATA_VOLUME.md",
+        "REAL_DATA_BENCHMARK.md",
         "BROAD_SEARCH.md",
         "BINARIES.md",
         "FIELD_PROTOCOL.md",

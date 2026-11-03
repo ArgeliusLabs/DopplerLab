@@ -8,6 +8,7 @@ Argelius Labs, with a classroom lab inspired by colsto's aircraft Doppler video.
 | [README](README.md) | Installation, CLI and project scope |
 | [Investigation workflow](docs/INVESTIGATION_WORKFLOW.md) | How a broad region and recording date lead to candidate areas and local matching |
 | [Download and storage guide](docs/DATA_VOLUME.md) | Verified daily archive sizes, transfer estimates and working-space planning |
+| [Real-data benchmark](docs/REAL_DATA_BENCHMARK.md) | Measured U.S., European and Tucson processing times, retained storage and limitations |
 | [Broad-search commands](docs/BROAD_SEARCH.md) | Development workflow: download, regional index, timing shortlist and local handoff |
 | [Native binaries](docs/BINARIES.md) | Windows, Linux and macOS build candidates and release packaging |
 | [Example report](examples/report/report.html) | A complete offline result; open in a browser |

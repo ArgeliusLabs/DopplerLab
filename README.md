@@ -23,7 +23,9 @@ contains the local matcher. Real-recording validation for the next release is pe
 [investigation workflow](docs/INVESTIGATION_WORKFLOW.md) for aircraft-data acquisition,
 relative timing, broad candidate selection and local refinement. The
 [download and storage guide](docs/DATA_VOLUME.md) gives verified archive sizes and
-transfer estimates. These guides distinguish the full technique from the features
+transfer estimates. The [real-data benchmark](docs/REAL_DATA_BENCHMARK.md) records actual
+U.S., European and Tucson indexing/search measurements. These guides distinguish the
+full technique from the features
 available in the published release and the development branch.
 
 **Development workflow:** [run a broad-area search](docs/BROAD_SEARCH.md) or read about

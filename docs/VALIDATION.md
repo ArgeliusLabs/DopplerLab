@@ -1,6 +1,6 @@
 # Validation record — 3 November 2026
 
-## What was actually checked
+## Original v0.1.0 checks
 
 The implementation was run locally on Windows with Python 3.13.11, NumPy 2.5.4,
 SciPy 1.18.1 and Matplotlib 3.11.2. The automated suite passed **26 tests** at this
@@ -117,8 +117,11 @@ The per-event speed/slant filter is checked for retained true candidates, preser
 candidate IDs, successful export and rejection under incompatible speed bounds.
 
 The complete November 2 public global archive was downloaded and hashed in 291.507 s.
-Regional index and screening measurements are tracked separately from the synthetic
-acoustic benchmark. See [BROAD_SEARCH.md](BROAD_SEARCH.md) for the implemented workflow
+The [real-data benchmark](REAL_DATA_BENCHMARK.md) records completed U.S., European and
+Tucson index/screening measurements, separately from the synthetic acoustic benchmark.
+Two actual provider trajectories also passed local export and kinematic checks with an
+explicitly reviewed 30-second maximum gap. That verifies the data handoff, not either
+aircraft's association with a recording. See [BROAD_SEARCH.md](BROAD_SEARCH.md) for the implemented workflow
 and explicit limits. The live two-second polling attempt on November 3 stopped at
 HTTP 429 after ten snapshots, so it does not count as a completed capture or field test.
 
@@ -127,3 +130,8 @@ Native build checks exercise archive indexing, screening and handoff, followed b
 fictional audio generation, spectrogram inspection, local matching and an embedded
 HTML report from outside the source checkout. Packaging success does not establish
 real-world location accuracy.
+
+For development source commit `0b7e47a`, all four Python/OS test jobs and all four native
+build/smoke jobs passed in [run 41739232065](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41739232065).
+The local Windows development executable also passed that smoke workflow outside the
+checkout. See [BINARIES.md](BINARIES.md) for target OS versions and artifact availability.

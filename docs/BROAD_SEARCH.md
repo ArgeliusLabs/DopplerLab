@@ -130,6 +130,13 @@ Outputs:
 | `passages.sqlite` | Intermediate closest-approach records for inspection |
 | `screening.json` | Completion status, index hash, assumptions, timing, work counters and output hashes |
 
+Large candidate CSVs can exceed spreadsheet row limits. Use `filter-candidates` to
+stream supported audio constraints through them, and refine justified smaller areas
+before inspecting individual candidates. Do not assume a spreadsheet loaded every row.
+After trajectory progress messages end, pairing, CSV writing and hashing can still take
+several minutes. Wait for a zero exit status and `status: complete` in `screening.json`;
+a growing CSV alone is not a completed search.
+
 Candidate IDs are stable row references within that run. Their order is **not a
 confidence ranking**. No audio has been scored at this stage, and every result carries
 `accepted_location: false`. Adjacent cells and repeated matches are not independent
@@ -220,6 +227,10 @@ are resource/schema limits, not claims that an omitted aircraft could not matter
 
 ## Benchmark your hardware
 
+See the [completed real-data benchmark](REAL_DATA_BENCHMARK.md) before choosing a
+country-scale workload. It reports the full day's measured download, regional indexing,
+candidate counts, storage and elapsed time, including a much smaller Tucson refinement.
+
 Install the optional benchmark extra and wrap any command:
 
 ```text
@@ -238,6 +249,13 @@ Choose a quiet, low-wind period and a stationary recording position. Record cont
 for 20–30 minutes, preserving the original and exact start-time evidence. Two distinct
 flyovers in one unedited recording help constrain a shared clock. Do not discard quiet
 intervals or stitch clips together without documenting every timing change.
+
+For the first two feasibility cases, make two separate original recordings when useful
+flyovers occur; both can have a known time and a small, predeclared region. A later
+unknown-clock broad-area demonstration should use multiple events with preserved relative
+timing, preferably in one continuous recording. Do not treat sparse historical tracks
+near a recording site as a reliable schedule or a prediction of audibility. Quiet
+daylight conditions are a practical starting point, but a useful pass is not guaranteed.
 
 For a contemporaneous small-region capture:
 
