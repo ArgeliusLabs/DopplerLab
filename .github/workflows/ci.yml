@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       publish_release:
-        description: 'Publish a reviewed version after real-recording validation'
+        description: 'Publish an experimental version with its documented testing status'
         type: boolean
         default: false
 permissions:
@@ -70,7 +70,11 @@ jobs:
           retention-days: 30
   release:
     needs: [test, native]
-    if: github.event_name == 'workflow_dispatch' && inputs.publish_release && github.ref == 'refs/heads/main' && github.repository == 'ArgeliusLabs/DopplerLab'
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      github.repository == 'ArgeliusLabs/DopplerLab' &&
+      ((github.event_name == 'workflow_dispatch' && inputs.publish_release) ||
+       (github.event_name == 'push' && startsWith(github.event.head_commit.message, 'release: publish v')))
     runs-on: ubuntu-latest
     concurrency:
       group: experimental-release
@@ -103,15 +107,30 @@ jobs:
             exit 1
           fi
           tag="v${version}"
-          existing="$(gh api --paginate "repos/${GH_REPO}/releases" --jq '.[].tag_name')"
-          if printf '%s\n' "$existing" | grep -Fxq "$tag"; then
-            echo "Release ${tag} already exists; its artifacts remain unchanged."
-            exit 0
+          if [[ "$GITHUB_EVENT_NAME" == push && "$(git log -1 --format=%s)" != "release: publish $tag" ]]; then
+            echo "The explicit publishing commit must name the exact package version."
+            exit 1
           fi
+          existing="$(gh api --paginate "repos/${GH_REPO}/releases" --jq '.[].tag_name')"
           cat dist/native/*.sha256 >> dist/SHA256SUMS.txt
           mapfile -t artifacts < <(find dist -type f \( -name '*.zip' -o -name '*.tar.gz' -o -name '*.whl' -o -name SHA256SUMS.txt -o -name source-inventory.json \) | sort)
-          gh release create "$tag" "${artifacts[@]}" \
-            --target "$GITHUB_SHA" \
-            --title "Argelius Doppler Lab ${tag} — experimental investigation toolkit" \
-            --notes-file docs/RELEASE_NOTES.md \
-            --prerelease
+          if printf '%s\n' "$existing" | grep -Fxq "$tag"; then
+            draft="$(gh api "repos/${GH_REPO}/releases/tags/${tag}" --jq '.draft')"
+            if [[ "$draft" != true ]]; then
+              echo "Release ${tag} is already published; its artifacts remain unchanged."
+              exit 0
+            fi
+            draft_target="$(gh api "repos/${GH_REPO}/releases/tags/${tag}" --jq '.target_commitish')"
+            if [[ "$draft_target" != "$GITHUB_SHA" ]]; then
+              echo "Existing draft belongs to another source commit; refusing to replace it."
+              exit 1
+            fi
+            gh release upload "$tag" "${artifacts[@]}" --clobber
+          else
+            gh release create "$tag" "${artifacts[@]}" \
+              --target "$GITHUB_SHA" \
+              --title "Argelius Doppler Lab ${tag} — experimental; testing in progress" \
+              --notes-file docs/RELEASE_NOTES.md \
+              --draft --prerelease
+          fi
+          gh release edit "$tag" --draft=false --prerelease

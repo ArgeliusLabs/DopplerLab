@@ -73,12 +73,18 @@ The draft is provided for reuse; it does not imply that an announcement was post
 
 ## Release checklist
 
-Development pushes run tests and produce temporary native candidates; they do not
-publish a release. The next tagged release is held for two original recording cases.
-After those checks, update the version in `pyproject.toml` and `src/doppler_lab/__init__.py`
-and revise the release notes around the actual results. The manual workflow dispatch
-must explicitly set `publish_release` to true, and its release job requires all four
-test jobs and all four native build/smoke jobs to pass. It rejects `.dev` versions.
+Ordinary development pushes run tests and produce temporary native candidates.
+Experimental releases may be published while **testing is in progress**, provided the
+release notes distinguish completed automated/benchmark checks from unfinished field
+tests. Original recordings are not a publication prerequisite; field-accuracy claims
+still require appropriate evidence.
+
+Update the version in `pyproject.toml` and `src/doppler_lab/__init__.py`, then revise the
+release notes around the actual testing status. Publish by manually dispatching with
+`publish_release` set to true, or by pushing an explicit publishing commit to `main`
+whose complete subject is `release: publish vVERSION` (matching the package version).
+Both routes require all four test jobs and all four native build/smoke jobs to pass.
+The workflow rejects `.dev` versions and mismatched publishing subjects.
 
 The release job assembles source/student ZIPs, wheel, source distribution, source
 inventory, all four native archives and checksums. It leaves existing versioned
@@ -87,8 +93,9 @@ are described in [BINARIES.md](BINARIES.md).
 
 1. Review the source, input permissions, documentation and validation record for the version.
 2. Review every test and native smoke job, including the source commit and platform
-   limitations. Record original-recording outcomes, including unsuccessful cases.
-3. Run the manual publishing workflow for the reviewed version and verify its public
+   limitations. State when original-recording tests have not yet been performed, and
+   record their outcomes, including unsuccessful cases, when available.
+3. Trigger publication for the reviewed version and verify its public
    source/student/native assets, dependency notices and checksums.
 4. Add the video credit, project scope and field-validation limitations to the repository description.
 5. Record a demo using the supplied fictional data and clearly labeled results.

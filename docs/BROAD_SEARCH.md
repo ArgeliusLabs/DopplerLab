@@ -1,10 +1,11 @@
 # Running a broad-area aircraft search
 
-This guide describes **0.2.0.dev1 on the development branch**, not the v0.1.0 release.
+This guide describes **the experimental 0.2.0 release**. Testing is in progress.
 The new workflow downloads a daily archive, builds a regional index, screens flight
 pairs by relative sound-arrival timing, and exports candidates for local Doppler matching.
 It does not automatically recognize aircraft in audio or establish a location from an
-unreviewed recording. Two real-recording validation cases remain pending.
+unreviewed recording. Original-recording field tests are still being prepared, and
+real-world location accuracy remains unvalidated.
 
 ## Inputs you need
 

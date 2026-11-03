@@ -1,75 +1,65 @@
-# Development candidate: 0.2.0.dev1
+# v0.2.0 — experimental investigation toolkit
 
-The development branch adds daily adsb.lol archive downloads, streaming regional
-indexes, two-flyover timing shortlists and a local track handoff. Every stage records
-source hashes, assumptions, work limits and completion state. Candidate areas still
-require analyst-reviewed audio and detailed local matching.
+**Testing in progress.** Automated tests, native executable smoke checks and full-day
+archive/search benchmarks have passed. Original-recording field tests are still being
+prepared; real-world location accuracy and false-localization rates are unvalidated.
+This is an experimental community release, not a validated location-identification service.
 
-Windows x86-64, Linux x86-64, Intel Mac and Apple Silicon binaries are built and smoke
-tested on their respective GitHub runners. Successful workflow runs provide temporary
-build artifacts. A future manual release can attach all four native archives, license
-notices and checksums alongside the source/student packages.
+## New in this release
 
-The local regression suite contains 39 tests. The downloaded November 2 global
-archive is 3.502 GB and took 4 minutes 52 seconds on the development connection. The
-[real-data benchmark](REAL_DATA_BENCHMARK.md) reports completed U.S., European and Tucson
-indexing/screens, candidate counts, retained storage and sampled RAM. This is not
-field-accuracy evidence.
+- Download and hash daily adsb.lol archives; stream compressed traces into regional indexes.
+- Screen two-flyover timing hypotheses across broad regions, then reuse indexes for smaller areas.
+- Filter candidates with separate speed/slant bounds for each event and export tracks for local matching.
+- Run the bundled command-line tool without installing Python on four supported platforms.
+- Inspect measured U.S., European and Tucson processing times, storage, counts and source provenance.
+- Use the existing fictional audio lab, reports, student pack and instructor materials for teaching.
 
-**The next tagged release is held until two original recording cases have been tested.**
-Those recordings are not yet available. Development pushes no longer publish releases
-automatically, and the manual publishing job rejects `.dev` versions. The existing
-v0.1.0 assets remain available. See [broad-search instructions](BROAD_SEARCH.md),
-[native builds](BINARIES.md) and [validation](VALIDATION.md).
+Audio-event selection, supported search bounds, terrain/height choices and interpretation
+still require investigator review. Candidate rows are alternatives, not confidence scores;
+the software never marks a location as accepted.
 
-## Historical notes: v0.1.0
+## Native downloads
 
-The first experimental community release: an offline aircraft Doppler matching
-toolkit and a 110-minute lab for intermediate OSINT students, inspired by
-[colsto's demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
+- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-windows-x86_64.zip)
+- [Linux x86-64 archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-linux-x86_64.tar.gz)
+- [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-macos-x86_64.tar.gz)
+- [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-macos-arm64.tar.gz)
 
-## Start here
+Extract the archive and run the executable from a terminal. These are command-line
+applications. Python dependencies and third-party license notices are bundled; FFmpeg
+is optional and separate. Builds are unsigned and not notarized. See the
+[native guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.0/docs/BINARIES.md)
+for tested OS versions, startup commands and checksum verification.
 
-- Download the **source ZIP** for the toolkit, installation guide, original fixtures,
-  research review, tests, student handout and instructor guide.
-- Download the **student-pack ZIP** for an interpretation exercise with an existing
-  report. This pack omits the instructor answer key and truth file; the full public
-  source deliberately includes both.
-- The **Python wheel** provides the command-line tool. Documentation and classroom
-  fixtures are in the source ZIP.
-- `SHA256SUMS.txt` records artifact hashes; `source-inventory.json` records the source
-  file hashes in this release.
+The release also includes the complete source ZIP, portable student pack, Python wheel,
+source distribution, source inventory and `SHA256SUMS.txt`. The MIT code license permits
+reuse, including commercial use; third-party aircraft data retain their own terms.
 
-## Included
+## What has been checked
 
-Generate fictional audio and candidate trajectories, inspect spectrograms, account
-for sound travel time, fit a common recording clock across flyovers, and compare
-candidate receiver positions. Reports include score maps, predicted curves, full
-candidate tables and input hashes.
+The 39-test suite runs on Windows and Linux with Python 3.11 and 3.13. Each native build
+is exercised on its target OS outside the source checkout, including archive indexing,
+coarse screening, filtering, export, fictional audio matching and report generation.
 
-The classroom materials teach data preparation, ambiguity, negative controls and
-defensible reporting. The field protocol describes the next validation step.
+The November 2 global archive downloaded as 3.502 GB in 4 minutes 52 seconds on the
+development connection. After indexing, the deliberately broad timing screen took
+46 minutes 46 seconds for the U.S. rectangle and 23 minutes 47 seconds for Europe.
+These runs used a hypothetical interval and flat receiver height, leaving millions of
+alternatives. They measure processing feasibility, not audio-location accuracy.
 
-## Validation and limits
+See the [full benchmark](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.0/docs/REAL_DATA_BENCHMARK.md)
+and [validation record](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.0/docs/VALIDATION.md).
+The first two original-recording cases remain planned. Publication is proceeding with
+that testing status disclosed; community experiments and corrections are welcome.
 
-Publication is gated by the 26-test suite, lint/format checks, package builds, archive
-verification and the command-line demo on Windows and Linux with Python 3.11 and 3.13.
-See the [validation record](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.1.0/docs/VALIDATION.md)
-for the ten-condition synthetic benchmark.
+## Start and contribute
 
-This is **synthetically validated teaching software**. No real-world location accuracy
-or false-localization rate has been established. Scores are not probabilities, and
-the tool never marks a location as accepted. A missing aircraft or an incorrect sound
-speed can produce a convincing wrong result.
+Follow the [investigation workflow](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.0/docs/INVESTIGATION_WORKFLOW.md)
+and [broad-search commands](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.0/docs/BROAD_SEARCH.md).
+Report reproducible successes and failures through
+[GitHub Issues](https://github.com/ArgeliusLabs/DopplerLab/issues).
 
-## Help improve it
-
-Try the quickstart or teach the lab; report confusing steps and reproducible failures.
-See the [roadmap](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.1.0/docs/ROADMAP.md)
-and [contribution guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.1.0/CONTRIBUTING.md).
-Questions, corrections and unsuccessful experiments are welcome in
-[Issues](https://github.com/ArgeliusLabs/DopplerLab/issues).
-
-Original code, documentation and fictional fixtures are MIT licensed. The source
-video and third-party flight databases are not bundled. Related work is credited in
-the README and research review.
+Inspired by [colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
+Original implementation by Argelius Labs; no affiliation is implied. The source video
+and third-party flight archives are not bundled. The prior
+[v0.1.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.1.0) remains available.

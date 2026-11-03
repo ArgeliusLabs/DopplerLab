@@ -112,7 +112,8 @@ not create a joined tar, extracted record tree or expanded JSON copy.
 
 ## Reproduce the workload
 
-Use development version `0.2.0.dev1` or a compatible later version. The commands in
+These runs used development version `0.2.0.dev1`; the experimental `0.2.0` release
+contains the same acquisition and screening workflow. The commands in
 [BROAD_SEARCH.md](BROAD_SEARCH.md) explain installation, all source/geometry choices,
 filtering, export and limits. Choose new output directories. For these exact large
 screening settings, after creating each day's regional index:
@@ -155,7 +156,8 @@ The November 3 live-polling attempt also stopped at HTTP 429 after ten snapshots
 is not a completed live capture. The completed benchmarks use **yesterday's archived
 day**, not a recording collected today.
 
-Two original recording cases are still pending before the next tagged release. See
+The experimental release is available with **testing in progress**. Two initial
+original-recording cases are planned; field recordings have not yet been collected. See
 [the validation record](https://github.com/ArgeliusLabs/DopplerLab/blob/main/docs/VALIDATION.md)
 and the [field protocol](FIELD_PROTOCOL.md). Cross-day
 event pairing, terrain-aware broad screening, unknown-date search and real-world

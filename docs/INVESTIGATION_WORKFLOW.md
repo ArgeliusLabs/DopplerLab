@@ -5,15 +5,14 @@ Start with the geographic and time bounds that the evidence supports. A country 
 a recording date can be enough to begin candidate selection; they do not guarantee a
 unique answer. A city and precise recording time make the first controlled test easier.
 
-**Implementation status, 3 November 2026:** DopplerLab v0.1.0 implements the detailed
-local matching stage using analyst-supplied tracks. It does not yet download and search
-a continent's aircraft automatically. This document explains the complete investigation
-process and explicitly identifies the stages that still require external preparation
-or future development. **The 0.2.0.dev1 development branch now implements archive
-download, regional indexing, coarse interval screening and a local handoff.** See the
-[runnable broad-search guide](BROAD_SEARCH.md) for commands and limits. Those additions
-are separate from the v0.1.0 release and remain experimental. The classroom lab
-demonstrates the local stage with fictional data.
+**Implementation status, 3 November 2026:** The experimental 0.2.0 release implements
+archive download, regional indexing, coarse interval screening, per-event speed/slant
+filters and a handoff to detailed local matching. See the
+[runnable broad-search guide](BROAD_SEARCH.md) for commands and limits. **Testing is in
+progress:** automated checks and archive benchmarks are complete; original-recording
+field tests are being prepared. This document identifies the stages that still require
+analyst preparation or future development. The classroom lab demonstrates the local
+stage with fictional data.
 
 ## What the video actually knew
 
@@ -91,9 +90,8 @@ Respect live API request limits; a fast polling loop is not an unrestricted data
 
 ### 3. Build a regional and temporal candidate index
 
-This stage is **not implemented in v0.1.0**, and is now available experimentally on
-the development branch. A broad-search implementation should parse
-the archive incrementally, preserve raw evidence and split aircraft histories into
+This stage was not implemented in v0.1.0 and is now available experimentally in
+0.2.0. The indexer parses the archive incrementally, preserves source hashes and splits aircraft histories into
 continuous segments. Keep points around region and time boundaries so filtering does
 not cut away the approach, departure or sound-delay context. Include flights crossing
 the region, not only flights departing from or arriving at its airports.
@@ -156,21 +154,23 @@ ambiguous and unsupported cases as such. The [field protocol](FIELD_PROTOCOL.md)
 describes how to evaluate against hidden recording truth; real-world accuracy remains
 unvalidated in the published release.
 
-## What is automatic in the published v0.1.0 release?
+## What is automatic in the experimental v0.2.0 release?
 
-| Stage | v0.1.0 status |
+| Stage | v0.2.0 status |
 | --- | --- |
 | WAV inspection, FFmpeg extraction, manually traced ridge fitting | Implemented |
-| Live capture or historical archive download | External acquisition; no released CLI command |
-| Continental track index and relative-interval candidate selection | Not implemented |
-| Terrain/geoid lookup and provider-specific normalization | Analyst preparation |
+| Live capture or historical archive download | Implemented for adsb.lol; access limits and coverage apply |
+| Continental track index and relative-interval candidate selection | Implemented with explicit budgets and coarse-model limits |
+| Per-event speed/slant filtering and local track handoff | Implemented; audio constraints and final case require analyst review |
+| Terrain/geoid lookup and other-provider normalization | Analyst preparation |
 | Geographic CSV to local coordinates | Implemented; explicit time and height requirements |
 | Detailed scoring of supplied local candidates | Implemented |
 | Report, input hashes and fictional controls | Implemented |
 | Validated real-world accuracy or automatic acceptance | Not established |
 
-The next broad-search contribution should be evaluated as its own stage: bytes read,
-coverage, rejected records, shortlist size, wall time, peak memory and whether the
-true held-out area survives. Download speed is not a substitute for that benchmark.
+The [real-data benchmark](REAL_DATA_BENCHMARK.md) reports bytes read, rejected records,
+shortlist size, wall time, sampled memory and storage for the broad stage. Whether the
+true held-out recording area survives still needs field evaluation. Download speed is
+not a substitute for location accuracy.
 
-For development-branch functionality and its resource limits, use [BROAD_SEARCH.md](BROAD_SEARCH.md).
+For runnable commands and resource limits, use [BROAD_SEARCH.md](BROAD_SEARCH.md).

@@ -31,7 +31,7 @@ enough detail for others to reproduce a result.
 5. **Broader search.** Validate and extend the experimental candidate-selection stage described in the
    [investigation workflow](INVESTIGATION_WORKFLOW.md): regional track indexing,
    relative flyover timing, conservative screening and auditable local shortlists.
-   The development branch now provides downloads, streaming indexes, coarse timing
+   Version 0.2.0 provides downloads, streaming indexes, coarse timing
    shortlists, resource accounting and a local handoff. Terrain support, cross-day
    pairing, automatic audio measurement and field completeness still need work.
    See [commands and limits](BROAD_SEARCH.md) and [data measurements](DATA_VOLUME.md).

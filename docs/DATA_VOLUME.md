@@ -114,7 +114,7 @@ require roughly 6.2–7.0 GB just for downloads.
    later parts present. GitHub's automatically generated "Source code" ZIP and tar.gz
    are the repository source, not the aircraft dataset.
 4. Preserve the original names, byte counts, download time, release URL and SHA-256
-   hashes. Doppler Lab's development indexer streams parts in suffix order without
+   hashes. Doppler Lab's indexer streams parts in suffix order without
    extraction. For independent manual processing, use binary-safe tools; the provider
    documents a `cat ... | tar ...` streaming example for Unix.
    Do not use PowerShell text concatenation (`Get-Content`/`Set-Content`) for these bytes.
@@ -123,8 +123,8 @@ require roughly 6.2–7.0 GB just for downloads.
    heights. Preserve the raw archive as evidence.
 6. Build the broad candidate shortlist, then prepare local cases using
    [DATA.md](DATA.md). The [investigation workflow](INVESTIGATION_WORKFLOW.md) explains
-   the method, and [BROAD_SEARCH.md](BROAD_SEARCH.md) provides the development commands.
-   The published v0.1.0 CLI predates the archive and shortlist commands.
+   the method, and [BROAD_SEARCH.md](BROAD_SEARCH.md) provides the v0.2.0 commands.
+   The older v0.1.0 CLI predates the archive and shortlist commands.
 
 To independently recheck the published size without downloading the multi-gigabyte
 assets, this PowerShell example reads only public release metadata:

@@ -105,7 +105,7 @@ terrain uncertainty, codecs and unconstrained country-scale search remain unesta
 
 ## Development acquisition and screening checks
 
-The 0.2.0.dev1 branch adds 13 tests covering binary-safe split archives, gzip detection
+The 0.2.0 release adds 13 tests covering binary-safe split archives, gzip detection
 despite `.json` filenames, streamed trace decoding, source hashes, geometric-height
 requirements, delayed closest approach, repeat flyovers, two-event candidate retention,
 wrong-interval rejection, local track export, download integrity, altered candidate
@@ -125,7 +125,9 @@ aircraft's association with a recording. See [BROAD_SEARCH.md](BROAD_SEARCH.md) 
 and explicit limits. The live two-second polling attempt on November 3 stopped at
 HTTP 429 after ten snapshots, so it does not count as a completed capture or field test.
 
-Two original recording cases are still required before the next public release.
+**Testing in progress:** the experimental release is available for community evaluation.
+Two initial original-recording cases are planned; those recordings have not yet been
+collected, and real-world accuracy remains unvalidated.
 Native build checks exercise archive indexing, screening and handoff, followed by
 fictional audio generation, spectrogram inspection, local matching and an embedded
 HTML report from outside the source checkout. Packaging success does not establish
