@@ -100,6 +100,26 @@ def main():
         screening = json.loads((root / "screen/screening.json").read_text())
         assert screening["status"] == "complete" and screening["counts"]["candidates"] > 0
         run(
+            "filter-candidates",
+            "screen",
+            "--speed-a",
+            "70",
+            "90",
+            "--speed-b",
+            "70",
+            "90",
+            "--slant-a",
+            "800",
+            "1500",
+            "--slant-b",
+            "800",
+            "1500",
+            "--output",
+            "filtered",
+        )
+        filtered = json.loads((root / "filtered/screening.json").read_text())
+        assert filtered["status"] == "complete" and filtered["counts"]["candidates"] > 0
+        run(
             "export-candidate",
             "index/index.sqlite",
             "screen",

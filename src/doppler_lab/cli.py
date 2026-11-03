@@ -10,7 +10,14 @@ from . import __version__
 from .adsb import capture, normalize
 from .archive import download_day
 from .audio import read_audio, spectrogram
-from .broad import REGIONS, build_index, export_candidate, shortlist, subset_index
+from .broad import (
+    REGIONS,
+    build_index,
+    export_candidate,
+    filter_candidates,
+    shortlist,
+    subset_index,
+)
 from .case import load_case
 from .importers import import_tracks
 from .measure import fit_ridge
@@ -154,6 +161,21 @@ def parser():
     export.add_argument("--candidate", type=int, required=True)
     export.add_argument("--window", type=float, default=180)
     export.add_argument("--output", type=Path, required=True)
+    narrow = commands.add_parser(
+        "filter-candidates",
+        help="Apply measured per-event speed and slant bounds to an existing shortlist",
+    )
+    narrow.add_argument("screening", type=Path)
+    for option in ["speed-a", "speed-b", "slant-a", "slant-b"]:
+        narrow.add_argument(
+            "--" + option,
+            type=float,
+            nargs=2,
+            required=True,
+            metavar=("MIN", "MAX"),
+            help="Metres/second for speed; metres for slant distance",
+        )
+    narrow.add_argument("--output", type=Path, required=True)
     return root
 
 
@@ -330,6 +352,20 @@ def main(argv=None):
                 json.dumps(
                     export_candidate(
                         args.index, args.screening, args.candidate, args.output, args.window
+                    ),
+                    indent=2,
+                )
+            )
+        elif args.command == "filter-candidates":
+            print(
+                json.dumps(
+                    filter_candidates(
+                        args.screening,
+                        args.output,
+                        args.speed_a,
+                        args.speed_b,
+                        args.slant_a,
+                        args.slant_b,
                     ),
                     indent=2,
                 )

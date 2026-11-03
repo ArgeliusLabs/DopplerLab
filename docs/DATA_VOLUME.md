@@ -56,6 +56,9 @@ not establish a few-minute end-to-end geolocation search. A per-flight historica
 can take much longer than a bulk archive because of request count, pagination, credits
 and rate limits, even when its final dataset is smaller. The video's reported several
 hours of acquisition is not a benchmark for these bulk releases.
+This is also a different provider and dataset from the video's acquisition. Smaller
+downloads do not establish equivalent reception coverage, sampling density or matching
+accuracy.
 
 ## Disk space and memory
 

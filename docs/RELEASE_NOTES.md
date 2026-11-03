@@ -10,7 +10,7 @@ tested on their respective GitHub runners. Successful workflow runs provide temp
 build artifacts. A future manual release can attach all four native archives, license
 notices and checksums alongside the source/student packages.
 
-The local regression suite contains 38 tests. The downloaded November 2 global
+The local regression suite contains 39 tests. The downloaded November 2 global
 archive is 3.502 GB and took 4 minutes 52 seconds on the development connection. Regional
 indexing and screening are benchmarked separately. This is not field-accuracy evidence.
 

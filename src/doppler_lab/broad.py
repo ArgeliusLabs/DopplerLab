@@ -644,3 +644,85 @@ def export_candidate(index_path, screening_dir, candidate_id, output, window_s=1
     }
     write_json(output / "handoff.json", result)
     return result
+
+
+def filter_candidates(screening_dir, output, speed_a, speed_b, slant_a, slant_b):
+    """Apply explicit, conditional audio-measurement bounds to a completed CSV in one pass."""
+    screening_dir = Path(screening_dir)
+    info = json.loads((screening_dir / "screening.json").read_text(encoding="utf-8"))
+    if info.get("status") != "complete":
+        raise ValueError("Filtering requires a completed shortlist.")
+    bounds = {
+        "speed_a_m_s": speed_a,
+        "speed_b_m_s": speed_b,
+        "slant_a_m": slant_a,
+        "slant_b_m": slant_b,
+    }
+    for key, values in bounds.items():
+        if len(values) != 2 or not all(number(v) for v in values) or not 0 <= values[0] < values[1]:
+            raise ValueError(f"{key} needs finite ordered minimum/maximum bounds.")
+    source = screening_dir / "candidates.csv"
+    if digest(source) != info["candidates_sha256"]:
+        raise ValueError("Candidate CSV hash mismatch.")
+    output = new_folder(output)
+    started, counts = time.monotonic(), Counter(input_candidates=0, candidates=0)
+    manifest = dict(info)
+    manifest.update(
+        {
+            "status": "filtering",
+            "accepted_location": False,
+            "created_utc": utc(),
+            "filter_bounds": bounds,
+            "source_candidates_sha256": info["candidates_sha256"],
+            "source_screening_sha256": digest(screening_dir / "screening.json"),
+            "source_screening_counts": info["counts"],
+            "candidate_ids_preserved": True,
+        }
+    )
+    manifest["warnings"] = [
+        *info["warnings"],
+        "Speed/slant bounds are analyst-supplied estimates, not automatic aircraft identification.",
+        "Slant bounds allow the original half-cell diagonal. Repeat at finer spacing to tighten them.",
+        "Filtering cannot restore flights or areas excluded by the original index/screen.",
+    ]
+    destination = output / "candidates.csv"
+    try:
+        radius = float(info["cell_cover_radius_m"])
+        if not number(radius) or radius < 0:
+            raise ValueError("Invalid source grid allowance.")
+        with (
+            source.open(newline="", encoding="utf-8") as incoming,
+            destination.open("x", newline="", encoding="utf-8") as outgoing,
+        ):
+            reader = csv.DictReader(incoming)
+            if reader.fieldnames != FIELDS:
+                raise ValueError("Unexpected candidate CSV schema.")
+            writer = csv.DictWriter(outgoing, fieldnames=FIELDS)
+            writer.writeheader()
+            for row in reader:
+                counts["input_candidates"] += 1
+                keep = True
+                for key, (low, high) in bounds.items():
+                    value = float(row[key])
+                    allowance = radius if key.startswith("slant_") else 0
+                    if not number(value):
+                        raise ValueError("Candidate CSV contains a nonfinite measurement.")
+                    if not low - allowance <= value <= high + allowance:
+                        keep = False
+                if keep:
+                    writer.writerow(row)
+                    counts["candidates"] += 1
+        manifest["status"] = "complete"
+    except BaseException as error:
+        manifest["status"] = "failed"
+        manifest["error"] = str(error)
+        raise
+    finally:
+        manifest["counts"] = dict(counts)
+        manifest["elapsed_s"] = round(time.monotonic() - started, 3)
+        manifest.pop("passage_generation_s", None)
+        manifest["output_bytes"] = destination.stat().st_size if destination.exists() else 0
+        if destination.exists():
+            manifest["candidates_sha256"] = digest(destination)
+        write_json(output / "screening.json", manifest)
+    return manifest

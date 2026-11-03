@@ -81,13 +81,19 @@ you did not acquire it.
 ## 3. Screen flight pairs
 
 ```text
-doppler-lab shortlist work/conus-index/index.sqlite --interval 920 --tolerance 10 --grid-km 5 --radius-km 10 --receiver-height 0 --output work/conus-screen
+doppler-lab shortlist work/conus-index/index.sqlite --interval 920 --tolerance 10 --grid-km 10 --radius-km 10 --receiver-height 0 --max-evaluations 1000000000 --max-passages 30000000 --max-pairs 50000000 --output work/conus-screen
 ```
 
 Here `--receiver-height 0` is an explicit exploratory assumption, not a statement about
 actual U.S. terrain. Repeat with supported heights or smaller terrain-compatible regions
 before interpreting exclusions. Likewise, a 10 km radius is a configurable assumption;
 it is not a universal aircraft audibility limit.
+
+This is the full-region benchmark configuration with explicitly increased work budgets.
+It can generate millions of alternatives and substantial disk output. For a quick first
+experiment, use the smaller-region `subset-index` example below. The default budgets
+are intentionally smaller and may stop a continental run as incomplete; increasing a
+budget does not make the resulting candidates more credible.
 
 The screen builds a geographic receiver grid and an ECEF spatial tree. For each recorded
 trajectory edge, it checks nearby receiver nodes, calculates piecewise-linear closest
@@ -145,6 +151,28 @@ These remain hypothetical interval/height examples. The subset must lie inside i
 parent region. It preserves intersecting trajectory segments and padding, and records
 the parent index's hash. Use the actual shortlist to choose areas; a convenient test
 city is not evidence that an unknown recording was made there.
+
+### Apply the two audio measurements
+
+`fit-ridge` reports conditional speed and slant-distance estimates. Inspect its residuals,
+conditioning and bound warnings, then choose generous ranges and test their sensitivity.
+They are not exact values or statistical confidence intervals. The two aircraft can have
+different speeds and distances, so apply separate ranges to the completed shortlist:
+
+```text
+doppler-lab filter-candidates work/tucson-screen --speed-a 70 110 --speed-b 90 140 --slant-a 1000 4000 --slant-b 2000 6000 --output work/tucson-filtered
+```
+
+These numbers are hypothetical examples; replace them with supported bounds from your
+recording. Speed units are metres/second and slant units are metres. The filter streams
+the existing CSV rather than recalculating all flight/receiver geometry. Slant bounds
+allow the original half-cell diagonal, so coarse grids retain broad alternatives.
+Re-run a smaller region at finer spacing when justified.
+
+The filtered folder has its own `screening.json`, parent hashes, filter settings,
+input/output counts and `candidates.csv`. Original candidate IDs are preserved. Pass
+that folder to `export-candidate` and choose an ID present in its CSV. Filtering cannot
+restore tracks excluded by earlier source, time, radius, speed or height assumptions.
 
 ## 4. Hand a candidate to the local workflow
 

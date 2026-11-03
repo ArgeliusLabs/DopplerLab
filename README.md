@@ -24,7 +24,7 @@ contains the local matcher. Real-recording validation for the next release is pe
 relative timing, broad candidate selection and local refinement. The
 [download and storage guide](docs/DATA_VOLUME.md) gives verified archive sizes and
 transfer estimates. These guides distinguish the full technique from the features
-available in this release.
+available in the published release and the development branch.
 
 **Development workflow:** [run a broad-area search](docs/BROAD_SEARCH.md) or read about
 [native Windows, Linux and macOS candidates](docs/BINARIES.md). Builds on `main` do not
@@ -99,6 +99,7 @@ The [portable student pack guide](docs/STUDENT_PACK.md) describes the interpreta
 | Geographic import | WGS84 ellipsoid heights and explicit UTC to one local ENU frame |
 | Daily archives (development) | Verified downloads; stream compressed traces into a regional SQLite index |
 | Broad screening (development) | Spatially indexed, delayed-closest-approach pairs with a shared relative interval and explicit work budgets |
+| Audio constraints (development) | Filter existing candidates by separate speed/slant bounds for each flyover, with source hashes and retained alternatives |
 | Local handoff (development) | Export candidate tracks, coordinate origin and time basis for analyst-reviewed local matching |
 | Evidence | Source hashes, full configuration, per-event scores, spatial alternatives, unsupported trials |
 | Classroom | Student handout, instructor guide, answer key, rubric, extensions and a blind field protocol |

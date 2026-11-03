@@ -14,6 +14,7 @@ from doppler_lab.archive import PartReader, archive_traces, validate_parts
 from doppler_lab.broad import (
     build_index,
     export_candidate,
+    filter_candidates,
     open_index,
     passages,
     shortlist,
@@ -288,3 +289,28 @@ def test_smaller_region_reuses_source_evidence_without_reparsing_archive(indexed
     assert result["counts"]["segments"] == 2
     with pytest.raises(ValueError, match="inside"):
         subset_index(source, tmp_path / "outside", [30, -112, 34, -110])
+
+
+def test_audio_constraint_filter_preserves_truth_ids_and_export(indexed, tmp_path):
+    path, _ = indexed
+    shortlist(path, tmp_path / "screen", 920, grid_km=1, receiver_height_m=400)
+    result = filter_candidates(
+        tmp_path / "screen", tmp_path / "filtered", [70, 90], [70, 90], [800, 1500], [800, 1500]
+    )
+    assert result["status"] == "complete" and result["counts"]["candidates"] > 0
+    assert result["accepted_location"] is False
+    with (tmp_path / "filtered/candidates.csv").open() as stream:
+        first = next(csv.DictReader(stream))
+    exported = export_candidate(
+        path, tmp_path / "filtered", int(first["candidate_id"]), tmp_path / "filtered-handoff"
+    )
+    assert len(exported["track_ids"]) == 2
+    wrong = filter_candidates(
+        tmp_path / "screen",
+        tmp_path / "wrong-filter",
+        [180, 220],
+        [70, 90],
+        [800, 1500],
+        [800, 1500],
+    )
+    assert wrong["counts"]["candidates"] == 0

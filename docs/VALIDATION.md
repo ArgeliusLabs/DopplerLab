@@ -105,14 +105,16 @@ terrain uncertainty, codecs and unconstrained country-scale search remain unesta
 
 ## Development acquisition and screening checks
 
-The 0.2.0.dev1 branch adds 12 tests covering binary-safe split archives, gzip detection
+The 0.2.0.dev1 branch adds 13 tests covering binary-safe split archives, gzip detection
 despite `.json` filenames, streamed trace decoding, source hashes, geometric-height
 requirements, delayed closest approach, repeat flyovers, two-event candidate retention,
 wrong-interval rejection, local track export, download integrity, altered candidate
 files, truncated archives and resource-limit failure states. The full local suite now
-has **38 passing tests**. Regional subsetting also verifies that parent evidence is
+has **39 tests**. Regional subsetting also verifies that parent evidence is
 preserved and bounds cannot expand outside its indexed region. These checks use original fictional fixtures and mocked HTTP;
 they are not real-recording accuracy measurements.
+The per-event speed/slant filter is checked for retained true candidates, preserved
+candidate IDs, successful export and rejection under incompatible speed bounds.
 
 The complete November 2 public global archive was downloaded and hashed in 291.507 s.
 Regional index and screening measurements are tracked separately from the synthetic
