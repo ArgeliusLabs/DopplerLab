@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Argelius Doppler Lab</title>
+  <desc id="desc">Aircraft sounds. Testable hypotheses. A practical OSINT lab.</desc>
+  <rect width="1200" height="360" fill="#142539"/>
+  <rect y="354" width="1200" height="6" fill="#ef7e46"/>
+  <g stroke="#2a4056" stroke-width="1">
+    <path d="M750 60V300M850 60V300M950 60V300M1050 60V300M1150 60V300"/>
+    <path d="M730 80H1160M730 140H1160M730 200H1160M730 260H1160"/>
+  </g>
+  <g fill="none" stroke-linecap="round">
+    <path d="M745 106 C830 106 845 120 885 168 S947 245 1150 251" stroke="#72e4c3" stroke-width="5"/>
+    <path d="M745 65 C830 65 845 82 885 130 S947 205 1150 211" stroke="#72e4c3" stroke-width="2" opacity=".4"/>
+  </g>
+  <circle cx="910" cy="198" r="7" fill="#ef7e46"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="64" y="79" fill="#9fb5c7" font-size="16" letter-spacing="4">ARGELIUS LABS / SIGNAL &amp; EVIDENCE</text>
+    <text x="60" y="165" fill="#ffffff" font-size="65" font-weight="700">Doppler Lab</text>
+    <text x="64" y="218" fill="#d0dce6" font-size="23">Aircraft sounds. Testable hypotheses.</text>
+    <text x="64" y="291" fill="#72e4c3" font-size="16">OPEN SOURCE · OFFLINE · BUILT FOR THE CLASSROOM</text>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.wav binary
+# Preserve the byte-level evidence and hashes of published example artifacts.
+examples/** -text whitespace=cr-at-eol

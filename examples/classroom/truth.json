@@ -1,0 +1,21 @@
+{
+  "fixture": "synthetic",
+  "seed": 7,
+  "noise_only": false,
+  "source_drift_hz_per_60_s": 0.0,
+  "observer_enu_m": [
+    137.0,
+    -213.0,
+    0.0
+  ],
+  "clock_offset_s": 11.25,
+  "track_ids": [
+    "A",
+    "B"
+  ],
+  "source_hz": [
+    131,
+    173
+  ],
+  "note": "Evaluation only. The solver never reads this file. No real coordinates."
+}

@@ -1,0 +1,62 @@
+name: Tests and package
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest -q
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: python -m build
+      - run: python scripts/package_release.py
+      - run: python scripts/verify_release.py
+      - run: doppler-lab demo --output work/ci-case
+      - run: doppler-lab run work/ci-case/case.json --output work/ci-report --quiet
+  release:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'ArgeliusLabs/DopplerLab'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: experimental-release
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m build
+      - run: python scripts/package_release.py
+      - run: python scripts/verify_release.py
+      - name: Publish a new experimental version once
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          version="$(python -c 'from doppler_lab import __version__; print(__version__)')"
+          tag="v${version}"
+          existing="$(gh api --paginate "repos/${GH_REPO}/releases" --jq '.[].tag_name')"
+          if printf '%s\n' "$existing" | grep -Fxq "$tag"; then
+            echo "Release ${tag} already exists; its artifacts remain unchanged."
+            exit 0
+          fi
+          gh release create "$tag" dist/* \
+            --target "$GITHUB_SHA" \
+            --title "Argelius Doppler Lab ${tag} — experimental teaching release" \
+            --notes-file docs/RELEASE_NOTES.md \
+            --prerelease

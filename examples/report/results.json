@@ -1,0 +1,6422 @@
+{
+  "schema_version": 1,
+  "status": "hypothesis_only",
+  "accepted_location": false,
+  "candidate_count": 289,
+  "supported_candidate_count": 289,
+  "clock_trials_per_candidate": 9,
+  "line_trials_evaluated": 93636,
+  "unsupported_line_trials": 0,
+  "elapsed_s": 1.7077653000014834,
+  "audio_metadata": {
+    "source_sample_rate_hz": 4000,
+    "channel": 0,
+    "duration_s": 200.0,
+    "peak": 0.348663330078125,
+    "clipped_sample_fraction": 0.0
+  },
+  "analysis_settings": {
+    "model_sample_step_s": 0.25,
+    "analysis_sample_rate_hz": 4000,
+    "core_offsets_hz": [
+      -0.5,
+      0,
+      0.5
+    ],
+    "flank_offsets_hz": [
+      -6,
+      6
+    ],
+    "frame_contrast_clip_db": [
+      -30,
+      30
+    ],
+    "sound_speed_m_s": 343.0,
+    "window_s": 2.0,
+    "hop_s": 0.5
+  },
+  "track_diagnostics": {
+    "A": {
+      "max_interpolated_speed_m_s": 85.23610135477001,
+      "max_input_gap_s": 2.0
+    },
+    "A-decoy": {
+      "max_interpolated_speed_m_s": 85.23610135477001,
+      "max_input_gap_s": 2.0
+    },
+    "B": {
+      "max_interpolated_speed_m_s": 95.50398817401198,
+      "max_input_gap_s": 2.0
+    },
+    "B-decoy": {
+      "max_interpolated_speed_m_s": 95.50398817401198,
+      "max_input_gap_s": 2.0
+    }
+  },
+  "warnings": [
+    "Scores are line contrast, not probabilities or calibrated confidence.",
+    "This is a bounded hypothesis search, not a verified location.",
+    "Source tone is assumed constant within each event; wind is not modeled."
+  ],
+  "rows": [
+    {
+      "east_m": 100.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 26.43916997582565,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 26.82147548809122
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 26.056864463560075
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 26.16290998190098,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 26.05244418080337
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 26.273375782998595
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 26.162184913226874,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 27.17150044551937
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 25.15286938093438
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 25.56156989674592,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 25.23109733281432
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 25.89204246067752
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 24.842212374504754,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 26.467085518945925
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 23.217339230063583
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 23.837480121415417,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 24.35740571680872
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 23.317554526022114
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 23.776176616067445,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 23.539040647872767
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 24.013312584262128
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 23.739012470569765,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 22.745397173640406
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 24.732627767499125
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 23.646556186022814,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 22.513766092058415
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 24.779346279987212
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 23.504997600403307,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 24.119382615765932
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 22.89061258504068
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 23.15875170487167,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 20.94854712387978
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 25.368956285863554
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 22.82109499575209,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 21.408159794379827
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 24.234030197124355
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 22.648727748539756,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 19.42483821004649
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 25.87261728703302
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 22.402421114663728,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 24.68341885642299
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 20.121423372904466
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 21.39760548578721,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 24.455690474025154
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 18.339520497549266
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 21.284804369701604,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 19.64098093225437
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 22.928627807148835
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.847879306498996,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 20.92845774636823
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 18.76730086662976
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.715471940665577,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 17.81830540795256
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.612638473378592
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 19.643127113253968,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 14.940254271253384
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 24.34599995525455
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 19.63008358287106,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 19.66208536497733
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 19.598081800764792
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 19.434853688065648,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 15.288694647508633
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.58101272862266
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 19.409917192113465,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 15.326968389503351
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 23.492865994723577
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.274737889420415,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 17.510358547245747
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.03911723159508
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 19.244572387819296,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 17.239298149087748
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 21.24984662655084
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.10549570107944,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 14.74211855244818
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 23.4688728497107
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 19.073118681107456,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 15.673751766530534
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 22.47248559568438
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 19.00751533551854,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 26.047569694237936
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 11.967460976799147
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 18.569396399375435,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 15.217709437066581
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.921083361684293
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 18.553937971364533,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 16.43585405250279
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 20.67202189022628
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 18.44495836625676,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 14.746789654819382
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 22.14312707769414
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 18.36796571198736,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 18.85263825192166
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 17.883293172053058
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 18.0202592751342,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 25.059220913435755
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 10.981297636832648
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 17.998635634890583,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 14.28548289531369
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.711788374467478
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 17.720354155001914,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 18.194297319294158
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 17.246410990709673
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 17.670987430714433,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 16.713848459502238
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 18.62812640192663
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 17.599296344201626,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 12.219622076848385
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 22.97897061155487
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 17.551680470858003,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 17.470549213637163
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 17.632811728078842
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 17.53736956838061,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 22.824530188328055
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 12.25020894843316
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 17.43045849546105,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 19.664311436197405
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 15.196605554724696
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 17.403712160711372,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 11.200417100117402
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.607007221305338
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 17.280313558259408,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 11.25266918307959
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 23.307957933439226
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 16.96099605462902,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 13.408288515732359
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 20.513703593525687
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 16.87401740990954,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 13.691236920223751
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 20.056797899595335
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 16.738273936603097,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 16.110937789736052
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 17.36561008347014
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 16.694701156499995,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 11.821802320184164
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.567599992815826
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 16.688836625854552,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 11.682836728465194
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.69483652324391
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 16.642140240385082,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 12.251481735955936
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 21.032798744814226
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 16.408676528892858,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 9.356114193589141
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 23.461238864196574
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 16.000179965601586,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 26.92045722818225
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 5.079902703020919
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.944632081517732,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 20.405955603831107
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 11.483308559204357
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.904216025275954,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 7.711221123391384
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 24.097210927160525
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 15.890719578127147,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 11.627425345784365
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 20.154013810469927
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 15.783528307055771,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 20.135852247527236
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 11.431204366584307
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 15.72720625784842,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 9.325996265596743
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 22.1284162501001
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 15.57218876979514,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 10.310782821374366
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 20.833594718215913
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 15.553964770881993,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 12.266936117668047
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 18.840993424095938
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 15.509872708400199,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 18.400555752491165
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 12.619189664309232
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.39398483833555,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 13.474243460030237
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 17.313726216640863
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 15.390689835426896,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 7.82715744059531
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 22.95422223025848
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.257364317236805,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 20.153697788221137
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 10.361030846252472
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.089820298120806,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.701566901487825
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 18.47807369475379
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 14.965250764792955,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 6.369429711174051
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.56107181841186
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 14.810794300158436,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 10.705697936829328
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 18.915890663487545
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 14.768730767120966,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 5.849417008733794
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.688044525508136
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 14.684400533627738,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 6.081437681548291
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.287363385707184
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 14.664636780680723,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 8.902767798282897
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 20.426505763078552
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 14.642445245886481,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 9.427641480187193
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 19.857249011585772
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 14.60224433715841,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 20.7324105011002
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 8.47207817321662
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 14.601489957293328,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 22.738864282601774
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 6.464115631984883
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 14.57838595386198,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 8.538587764901916
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 20.618184142822045
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 14.376111140915585,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 5.452022795532129
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 23.30019948629904
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 14.345208058718496,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 6.19557011476232
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 22.494846002674674
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 14.296767569244203,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 6.183242867417006
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 22.410292271071402
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 14.28864175096566,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 10.53846309736299
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 18.038820404568327
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 14.266359241573234,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.810622292275882
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 21.722096190870587
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 14.228757922767961,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 13.73709520479845
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 14.720420640737471
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 14.211249612504146,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 24.888104926844797
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.534394298163495
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 14.138088128670685,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 6.188630455408168
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 22.0875458019332
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 13.954357684116488,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 8.987365942193454
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 18.92134942603952
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.947340028087279,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 16.10976034802038
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 11.784919708154176
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 13.801222315926218,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.619599157884613
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 16.98284547396782
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 13.793686707279182,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 9.796108815683665
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 17.7912645988747
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 13.751554588225204,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 27.234755948356025
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 0.26835322809438533
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 13.67708945788959,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 6.707957298882744
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 20.646221616896437
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.660426268043409,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 12.023932453825177
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 15.29692008226164
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 13.537625688604352,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 7.519474899152031
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 19.555776478056675
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 13.512190906363937,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 27.185588023602346
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 174.0,
+          "contrast_db": -0.16120621087447085
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 13.257210756284122,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 26.46837226128156
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.0460492512866859
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 13.221366267699162,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 12.24750959926421
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 14.195222936134114
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.156623590101551,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 24.9614916675257
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.3517555126774026
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 13.106660305994906,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 7.321352218359586
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 18.891968393630226
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.065326827570594,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 26.34431810972612
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 175.0,
+          "contrast_db": -0.21366445458493155
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.05672000429459,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 7.1282671483898135
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.985172860199366
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 13.027245837786527,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 20.646296986105853
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 5.4081946894672015
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 12.99931419515348,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 7.524197559047291
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 18.474430831259667
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.981791309340572,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 26.223404542864184
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 173.5,
+          "contrast_db": -0.2598219241830416
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 12.958706083457844,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.7167371525442015
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 20.200675014371487
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.952096688087043,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 8.488825740632276
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 17.41536763554181
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 12.875412253786145,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 8.167959461718619
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 17.58286504585367
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.762115819986075,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 24.127074402313426
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.3971572376587256
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.660742268300327,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 25.33936489793368
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.01788036133302835
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.62667704237016,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 25.26639871613642
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.013044631396098691
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.624766047857172,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 12.066925634224818
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 13.182606461489526
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 12.52977109953908,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.786300649407482
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.273241549670676
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.514685944863263,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 25.425158288702164
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 175.0,
+          "contrast_db": -0.3957863989756376
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 12.507117125039237,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.931051766797498
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 20.083182483280975
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.49596031179717,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 24.027787160632595
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.9641334629617438
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.476277025453127,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.1963887357144385
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.756165315191815
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.473416736874428,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 23.74651675454139
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 1.200316719207468
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.42902993901665,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.789779902924715
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.068279975108585
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.215552182064314,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.585589729743611
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.84551463438502
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 12.20684999487468,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 7.267952658784272
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 17.14574733096509
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 12.149115973324546,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 7.03897972628786
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 17.259252220361233
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 12.140766692498122,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.5081117228955545
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.773421662100688
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 12.124435573721836,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 5.82666377173691
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 18.422207375706762
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 12.11676116970177,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.841293212519773
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.392229126883766
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 12.073418429292678,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.5135921322758925
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.633244726309464
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 12.056603199929699,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.655886402506124
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.457319997353274
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 12.046197217350995,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.757015984695708
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.33537845000628
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.922867078059879,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 16.45072039248347
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 7.395013763636289
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 11.912945329503692,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.759615736350414
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.066274922656973
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.91117623292449,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 14.499126129409076
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 9.323226336439902
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 11.886681181787148,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.136961013214137
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.63640135036016
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.877040015797268,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 24.18135304171982
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 175.0,
+          "contrast_db": -0.4272730101252821
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.875919291090115,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.089280173455513
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 17.662558408724717
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 11.873644906358003,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.9093031017863833
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.83798671092962
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 11.855846335868646,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.051869192238033
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.65982347949926
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 11.836840024302017,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.014420843358279
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.659259205245757
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 11.833323228832263,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.416038102844575
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.250608354819953
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.781088753451414,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 15.376616249871567
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 8.18556125703126
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 11.758666238971974,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.906333722782279
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.61099875516167
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 11.757820238026662,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.859779544042925
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.6558609320104
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.73239484217541,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.900910629067992
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.563879055282825
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 11.711921341763414,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.577090364522598
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.84675231900423
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 11.698285014469878,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.0332894985462975
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 19.36328053039346
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.68040072110011,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 21.26704255220893
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.093758889991287
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 11.667112588833751,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 8.172672657063154
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 15.161552520604348
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 11.631644011529817,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.841929608928228
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 18.421358414131404
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 11.601455316772881,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.658758161807876
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.544152471737885
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.594911063379401,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.3722810371911836
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 16.81754108956762
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.54057159130475,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 23.581080502249485
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.4999373196399838
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.52114002042905,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 22.17269463846621
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.8695854023918865
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.488071818306462,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 6.345174836151737
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 16.630968800461186
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.430280247605944,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 20.625709856155368
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.23485063905652
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.42956919191222,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.672606063417477
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 16.186532320406965
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.42294807535478,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 15.082171034662156
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 7.763725116047404
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 11.407379591908706,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.0,
+          "contrast_db": 23.051756941306486
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 174.0,
+          "contrast_db": -0.2369977574890744
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 11.28724166810546,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.0,
+          "contrast_db": 7.866456019187772
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 14.70802731702315
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 11.224566659014185,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.5724278103299123
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.0,
+          "contrast_db": 18.876705507698457
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.199801875005853,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.0203782207116068
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 19.3792255293001
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.176635217136027,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 5.6617338259050785
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 16.691536608366977
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.161074264664913,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 20.49750199307665
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.8246465362531752
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 11.158484211279365,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 5.30144150765374
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 17.01552691490499
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 11.041140819419596,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.7101419078629974
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 18.372139730976194
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.814530484922836,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.683170392334782
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 15.94589057751089
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.720946323479053,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 7.090695523742854
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 14.351197123215252
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.678014191923076,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.5692096267859
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 17.786818757060253
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 10.659469724992212,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 9.49657591522326
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 11.822363534761163
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 10.624215027342267,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 21.42819545538983
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 174.0,
+          "contrast_db": -0.17976540070529662
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 10.612949488205716,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 7.084491263180547
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 14.141407713230885
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.584824082951862,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.9626040667756683
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 17.207044099128055
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.4600548450587,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.860500016428242
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 16.059609673689156
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.384563174920796,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.185261944421261
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.5,
+          "contrast_db": 16.583864405420332
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 0.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.321085708253168,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 5.746415451648875
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 14.895755964857461
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 10.29947897279136,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 130.5,
+          "contrast_db": 20.634966012002554
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 173.0,
+          "contrast_db": -0.036008066419835054
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 10.287225673507955,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 7.123798016717437
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 13.450653330298472
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 10.24733437721204,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 16.269556664543877
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.225112089880202
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 10.222871881385784,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 16.532601328278492
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 3.913142434493075
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 10.197486668971896,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.5,
+          "contrast_db": 8.72897110373103
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 11.666002234212762
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 10.128037932905947,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.5,
+          "contrast_db": 5.816665850553586
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 14.439410015258307
+        }
+      ]
+    },
+    {
+      "east_m": 700.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 9.932251014527495,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.0,
+          "contrast_db": 19.975843837844927
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 175.0,
+          "contrast_db": -0.11134180878993807
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 9.813930302700806,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 14.945540080208975
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.682320525192636
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 9.806246858469628,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 15.684541281300373
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 3.9279524356388813
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 9.675671342737672,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 12.3998041580262
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 6.951538527449143
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 9.675254988134812,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 6.958234110986976
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 12.392275865282649
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 9.659501356246505,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 15.017272531173402
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.3017301813196065
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 9.540241897246961,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 6.773459484265806
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 12.307024310228117
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 9.46573290737254,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 6.768963351618961
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 12.162502463126119
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 9.446779269000082,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 7.5823290015497875
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 11.311229536450375
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 9.394969405351935,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 7.763004869374777
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 11.026933941329093
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 9.210358579162675,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 14.758254357121599
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.6624628012037506
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 8.955697842818992,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 14.314735716949134
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.59665996868885
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.90668551169361,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 5.757670262001676
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 12.055700761385541
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.883203140736821,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 18.021745871558593
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": -0.25533959008495183
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.832124033001572,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 17.9312465976221
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 173.5,
+          "contrast_db": -0.26699853161895576
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.814101858598917,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.305696661365402
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 11.322507055832434
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 8.775900189673576,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 5.833964150137345
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 11.717836229209809
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.71205025140467,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 13.7564098634999
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.6676906393094373
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.655956247967966,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 13.190385831417426
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.1215266645185045
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.489814037792906,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 17.20750995524264
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.22788187965682835
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.31978317514842,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 12.546109209426064
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.093457140870774
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.311439167727714,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.376251307721313
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 10.246627027734116
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.251450107731479,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 6.321795468322122
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 175.0,
+          "contrast_db": 10.181104747140838
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.182491203984823,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.5,
+          "contrast_db": 16.810626814230194
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.44564440626054935
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 8.150879400048638,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 11.202987671719173
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 5.098771128378102
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 8.065749263672547,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.768161754501703
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.363336772843393
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 7.957468202406686,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 12.214499697941182
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.700436706872189
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.954955448405261,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 2.673656908154725
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 13.236253988655799
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 7.95364175538683,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 12.635836633385953
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.2714468773877075
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.911057366674236,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 15.799547284349819
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.5,
+          "contrast_db": 0.022567448998653112
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.827680243506908,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 14.41324113583447
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.2421193511793454
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.8019323213028535,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 15.792154913931652
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 175.0,
+          "contrast_db": -0.18829027132594464
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.787662918331787,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 5.318822197663967
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 10.256503638999606
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.778715360953367,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.095682008337843
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 175.0,
+          "contrast_db": 9.46174871356889
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.74726797250378,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.439502514822192
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 175.0,
+          "contrast_db": 9.055033430185368
+        }
+      ]
+    },
+    {
+      "east_m": 600.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.733356743613465,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 15.668313432834543
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.20159994560761313
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.72613408624653,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 6.553908840019691
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 175.0,
+          "contrast_db": 8.898359332473369
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 7.651672861685546,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.799752374628152
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.503593348742939
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.643996622739061,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.237266824251136
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 12.050726421226985
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 7.501290646065951,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.219811179245072
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.7827701128868303
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 7.430650041566974,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.567239149620407
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.2940609335135407
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 7.284459868087761,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.373460108790816
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.195459627384706
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 7.211465002243132,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.02767161896623
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.3952583855200364
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.1663165973698755,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 10.6319988556052
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.7006343391345506
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.081190726407932,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 11.494338156619312
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.668043296196553
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 7.004484487687051,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.1686728776217508
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 10.840296097752352
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.9717545768074825,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.902820491108068
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.040688662506896
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.901205518305032,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.803668083526591
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 8.998742953083473
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.887211194633837,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 5.23626837847979
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.0,
+          "contrast_db": 8.538154010787885
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 6.857662659883442,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.472262607594713
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.2430627121721702
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.855844277083043,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.738158077466117
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 9.973530476699969
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.829624736159876,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 8.203385923874292
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 5.4558635484454605
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.648651504416103,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 8.763206930915395
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.53409607791681
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 6.596445144582921,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.73298001231707
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.4599102768487713
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.482334581727485,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 3.5805183222831993
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 9.38415084117177
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 6.478456399965559,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.826988670338705
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.1299241295924123
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.465024120355582,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.99022668821269
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.9398215524984734
+        }
+      ]
+    },
+    {
+      "east_m": 200.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.413086308259367,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.509370113877404
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.3168025026413304
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.371378717234535,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 10.623683145054663
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.1190742894144066
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.358776231129708,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 9.521628613628152
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.1959238486312636
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 6.253952548350665,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.439774162684614
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.068130934016716
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.2198957833560895,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.929057761035123
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.5107338056770558
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 6.209675413493242,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.69344750423166
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.7259033227548253
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 6.176601207096088,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.627014859713801
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.7261875544783734
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 6.175222585144814,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.273368474798394
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.0770766954912347
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 6.15434674886856,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.792065359474067
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.516628138263053
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 6.1253670323757055,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.760893433349471
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.4898406314019397
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 6.089992262870325,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.553895722105734
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.6260888036349164
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 6.046796144778112,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.26013401431835
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.8334582752378739
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 6.034822810944243,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.332853409107226
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.7367922127812612
+        }
+      ]
+    },
+    {
+      "east_m": -100.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 6.03339734396585,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.681029841249746
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.385764846681955
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 6.01649968568429,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 10.98857529615922
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.0444240752093599
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.993771455720277,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.84250661017442
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.1450363012661355
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 5.98706265634695,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 6.764425673395715
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 175.0,
+          "contrast_db": 5.209699639298186
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 5.970639636591703,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.007925681006836
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 5.93335359217657
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 5.843977673530205,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.280889595603695
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.4070657514567157
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.836336476559267,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 10.98132959277007
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.6913433603484637
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 5.833079245052964,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.561367734138734
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.1047907559671934
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.8052240313831405,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 10.879657296791525
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.7307907659747559
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.669841810246391,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 10.088124256500333
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 1.2515593639924496
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 5.658321031967489,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.292548359030643
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 5.024093704904336
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.622675175300234,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.5,
+          "contrast_db": 11.034491814986037
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.21085853561443152
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 5.516248273121059,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.213452144660762
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.819044401581356
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 5.332204105113004,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 6.148344704046838
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.516063506179168
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 5.309028226964271,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.7156206621067485
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.9024357918217945
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 5.176005263892571,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.698989261952518
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.653021265832623
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.122593421693425,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 9.922924801358489
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.3222620420283613
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 5.068054327188228,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.604003645725322
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 6.532105008651134
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 5.034954401081885,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 9.971214632910241
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 0.09869416925352799
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.969977076466308,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.766252778555242
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 6.173701374377374
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.92299578498165,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.665580408045959
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 6.180411161917339
+        }
+      ]
+    },
+    {
+      "east_m": 500.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.80378713136762,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 132.0,
+          "contrast_db": 9.88805889711085
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": -0.2804846343756105
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 4.761293962378155,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.05157371043835
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.47101421431796
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.705886635366253,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 2.7248229803633928
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 6.686950290369114
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 4.689491214328028,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.6942459001965187
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 5.684736528459537
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.679440608539966,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 4.726657628985683
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.632223588094248
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 4.588942290978406,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.01292385504757
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 5.164960726909242
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.585211701805909,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 2.5551221588054047
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 6.615301244806412
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 4.452967094460964,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.883755032062869
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 5.022179156859059
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.3445586382544406,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.999477398451734
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.689639878057147
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 4.33769759563067,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.265692667151224
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.409702524110116
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 4.336119701209425,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.33510468417934
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.33713471823951
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.321552119245859,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.145994455367589
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.497109783124129
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 4.27032812655919,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.605127985573865
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.9355282675445156
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 400.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.163201161226405,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 2.6773544773919506
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.0,
+          "contrast_db": 5.649047845060858
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.121423782178647,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.3625744815535974
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 4.880273082803698
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 4.118245005640431,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.214185883512055
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.022304127768807
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.75,
+      "score_db": 4.113176068903399,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.98775861099837
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 4.238593526808428
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 4.047295642747436,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.441602833559397
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.6529884519354736
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.25,
+      "score_db": 4.046059865094257,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.211599141393698
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.880520588794817
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.9956158076873063,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.184885237248999
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.8063463781256135
+        }
+      ]
+    },
+    {
+      "east_m": -700.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.9511673729479524,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.574148924868791
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.328185821027113
+        }
+      ]
+    },
+    {
+      "east_m": -400.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 3.911007476858048,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.697484245024551
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.1245307086915446
+        }
+      ]
+    },
+    {
+      "east_m": -300.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 12.75,
+      "score_db": 3.813750984524673,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 5.4487458814903125
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.1787560875590333
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.8118944931366823,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.7186771713416618
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 3.9051118149317032
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 700.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.788753197803242,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.6817746166009853
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.8957317790054993
+        }
+      ]
+    },
+    {
+      "east_m": -500.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.634577189650645,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.299630066648827
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.969524312652463
+        }
+      ]
+    },
+    {
+      "east_m": -800.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.6303958006750348,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 4.516650849854442
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 2.7441407514956273
+        }
+      ]
+    },
+    {
+      "east_m": -600.0,
+      "north_m": 800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 3.5772871044492502,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 133.0,
+          "contrast_db": 3.921345156815124
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.233229052083377
+        }
+      ]
+    }
+  ],
+  "tool": "Argelius Doppler Lab",
+  "version": "0.1.0",
+  "generated_utc": "2026-11-03T21:34:39.235002+00:00",
+  "environment": {
+    "python": "3.13.11",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "input_sha256": {
+    "case": "6f753ae4acbb36c55a14dd01e9ab855adfb3cc4268cfe2025f8f7ba9c78aeae4",
+    "audio": "8acbafbdd2b2a09a107761c3fbc8328873fdf258f38d4e7fb11b0a15d12387d6",
+    "tracks": "b84e8e882bf8dd6f7df04806d62f52c86fce9d66825bfe250e88053d9feb3b34"
+  },
+  "configuration": {
+    "schema_version": 1,
+    "title": "Two flyovers, one shared clock",
+    "coordinate_system": "local_enu_m",
+    "audio": "recording.wav",
+    "tracks": "tracks.csv",
+    "provenance": "Original fictional aircraft and audio generated by Argelius Doppler Lab; MIT.",
+    "time_basis": "Fictional seconds. Track time = recording-relative arrival time + clock_offset_s.",
+    "sound_speed_m_s": 343.0,
+    "max_track_gap_s": 3,
+    "clock_offset_s": [
+      9.25,
+      13.25,
+      0.5
+    ],
+    "grid": {
+      "east_m": [
+        -800,
+        800,
+        100
+      ],
+      "north_m": [
+        -800,
+        800,
+        100
+      ],
+      "up_m": 0
+    },
+    "spectrogram": {
+      "window_s": 2,
+      "hop_s": 0.5,
+      "max_hz": 450
+    },
+    "events": [
+      {
+        "name": "Flyover 1",
+        "start_s": 15,
+        "end_s": 75,
+        "source_hz": [
+          129,
+          133,
+          0.5
+        ],
+        "track_ids": [
+          "A",
+          "A-decoy"
+        ]
+      },
+      {
+        "name": "Flyover 2",
+        "start_s": 115,
+        "end_s": 175,
+        "source_hz": [
+          171,
+          175,
+          0.5
+        ],
+        "track_ids": [
+          "B",
+          "B-decoy"
+        ]
+      }
+    ]
+  },
+  "spatial_alternatives_300m": [
+    {
+      "east_m": 100.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 11.25,
+      "score_db": 26.43916997582565,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 131.5,
+          "contrast_db": 26.82147548809122
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 26.056864463560075
+        }
+      ]
+    },
+    {
+      "east_m": 400.0,
+      "north_m": -100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.847879306498996,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 20.92845774636823
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 172.5,
+          "contrast_db": 18.76730086662976
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 19.715471940665577,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 17.81830540795256
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 171.5,
+          "contrast_db": 21.612638473378592
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -500.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 19.63008358287106,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 130.0,
+          "contrast_db": 19.66208536497733
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 174.5,
+          "contrast_db": 19.598081800764792
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -600.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.25,
+      "score_db": 19.00751533551854,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 131.5,
+          "contrast_db": 26.047569694237936
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 11.967460976799147
+        }
+      ]
+    },
+    {
+      "east_m": 0.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 16.642140240385082,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 129.0,
+          "contrast_db": 12.251481735955936
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 21.032798744814226
+        }
+      ]
+    },
+    {
+      "east_m": 100.0,
+      "north_m": 100.0,
+      "up_m": 0.0,
+      "clock_offset_s": 13.25,
+      "score_db": 15.089820298120806,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 11.701566901487825
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.5,
+          "contrast_db": 18.47807369475379
+        }
+      ]
+    },
+    {
+      "east_m": 300.0,
+      "north_m": -800.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.75,
+      "score_db": 14.965250764792955,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 6.369429711174051
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B-decoy",
+          "source_hz": 172.0,
+          "contrast_db": 23.56107181841186
+        }
+      ]
+    },
+    {
+      "east_m": 800.0,
+      "north_m": -300.0,
+      "up_m": 0.0,
+      "clock_offset_s": 9.75,
+      "score_db": 14.211249612504146,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A-decoy",
+          "source_hz": 132.0,
+          "contrast_db": 24.888104926844797
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 171.0,
+          "contrast_db": 3.534394298163495
+        }
+      ]
+    },
+    {
+      "east_m": -200.0,
+      "north_m": -200.0,
+      "up_m": 0.0,
+      "clock_offset_s": 10.25,
+      "score_db": 13.801222315926218,
+      "events": [
+        {
+          "name": "Flyover 1",
+          "track_id": "A",
+          "source_hz": 133.0,
+          "contrast_db": 10.619599157884613
+        },
+        {
+          "name": "Flyover 2",
+          "track_id": "B",
+          "source_hz": 173.0,
+          "contrast_db": 16.98284547396782
+        }
+      ]
+    }
+  ]
+}
