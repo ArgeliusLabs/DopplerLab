@@ -5,6 +5,11 @@ the next step: a small local experiment using recordings and trajectories you ar
 authorized to analyze. It does not claim that the example's accuracy transfers to
 field recordings.
 
+If the location is initially only a country or continent, start with the
+[investigation workflow](INVESTIGATION_WORKFLOW.md). For daily archive acquisition,
+download times and disk requirements, see [download and storage](DATA_VOLUME.md).
+This page covers preparing the smaller case after candidate selection.
+
 ## Keep a provenance record
 
 Preserve the original media, its SHA-256, source/permission, acquisition time, original

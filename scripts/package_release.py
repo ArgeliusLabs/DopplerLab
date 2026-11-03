@@ -75,6 +75,8 @@ def main():
         "GUIDE.md",
         "METHOD.md",
         "DATA.md",
+        "INVESTIGATION_WORKFLOW.md",
+        "DATA_VOLUME.md",
         "FIELD_PROTOCOL.md",
         "STUDENT_PACK.md",
     }

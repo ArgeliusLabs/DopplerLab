@@ -4,7 +4,7 @@
 
 **Turn aircraft sounds into testable location hypotheses. Learn when the evidence is insufficient.**
 
-An open-source, offline toolkit and 110-minute OSINT lab inspired by
+An open-source aircraft-audio investigation toolkit, with a 110-minute OSINT teaching lab, inspired by
 [colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
 Original implementation by Argelius Labs. No affiliation with colsto is implied.
 
@@ -13,9 +13,16 @@ candidate microphone position would receive, and ranks the matches under one sha
 recording clock. Every run produces an inspectable HTML report, spectrogram overlays,
 a score map, complete candidate CSV and a JSON record with input hashes.
 
-**Status: experimental teaching software.** Synthetic validation is not evidence of
+**Status: experimental investigation software.** Synthetic validation is not evidence of
 real-world location accuracy. The solver reports hypotheses, never an accepted location.
 It does not implement a nationwide flight-data search or automatically identify aircraft.
+
+**How do you start with only a country or continent?** Read the
+[investigation workflow](docs/INVESTIGATION_WORKFLOW.md) for aircraft-data acquisition,
+relative timing, broad candidate selection and local refinement. The
+[download and storage guide](docs/DATA_VOLUME.md) gives verified archive sizes and
+transfer estimates. These guides distinguish the full technique from the features
+available in this release.
 
 ## Build it with us
 
@@ -87,8 +94,9 @@ The [portable student pack guide](docs/STUDENT_PACK.md) describes the interpreta
 | Evidence | Source hashes, full configuration, per-event scores, spatial alternatives, unsupported trials |
 | Classroom | Student handout, instructor guide, answer key, rubric, extensions and a blind field protocol |
 
-Start with [the student lab](docs/STUDENT_LAB.md),
+Start with [the investigation workflow](docs/INVESTIGATION_WORKFLOW.md),
 [the public guide](docs/GUIDE.md), or [the research review](docs/RESEARCH.md).
+For teaching, use [the student lab](docs/STUDENT_LAB.md).
 For supplied recordings, read [data preparation](docs/DATA.md) before building a case.
 See [validation](docs/VALIDATION.md) for measured results and their limits.
 
@@ -113,7 +121,7 @@ independent evidence. A score is not a probability. Source pitch drift, wind, re
 bad heights, missing tracks, clock error and incomplete search bounds can all mislead.
 Not seeing a tone is not proof that no aircraft passed.
 
-Use recordings you own or have permission to study. Do not use the lab to expose private
+Use recordings you own or have permission to study. Do not use the toolkit to expose private
 people's locations. The supplied exercise is fictional and fully redistributable.
 
 ## Development
@@ -130,4 +138,4 @@ terrain retain their own licenses; they are not bundled or relicensed by this pr
 
 Related work: [DOPPLERGEIST](https://github.com/1337isnot1337/DOPPLERGEIST) is a separate,
 broader experimental implementation. This repository concentrates on inspectable local
-experiments and classroom delivery. No source code from that project was copied.
+investigation experiments, with a reproducible classroom lab. No source code from that project was copied.

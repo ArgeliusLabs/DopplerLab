@@ -1,11 +1,13 @@
 # Argelius Doppler Lab — start here
 
-This folder contains the complete experimental teaching toolkit prepared for Argelius
-Labs, inspired by colsto's aircraft Doppler video.
+This folder contains the experimental aircraft-audio investigation toolkit prepared for
+Argelius Labs, with a classroom lab inspired by colsto's aircraft Doppler video.
 
 | Start with | What you get |
 | --- | --- |
 | [README](README.md) | Installation, CLI and project scope |
+| [Investigation workflow](docs/INVESTIGATION_WORKFLOW.md) | How a broad region and recording date lead to candidate areas and local matching |
+| [Download and storage guide](docs/DATA_VOLUME.md) | Verified daily archive sizes, transfer estimates and working-space planning |
 | [Example report](examples/report/report.html) | A complete offline result; open in a browser |
 | [Research review](docs/RESEARCH.md) | Video analysis, sources, physical limits and related work |
 | [Public guide](docs/GUIDE.md) | A practical walkthrough from sound to a testable hypothesis |

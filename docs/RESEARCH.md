@@ -1,6 +1,6 @@
 # Research review: what the video establishes, and what we can reproduce
 
-Prepared 3 November 2026 for Argelius Labs. Audience: intermediate OSINT students.
+Prepared 3 November 2026 for Argelius Labs. Audience: OSINT investigators and intermediate students.
 
 ## Finding
 
@@ -141,5 +141,8 @@ different from the raw brightness scoring described in the video.
 5. **Generalization:** test diverse sites, aircraft, codecs, weather and negative cases;
    publish failures and false-localization rates. This has not yet been established.
 
-The release supports levels 1–3, with a reproducible protocol for level 4. It should be
-marketed as an experimental OSINT teaching toolkit, not a proven surveillance capability.
+The release supports levels 1–3, with a reproducible protocol for level 4. Describe it
+as an experimental aircraft-audio investigation toolkit with a classroom lab. Proven
+field accuracy and automatic continent-wide search remain unestablished. See the
+[investigation workflow](INVESTIGATION_WORKFLOW.md) for the distinction between the
+video's full process and this release's local solver.
