@@ -129,6 +129,23 @@ confidence ranking**. No audio has been scored at this stage, and every result c
 `accepted_location: false`. Adjacent cells and repeated matches are not independent
 confirmations. Preserve alternatives and compare detailed fits using consistent settings.
 
+When `fit-ridge` supplies a defensible ideal-model estimate, use its `cpa_arrival_s`
+field for each landmark. If you traced separate clips, first add each clip's offset
+in the original recording. Subtract the resulting arrival times to get `--interval`;
+do not substitute `cpa_emission_s`, which omits the source-to-microphone travel delay.
+
+To refine a smaller receiver area without downloading or reparsing the global archive:
+
+```text
+doppler-lab subset-index work/conus-index/index.sqlite --bounds 32.1 -111.2 32.5 -110.6 --output work/tucson-index
+doppler-lab shortlist work/tucson-index/index.sqlite --interval 920 --grid-km 1 --receiver-height 0 --output work/tucson-screen
+```
+
+These remain hypothetical interval/height examples. The subset must lie inside its
+parent region. It preserves intersecting trajectory segments and padding, and records
+the parent index's hash. Use the actual shortlist to choose areas; a convenient test
+city is not evidence that an unknown recording was made there.
+
 ## 4. Hand a candidate to the local workflow
 
 ```text
@@ -137,8 +154,10 @@ doppler-lab export-candidate work/conus-index/index.sqlite work/conus-screen --c
 
 The handoff verifies the index and candidate hashes, then writes `geographic.csv`,
 `tracks.csv` in local ENU coordinates and `handoff.json` with origin, epoch, track IDs,
-observed maximum gap and review steps. Export may reject a trajectory spanning more
-than the local solver's 50 km radius; use a shorter supported `--window` if appropriate.
+observed maximum gap and review steps. Export retains a continuous neighborhood around
+each candidate's closest approach inside 45 km of the local origin. This keeps the
+handoff inside the local solver's 50 km limit. Inspect whether the remaining trajectory
+still covers the audio windows; missing context must not be filled by extrapolation.
 
 The handoff deliberately requires the actual audio windows, tone ranges and receiver
 terrain before building `case.json`; it does not invent them. Use the generated demo's
@@ -162,6 +181,9 @@ CLI options. A limit hit produces a **failed/incomplete** manifest and a nonzero
 partial results must not be described as a completed search. Use smaller declared areas,
 supported filters or explicitly larger budgets, and retain the original failed run.
 Tiling must preserve spatial padding and event pairs at time boundaries.
+One trajectory is additionally limited to five million edge/receiver pairs, counted
+before allocating the neighbor lists. Use a coarser grid or smaller region if that
+per-trajectory memory safeguard is reached.
 
 Compressed trace members are limited to 64 MiB and decoded streaming content to 1 GiB
 per aircraft/day. The readsb identity/time header must precede the trace array within

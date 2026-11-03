@@ -10,7 +10,7 @@ from . import __version__
 from .adsb import capture, normalize
 from .archive import download_day
 from .audio import read_audio, spectrogram
-from .broad import REGIONS, build_index, export_candidate, shortlist
+from .broad import REGIONS, build_index, export_candidate, shortlist, subset_index
 from .case import load_case
 from .importers import import_tracks
 from .measure import fit_ridge
@@ -110,6 +110,14 @@ def parser():
     index.add_argument("--padding-km", type=float, default=30)
     index.add_argument("--max-gap", type=float, default=30)
     index.add_argument("--output", type=Path, required=True)
+    subset = commands.add_parser(
+        "subset-index", help="Reuse a completed index for a smaller receiver region"
+    )
+    subset.add_argument("index", type=Path)
+    subset.add_argument(
+        "--bounds", type=float, nargs=4, required=True, metavar=("SOUTH", "WEST", "NORTH", "EAST")
+    )
+    subset.add_argument("--output", type=Path, required=True)
     screen = commands.add_parser(
         "shortlist", help="Screen regional flight pairs by relative sound-arrival timing"
     )
@@ -315,6 +323,8 @@ def main(argv=None):
                 status,
             )
             print(json.dumps(result, indent=2))
+        elif args.command == "subset-index":
+            print(json.dumps(subset_index(args.index, args.output, args.bounds), indent=2))
         elif args.command == "export-candidate":
             print(
                 json.dumps(

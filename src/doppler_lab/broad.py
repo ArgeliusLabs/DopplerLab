@@ -22,7 +22,7 @@ from .adsb import new_folder, number, trace_records, utc
 from .archive import archive_traces
 from .case import digest
 from .importers import import_tracks, parse_utc
-from .physics import geodetic_to_ecef
+from .physics import geodetic_to_ecef, geodetic_to_enu
 
 REGIONS = {"conus": [24, -125, 50, -66], "europe": [34, -25, 72, 45]}
 FIELDS = [
@@ -44,6 +44,12 @@ FIELDS = [
     "speed_a_m_s",
     "speed_b_m_s",
 ]
+INDEX_SCHEMA = """
+    CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    CREATE TABLE segments(id INTEGER PRIMARY KEY, icao TEXT NOT NULL, source_member TEXT NOT NULL,
+      start REAL, end REAL, n INTEGER, max_gap REAL, points BLOB NOT NULL);
+    CREATE INDEX segment_time ON segments(start,end);
+"""
 
 
 def bounds_check(bounds):
@@ -100,12 +106,7 @@ def build_index(
     lon_pad = padding_km / (110 * math.cos(math.radians(max(abs(s), abs(n)) + lat_pad)))
     output = new_folder(output)
     db = sqlite3.connect(output / "index.sqlite")
-    db.executescript("""
-        CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
-        CREATE TABLE segments(id INTEGER PRIMARY KEY, icao TEXT NOT NULL, source_member TEXT NOT NULL,
-          start REAL, end REAL, n INTEGER, max_gap REAL, points BLOB NOT NULL);
-        CREATE INDEX segment_time ON segments(start,end);
-    """)
+    db.executescript(INDEX_SCHEMA)
     counts = Counter()
     manifest = {
         "schema_version": 1,
@@ -235,6 +236,71 @@ def receiver_grid(bounds, step_m, height_m):
     return geographic, xyz
 
 
+def subset_index(index_path, output, bounds):
+    """Reuse a completed regional index for a smaller region, keeping boundary context."""
+    s, w, n, e = bounds_check(bounds)
+    source, parent = open_index(index_path)
+    ps, pw, pn, pe = parent["bounds"]
+    if not (ps <= s < n <= pn and pw <= w < e <= pe):
+        source.close()
+        raise ValueError("Subset bounds must stay inside the indexed receiver region.")
+    output = new_folder(output)
+    destination = sqlite3.connect(output / "index.sqlite")
+    destination.executescript(INDEX_SCHEMA)
+    pad_lat = parent["padding_km"] / 110
+    pad_lon = parent["padding_km"] / (110 * math.cos(math.radians(max(abs(s), abs(n)) + pad_lat)))
+    metadata = {
+        "schema_version": 1,
+        "tool_version": __version__,
+        "status": "indexing",
+        "bounds": bounds,
+        "padding_km": parent["padding_km"],
+        "max_gap_s": parent["max_gap_s"],
+        "start_utc": parent["start_utc"],
+        "end_utc": parent["end_utc"],
+        "created_utc": utc(),
+        "source_index_sha256": digest(index_path),
+        "source_index_metadata": parent,
+    }
+    started, counts = time.monotonic(), Counter()
+    try:
+        for row in source.execute(
+            "SELECT id,icao,source_member,start,end,n,max_gap,points FROM segments ORDER BY id"
+        ):
+            counts["input_segments"] += 1
+            points = unpack(row[7], row[5])
+            intersects = (
+                points[:, 1].max() >= s - pad_lat
+                and points[:, 1].min() <= n + pad_lat
+                and points[:, 2].max() >= w - pad_lon
+                and points[:, 2].min() <= e + pad_lon
+            )
+            if intersects:
+                destination.execute("INSERT INTO segments VALUES(?,?,?,?,?,?,?,?)", row)
+                counts["segments"] += 1
+                counts["retained_points"] += len(points)
+        if not counts["segments"]:
+            raise ValueError("No trajectories intersect this padded region.")
+        metadata["status"] = "complete"
+    except BaseException as error:
+        metadata["status"] = "failed"
+        metadata["error"] = str(error)
+        raise
+    finally:
+        metadata["elapsed_s"] = round(time.monotonic() - started, 3)
+        metadata["counts"] = dict(counts)
+        destination.execute(
+            "INSERT OR REPLACE INTO metadata VALUES('manifest',?)", (json.dumps(metadata),)
+        )
+        destination.commit()
+        destination.close()
+        source.close()
+        metadata["index_bytes"] = (output / "index.sqlite").stat().st_size
+        metadata["index_sha256"] = digest(output / "index.sqlite")
+        write_json(output / "index.json", metadata)
+    return metadata
+
+
 def passages(points, tree, receivers, radius_m, min_speed, max_speed, sound_speed, budget):
     """Retain each bracketed local distance minimum, including repeated passes in a loop."""
     times = points[:, 0]
@@ -246,18 +312,27 @@ def passages(points, tree, receivers, radius_m, min_speed, max_speed, sound_spee
     valid = (speed >= min_speed) & (speed <= max_speed)
     budget["speed_filtered_edges"] += int(np.count_nonzero(~valid))
     edges = np.flatnonzero(valid)
-    neighbors = tree.query_ball_point(
-        (xyz[:-1][valid] + xyz[1:][valid]) / 2, radius_m + lengths[valid] / 2, workers=1
-    )
     grouped = defaultdict(list)
-    for edge, cells in zip(edges, neighbors, strict=True):
-        budget["edge_receiver_evaluations"] += len(cells)
+    segment_evaluations = 0
+    for begin in range(0, len(edges), 4096):
+        batch = edges[begin : begin + 4096]
+        centers = (xyz[batch] + xyz[batch + 1]) / 2
+        radii = radius_m + lengths[batch] / 2
+        count = int(tree.query_ball_point(centers, radii, return_length=True, workers=1).sum())
+        segment_evaluations += count
+        budget["edge_receiver_evaluations"] += count
         if budget["edge_receiver_evaluations"] > budget["max_evaluations"]:
             raise ValueError(
                 "Screening evaluation budget exceeded; output is incomplete. Tile the region."
             )
-        for cell in cells:
-            grouped[cell].append(edge)
+        if segment_evaluations > 5_000_000:
+            raise ValueError(
+                "One trajectory exceeds five million edge/receiver pairs; use a coarser grid or smaller region."
+            )
+        neighbors = tree.query_ball_point(centers, radii, workers=1)
+        for edge, cells in zip(batch, neighbors, strict=True):
+            for cell in cells:
+                grouped[cell].append(edge)
     for cell, indexes in grouped.items():
         ix = np.asarray(indexes)
         vector = delta[ix]
@@ -266,19 +341,16 @@ def passages(points, tree, receivers, radius_m, min_speed, max_speed, sound_spee
         )
         distances = np.linalg.norm(xyz[ix] + vector * fraction[:, None] - receivers[cell], axis=1)
         # Exact ECEF distances to vertices bracket valid local minima even at shared endpoints.
+        prior = np.maximum(ix - 1, 0)
+        to_receiver = xyz[ix] - receivers[cell]
+        before = np.sum(to_receiver * delta[prior], axis=1)
+        after = np.sum(to_receiver * vector, axis=1)
+        interior = (fraction > 1e-8) & (fraction < 1 - 1e-8)
+        vertex = (fraction <= 1e-8) & (ix > 0) & valid[prior] & (before < 0) & (after >= 0)
+        minima = (distances <= radius_m) & (interior | vertex)
         pending = None
-        for k in np.flatnonzero(distances <= radius_m):
+        for k in np.flatnonzero(minima):
             edge, f = ix[k], fraction[k]
-            if f <= 1e-8:
-                if edge == 0 or not valid[edge - 1]:
-                    continue
-                derivative_before = np.dot(xyz[edge] - receivers[cell], delta[edge - 1])
-                derivative_after = np.dot(xyz[edge] - receivers[cell], delta[edge])
-                if derivative_before >= 0 or derivative_after < 0:
-                    continue
-            elif f >= 1 - 1e-8:
-                # The next edge owns a minimum at the shared vertex.
-                continue
             emission = times[edge] + f * durations[edge]
             distance = distances[k]
             event = (cell, emission + distance / sound_speed, distance, speed[edge])
@@ -519,6 +591,22 @@ def export_candidate(index_path, screening_dir, candidate_id, output, window_s=1
             points = points[
                 (points[:, 0] >= arrival - window_s - 120) & (points[:, 0] <= arrival + window_s)
             ]
+            # Keep one continuous neighborhood of this CPA inside the local solver's frame.
+            if len(points):
+                positions = geodetic_to_enu(points[:, 1], points[:, 2], points[:, 3], origin)
+                inside = np.linalg.norm(positions, axis=1) <= 45000
+                emission = arrival - float(candidate[f"slant_{label}_m"]) / info["sound_speed_m_s"]
+                center = int(np.argmin(np.abs(points[:, 0] - emission)))
+                if not inside[center]:
+                    raise ValueError(
+                        "No local trajectory support around candidate closest approach."
+                    )
+                first, last = center, center
+                while first > 0 and inside[first - 1]:
+                    first -= 1
+                while last + 1 < len(points) and inside[last + 1]:
+                    last += 1
+                points = points[first : last + 1]
             if len(points) < 4:
                 raise ValueError("Too few retained samples for local fitting.")
             selected.append((f"{row[0]}-s{candidate[f'segment_{label}']}", points))

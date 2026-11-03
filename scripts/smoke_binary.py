@@ -86,6 +86,17 @@ def main():
             "--output",
             "screen",
         )
+        run(
+            "subset-index",
+            "index/index.sqlite",
+            "--bounds",
+            "32.295",
+            "-110.805",
+            "32.305",
+            "-110.795",
+            "--output",
+            "subset",
+        )
         screening = json.loads((root / "screen/screening.json").read_text())
         assert screening["status"] == "complete" and screening["counts"]["candidates"] > 0
         run(

@@ -1,6 +1,7 @@
 """Measure a CLI subprocess; sampling is approximate and is reported as such."""
 
 import argparse
+import hashlib
 import json
 import platform
 import subprocess
@@ -28,6 +29,14 @@ def main():
         "system_ram_bytes": psutil.virtual_memory().total,
         "started_utc": datetime.now(UTC).isoformat(),
         "sample_interval_s": 0.2,
+    }
+    root = Path(__file__).resolve().parents[1]
+    report["source_commit"] = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=root, text=True
+    ).strip()
+    report["source_sha256"] = {
+        str(p.relative_to(root)).replace("\\", "/"): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in sorted((root / "src").glob("**/*.py"))
     }
     started, peak = time.monotonic(), 0
     with args.output.with_suffix(".log").open("x", encoding="utf-8") as log:

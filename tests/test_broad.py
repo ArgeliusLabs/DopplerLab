@@ -11,7 +11,14 @@ from scipy.spatial import cKDTree
 
 from doppler_lab.adsb import capture_points, trace_points
 from doppler_lab.archive import PartReader, archive_traces, validate_parts
-from doppler_lab.broad import build_index, export_candidate, open_index, passages, shortlist
+from doppler_lab.broad import (
+    build_index,
+    export_candidate,
+    open_index,
+    passages,
+    shortlist,
+    subset_index,
+)
 from doppler_lab.case import digest, load_tracks
 from doppler_lab.importers import parse_utc
 from doppler_lab.physics import geodetic_to_ecef
@@ -269,3 +276,15 @@ def test_download_size_hash_and_budget_are_checked(tmp_path, monkeypatch):
     good = archive.download_day("2026-11-02", tmp_path / "good")
     assert good["status"] == "complete"
     assert good["parts"][0]["sha256"] == digest(tmp_path / "good" / (tag + ".tar"))
+
+
+def test_smaller_region_reuses_source_evidence_without_reparsing_archive(indexed, tmp_path):
+    source, _ = indexed
+    bounds = [32.295, -110.805, 32.305, -110.795]
+    result = subset_index(source, tmp_path / "subset", bounds)
+    assert result["status"] == "complete"
+    assert result["bounds"] == bounds
+    assert result["source_index_sha256"] == digest(source)
+    assert result["counts"]["segments"] == 2
+    with pytest.raises(ValueError, match="inside"):
+        subset_index(source, tmp_path / "outside", [30, -112, 34, -110])
