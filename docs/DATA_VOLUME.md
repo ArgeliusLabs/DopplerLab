@@ -1,9 +1,10 @@
 # Aircraft data: download time and storage
 
 Checked **3 November 2026**. The byte counts below come from GitHub release-asset
-metadata for two complete UTC days. We did not download or benchmark either complete
-archive. Transfer times are calculations, and workspace reservations are planning
-estimates. They are not measured nationwide search performance.
+metadata for two complete UTC days. We subsequently downloaded the complete November 2
+archive: **3,501,931,008 bytes in 291.507 seconds (4 minutes 52 seconds)**, including
+writing and hashing the files. The bandwidth table remains a calculation; workspace
+reservations are planning estimates. Acquisition timing is not geolocation performance.
 
 ## A concrete open-data example
 
@@ -49,7 +50,8 @@ the payload rate is 12.5 MB/s. These estimates exclude connection setup, protoco
 overhead, retries and disk work; the advertised speed of an internet plan is not
 necessarily the sustained download rate from GitHub. Provider/CDN limits can dominate.
 
-This makes a few minutes of network transfer plausible on a good connection. It does
+Our measured transfer averaged about **96.1 Mbps**. That is one observation on one
+connection and provider route, not a speed guarantee. A few minutes is plausible. It does
 not establish a few-minute end-to-end geolocation search. A per-flight historical API
 can take much longer than a bulk archive because of request count, pagination, credits
 and rate limits, even when its final dataset is smaller. The video's reported several
@@ -142,7 +144,8 @@ traces can prevent reliable local fitting even when downloading succeeds.
 
 ## What remains to be benchmarked
 
-We have verified asset metadata, not nationwide processing speed. A useful benchmark
+The download is now measured. The [development workflow](BROAD_SEARCH.md) provides the
+indexer and timing screen, with a repeatable measurement wrapper. A useful benchmark
 must separately report download time, parsing/index creation, region filtering,
 candidate generation and detailed matching. Record hardware, storage type, sampling,
 retained points, rejected data, candidate count and peak RAM/disk. Until that exists,

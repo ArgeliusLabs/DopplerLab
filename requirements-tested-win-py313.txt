@@ -1,11 +1,13 @@
 # Reference environment: Windows, Python 3.13.11, 2026-11-03.
 # Not a cross-platform lock. Install pyproject.toml normally on other Python/OS versions.
 build==1.6.1
+certifi==2026.10.23
 colorama==0.4.6
 contourpy==1.4.0
 cycler==0.12.1
 fonttools==4.68.0
 iniconfig==2.3.1
+ijson==3.6.0
 kiwisolver==1.5.1
 matplotlib==3.11.2
 numpy==2.5.4

@@ -102,3 +102,25 @@ The published example JSON and report are under `examples/`; the generator remai
 authoritative recipe. The [field protocol](FIELD_PROTOCOL.md) describes the next required
 validation stage. Real-world precision, false-localization rates, robustness to wind,
 terrain uncertainty, codecs and unconstrained country-scale search remain unestablished.
+
+## Development acquisition and screening checks
+
+The 0.2.0.dev1 branch adds 11 tests covering binary-safe split archives, gzip detection
+despite `.json` filenames, streamed trace decoding, source hashes, geometric-height
+requirements, delayed closest approach, repeat flyovers, two-event candidate retention,
+wrong-interval rejection, local track export, download integrity, altered candidate
+files, truncated archives and resource-limit failure states. The full local suite now
+has **37 passing tests**. These checks use original fictional fixtures and mocked HTTP;
+they are not real-recording accuracy measurements.
+
+The complete November 2 public global archive was downloaded and hashed in 291.507 s.
+Regional index and screening measurements are tracked separately from the synthetic
+acoustic benchmark. See [BROAD_SEARCH.md](BROAD_SEARCH.md) for the implemented workflow
+and explicit limits. The live two-second polling attempt on November 3 stopped at
+HTTP 429 after ten snapshots, so it does not count as a completed capture or field test.
+
+Two original recording cases are still required before the next public release.
+Native build checks exercise archive indexing, screening and handoff, followed by
+fictional audio generation, spectrogram inspection, local matching and an embedded
+HTML report from outside the source checkout. Packaging success does not establish
+real-world location accuracy.

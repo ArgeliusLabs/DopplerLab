@@ -8,8 +8,9 @@
 **One-sentence description:** An offline aircraft Doppler matching toolkit and practical
 OSINT lab for testing what background sound can reveal—and what it cannot prove.
 
-Lead with a reproducible learning experience: original fictional data, a short install,
-transparent physical modeling, useful failure cases and a complete instructor pack.
+Lead with a reproducible investigation workflow: aircraft-data acquisition, candidate
+screening, transparent physical modeling and useful failure cases. Include original
+fictional data and a complete instructor pack for classroom demonstrations.
 Credit colsto prominently. Link DOPPLERGEIST as related work. Do not claim first invention,
 an affiliation, universal exact geolocation or demonstrated nationwide precision.
 

@@ -11,6 +11,8 @@ from pathlib import Path
 
 from PIL import Image
 
+from doppler_lab import __version__
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -60,7 +62,7 @@ def main():
     ]:
         digest = hashlib.sha256((ROOT / "examples/classroom" / filename).read_bytes()).hexdigest()
         assert digest == result["input_sha256"][key], f"Sample provenance mismatch: {filename}"
-    archives = list((ROOT / "dist").glob("*.zip"))
+    archives = list((ROOT / "dist").glob(f"argelius-doppler-lab-{__version__}-*.zip"))
     assert len(archives) == 2, "Expected source and student ZIPs"
     for path in archives:
         with zipfile.ZipFile(path) as archive:

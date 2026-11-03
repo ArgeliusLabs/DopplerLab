@@ -15,7 +15,9 @@ a score map, complete candidate CSV and a JSON record with input hashes.
 
 **Status: experimental investigation software.** Synthetic validation is not evidence of
 real-world location accuracy. The solver reports hypotheses, never an accepted location.
-It does not implement a nationwide flight-data search or automatically identify aircraft.
+The development branch adds daily archive acquisition and regional candidate screening;
+it does not automatically identify aircraft from audio. The published v0.1.0 release
+contains the local matcher. Real-recording validation for the next release is pending.
 
 **How do you start with only a country or continent?** Read the
 [investigation workflow](docs/INVESTIGATION_WORKFLOW.md) for aircraft-data acquisition,
@@ -23,6 +25,10 @@ relative timing, broad candidate selection and local refinement. The
 [download and storage guide](docs/DATA_VOLUME.md) gives verified archive sizes and
 transfer estimates. These guides distinguish the full technique from the features
 available in this release.
+
+**Development workflow:** [run a broad-area search](docs/BROAD_SEARCH.md) or read about
+[native Windows, Linux and macOS candidates](docs/BINARIES.md). Builds on `main` do not
+automatically publish a release.
 
 ## Build it with us
 
@@ -91,6 +97,9 @@ The [portable student pack guide](docs/STUDENT_PACK.md) describes the interpreta
 | Physics | 3D trajectories, variable radial velocity, retarded sound arrival, one common clock |
 | Matching | Small declared receiver grids, supplied candidate aircraft, per-event tone sweeps |
 | Geographic import | WGS84 ellipsoid heights and explicit UTC to one local ENU frame |
+| Daily archives (development) | Verified downloads; stream compressed traces into a regional SQLite index |
+| Broad screening (development) | Spatially indexed, delayed-closest-approach pairs with a shared relative interval and explicit work budgets |
+| Local handoff (development) | Export candidate tracks, coordinate origin and time basis for analyst-reviewed local matching |
 | Evidence | Source hashes, full configuration, per-event scores, spatial alternatives, unsupported trials |
 | Classroom | Student handout, instructor guide, answer key, rubric, extensions and a blind field protocol |
 
@@ -137,5 +146,6 @@ fictional fixtures are MIT licensed. Third-party audio, video, flight databases 
 terrain retain their own licenses; they are not bundled or relicensed by this project.
 
 Related work: [DOPPLERGEIST](https://github.com/1337isnot1337/DOPPLERGEIST) is a separate,
-broader experimental implementation. This repository concentrates on inspectable local
-investigation experiments, with a reproducible classroom lab. No source code from that project was copied.
+broader experimental implementation. This repository emphasizes inspectable investigation
+experiments, auditable candidate preparation and a reproducible classroom lab. No source
+code from that project was copied.

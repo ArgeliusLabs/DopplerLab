@@ -3,10 +3,14 @@ import json
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from . import __version__
+from .adsb import capture, normalize
+from .archive import download_day
 from .audio import read_audio, spectrogram
+from .broad import REGIONS, build_index, export_candidate, shortlist
 from .case import load_case
 from .importers import import_tracks
 from .measure import fit_ridge
@@ -16,7 +20,9 @@ from .synthetic import create_case
 
 
 def parser():
-    root = argparse.ArgumentParser(description="Argelius Doppler Lab: inspect, model, challenge.")
+    root = argparse.ArgumentParser(
+        description="Argelius Doppler Lab: aircraft-audio investigation toolkit."
+    )
     root.add_argument("--version", action="version", version=__version__)
     commands = root.add_subparsers(dest="command", required=True)
     demo = commands.add_parser("demo", help="Generate an original fictional classroom case")
@@ -57,11 +63,101 @@ def parser():
         "--origin", type=float, nargs=3, metavar=("LAT", "LON", "ELLIPSOID_M"), required=True
     )
     imp.add_argument("--time-origin", required=True, help="ISO timestamp with Z or UTC offset")
+    collect = commands.add_parser(
+        "capture-adsb", help="Save current adsb.lol aircraft positions for a local experiment"
+    )
+    collect.add_argument("--latitude", type=float, required=True)
+    collect.add_argument("--longitude", type=float, required=True)
+    collect.add_argument("--radius-nm", type=int, default=20)
+    collect.add_argument("--duration", type=float, default=600, help="Seconds, up to 1800")
+    collect.add_argument(
+        "--interval",
+        type=float,
+        default=10,
+        help="Seconds between requests; respect provider limits",
+    )
+    collect.add_argument("--output", type=Path, required=True)
+    norm = commands.add_parser(
+        "normalize-adsb", help="Prepare geographic tracks from captures or historical readsb traces"
+    )
+    norm.add_argument("sources", type=Path, nargs="+")
+    norm.add_argument("--format", choices=["capture", "readsb-trace"], required=True)
+    norm.add_argument("--start", required=True, help="Start timestamp with Z or UTC offset")
+    norm.add_argument("--end", required=True, help="End timestamp with Z or UTC offset")
+    norm.add_argument(
+        "--bounds", type=float, nargs=4, metavar=("SOUTH", "WEST", "NORTH", "EAST"), required=True
+    )
+    norm.add_argument("--max-gap", type=float, default=5)
+    norm.add_argument("--output", type=Path, required=True)
+    download = commands.add_parser(
+        "download-day", help="Download one adsb.lol global UTC-day archive"
+    )
+    download.add_argument(
+        "--date", required=True, help="UTC date YYYY-MM-DD, after archive publication"
+    )
+    download.add_argument("--instance", choices=["prod-0", "prod-1", "staging-0"], default="prod-0")
+    download.add_argument("--max-gb", type=float, default=6, help="Maximum download in decimal GB")
+    download.add_argument("--output", type=Path, required=True)
+    index = commands.add_parser(
+        "index-archive", help="Stream split archive parts into a regional SQLite index"
+    )
+    index.add_argument("parts", type=Path, nargs="+")
+    area = index.add_mutually_exclusive_group(required=True)
+    area.add_argument("--region", choices=list(REGIONS))
+    area.add_argument("--bounds", type=float, nargs=4, metavar=("SOUTH", "WEST", "NORTH", "EAST"))
+    index.add_argument("--start", required=True)
+    index.add_argument("--end", required=True, help="Exclusive end timestamp with Z or UTC offset")
+    index.add_argument("--padding-km", type=float, default=30)
+    index.add_argument("--max-gap", type=float, default=30)
+    index.add_argument("--output", type=Path, required=True)
+    screen = commands.add_parser(
+        "shortlist", help="Screen regional flight pairs by relative sound-arrival timing"
+    )
+    screen.add_argument("index", type=Path)
+    screen.add_argument(
+        "--interval",
+        type=float,
+        required=True,
+        help="Seconds between two measured CPA audio landmarks",
+    )
+    screen.add_argument(
+        "--tolerance", type=float, default=10, help="Landmark interval uncertainty, in seconds"
+    )
+    screen.add_argument("--grid-km", type=float, default=5)
+    screen.add_argument("--radius-km", type=float, default=10)
+    screen.add_argument(
+        "--receiver-height",
+        type=float,
+        required=True,
+        help="Assumed WGS84 ellipsoid height, metres",
+    )
+    screen.add_argument("--sound-speed", type=float, default=343)
+    screen.add_argument("--min-speed", type=float, default=25)
+    screen.add_argument("--max-speed", type=float, default=300)
+    screen.add_argument("--max-evaluations", type=int, default=500_000_000)
+    screen.add_argument("--max-passages", type=int, default=5_000_000)
+    screen.add_argument("--max-pairs", type=int, default=500_000)
+    screen.add_argument("--output", type=Path, required=True)
+    export = commands.add_parser(
+        "export-candidate", help="Prepare a shortlisted pair for local matching and review"
+    )
+    export.add_argument("index", type=Path)
+    export.add_argument("screening", type=Path)
+    export.add_argument("--candidate", type=int, required=True)
+    export.add_argument("--window", type=float, default=180)
+    export.add_argument("--output", type=Path, required=True)
     return root
 
 
 def main(argv=None):
     args = parser().parse_args(argv)
+    last_update = [0.0]
+
+    def status(value):
+        if time.monotonic() - last_update[0] >= 10:
+            print(json.dumps(value), file=sys.stderr, flush=True)
+            last_update[0] = time.monotonic()
+
     try:
         if args.command == "demo":
             path = create_case(args.output, args.seed, args.noise_only, args.source_drift_hz)
@@ -146,6 +242,87 @@ def main(argv=None):
             count = import_tracks(args.source, args.output, args.origin, args.time_origin)
             print(
                 f"Converted {count} samples. Record this origin/time basis in your case manifest."
+            )
+        elif args.command == "capture-adsb":
+            print(
+                f"Capturing current aircraft positions to {args.output}; no audio is recorded.",
+                flush=True,
+            )
+            result = capture(
+                args.output,
+                args.latitude,
+                args.longitude,
+                args.radius_nm,
+                args.duration,
+                args.interval,
+            )
+            print(json.dumps(result, indent=2))
+            if result["status"] != "complete":
+                return 130
+        elif args.command == "normalize-adsb":
+            result = normalize(
+                args.sources,
+                args.output,
+                args.format,
+                args.start,
+                args.end,
+                args.bounds,
+                args.max_gap,
+            )
+            print(json.dumps(result, indent=2))
+            if not result["segments"]:
+                print(
+                    "No usable segments. Review summary.json; no geometry-ready tracks were produced.",
+                    file=sys.stderr,
+                )
+                return 2
+        elif args.command == "download-day":
+            result = download_day(
+                args.date,
+                args.output,
+                args.instance,
+                args.max_gb,
+                lambda done, total: status({"downloaded_bytes": done, "total_bytes": total}),
+            )
+            print(json.dumps(result, indent=2))
+        elif args.command == "index-archive":
+            result = build_index(
+                args.parts,
+                args.output,
+                REGIONS[args.region] if args.region else args.bounds,
+                args.start,
+                args.end,
+                args.padding_km,
+                args.max_gap,
+                status,
+            )
+            print(json.dumps(result, indent=2))
+        elif args.command == "shortlist":
+            result = shortlist(
+                args.index,
+                args.output,
+                args.interval,
+                args.tolerance,
+                args.grid_km,
+                args.radius_km,
+                args.receiver_height,
+                args.sound_speed,
+                args.min_speed,
+                args.max_speed,
+                args.max_evaluations,
+                args.max_passages,
+                args.max_pairs,
+                status,
+            )
+            print(json.dumps(result, indent=2))
+        elif args.command == "export-candidate":
+            print(
+                json.dumps(
+                    export_candidate(
+                        args.index, args.screening, args.candidate, args.output, args.window
+                    ),
+                    indent=2,
+                )
             )
     except (ValueError, KeyError, OSError, subprocess.SubprocessError) as error:
         print(f"Error: {error}", file=sys.stderr)

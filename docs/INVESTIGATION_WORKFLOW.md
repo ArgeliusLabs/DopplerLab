@@ -9,7 +9,11 @@ unique answer. A city and precise recording time make the first controlled test 
 local matching stage using analyst-supplied tracks. It does not yet download and search
 a continent's aircraft automatically. This document explains the complete investigation
 process and explicitly identifies the stages that still require external preparation
-or future development. The classroom lab demonstrates the local stage with fictional data.
+or future development. **The 0.2.0.dev1 development branch now implements archive
+download, regional indexing, coarse interval screening and a local handoff.** See the
+[runnable broad-search guide](BROAD_SEARCH.md) for commands and limits. Those additions
+are separate from the v0.1.0 release and remain experimental. The classroom lab
+demonstrates the local stage with fictional data.
 
 ## What the video actually knew
 
@@ -87,7 +91,8 @@ Respect live API request limits; a fast polling loop is not an unrestricted data
 
 ### 3. Build a regional and temporal candidate index
 
-This stage is **not implemented in v0.1.0**. A broad-search implementation should parse
+This stage is **not implemented in v0.1.0**, and is now available experimentally on
+the development branch. A broad-search implementation should parse
 the archive incrementally, preserve raw evidence and split aircraft histories into
 continuous segments. Keep points around region and time boundaries so filtering does
 not cut away the approach, departure or sound-delay context. Include flights crossing
@@ -151,7 +156,7 @@ ambiguous and unsupported cases as such. The [field protocol](FIELD_PROTOCOL.md)
 describes how to evaluate against hidden recording truth; real-world accuracy remains
 unvalidated in the published release.
 
-## What is automatic today?
+## What is automatic in the published v0.1.0 release?
 
 | Stage | v0.1.0 status |
 | --- | --- |
@@ -167,3 +172,5 @@ unvalidated in the published release.
 The next broad-search contribution should be evaluated as its own stage: bytes read,
 coverage, rejected records, shortlist size, wall time, peak memory and whether the
 true held-out area survives. Download speed is not a substitute for that benchmark.
+
+For development-branch functionality and its resource limits, use [BROAD_SEARCH.md](BROAD_SEARCH.md).

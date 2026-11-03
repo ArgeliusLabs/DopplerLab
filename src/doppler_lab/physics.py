@@ -45,7 +45,7 @@ class Track:
             raise ValueError("Model sampling interval must be positive.")
         n = int(np.ceil((self.times[-1] - self.times[0]) / step_s)) + 1
         if n > 200_000:
-            raise ValueError("Track is too long for this local teaching solver; trim it first.")
+            raise ValueError("Track is too long for this local solver; trim it first.")
         t = np.linspace(self.times[0], self.times[-1], n)
         return SampledTrack(self.name, t, self.interpolator(t), self.interpolator(t, 1))
 

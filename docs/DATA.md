@@ -9,6 +9,9 @@ If the location is initially only a country or continent, start with the
 [investigation workflow](INVESTIGATION_WORKFLOW.md). For daily archive acquisition,
 download times and disk requirements, see [download and storage](DATA_VOLUME.md).
 This page covers preparing the smaller case after candidate selection.
+The development branch's [broad-search guide](BROAD_SEARCH.md) documents acquisition,
+regional screening and `export-candidate`; [native builds](BINARIES.md) can run that CLI
+without a separate Python installation once their platform checks pass.
 
 ## Keep a provenance record
 

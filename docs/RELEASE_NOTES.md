@@ -1,4 +1,26 @@
-# Argelius Doppler Lab v0.1.0
+# Development candidate: 0.2.0.dev1
+
+The development branch adds daily adsb.lol archive downloads, streaming regional
+indexes, two-flyover timing shortlists and a local track handoff. Every stage records
+source hashes, assumptions, work limits and completion state. Candidate areas still
+require analyst-reviewed audio and detailed local matching.
+
+Windows x86-64, Linux x86-64, Intel Mac and Apple Silicon binaries are built and smoke
+tested on their respective GitHub runners. Successful workflow runs provide temporary
+build artifacts. A future manual release can attach all four native archives, license
+notices and checksums alongside the source/student packages.
+
+The local regression suite contains 37 passing tests. The downloaded November 2 global
+archive is 3.502 GB and took 4 minutes 52 seconds on the development connection. Regional
+indexing and screening are benchmarked separately. This is not field-accuracy evidence.
+
+**No new release is authorized until two original recording cases have been validated.**
+Those recordings are not yet available. Development pushes no longer publish releases
+automatically, and the manual publishing job rejects `.dev` versions. The existing
+v0.1.0 assets remain available. See [broad-search instructions](BROAD_SEARCH.md),
+[native builds](BINARIES.md) and [validation](VALIDATION.md).
+
+## Historical notes: v0.1.0
 
 The first experimental community release: an offline aircraft Doppler matching
 toolkit and a 110-minute lab for intermediate OSINT students, inspired by

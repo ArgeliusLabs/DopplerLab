@@ -28,12 +28,13 @@ enough detail for others to reproduce a result.
    units, coordinate references, time semantics and gap handling. Do not bundle restricted databases.
 4. **Measurement workflow.** Improve ridge annotation and preserve the analyst's event
    choices in a reproducible record.
-5. **Broader search.** Implement the candidate-selection stage described in the
+5. **Broader search.** Validate and extend the experimental candidate-selection stage described in the
    [investigation workflow](INVESTIGATION_WORKFLOW.md): regional track indexing,
    relative flyover timing, conservative screening and auditable local shortlists.
-   Include complete-search accounting, resource limits, terrain support and validation
-   of the local model. [Archive sizes](DATA_VOLUME.md) are verified; nationwide search
-   runtime and regional storage have not yet been benchmarked.
+   The development branch now provides downloads, streaming indexes, coarse timing
+   shortlists, resource accounting and a local handoff. Terrain support, cross-day
+   pairing, automatic audio measurement and field completeness still need work.
+   See [commands and limits](BROAD_SEARCH.md) and [data measurements](DATA_VOLUME.md).
 
 These are open priorities, not promised features or deadlines. Keep the core toolkit easy
 to install and run offline. New claims of accuracy must be supported by an independently

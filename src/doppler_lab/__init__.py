@@ -1,3 +1,3 @@
-"""Argelius Labs' offline, inspectable Doppler teaching toolkit."""
+"""Argelius Labs' aircraft-audio investigation toolkit."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0.dev1"
