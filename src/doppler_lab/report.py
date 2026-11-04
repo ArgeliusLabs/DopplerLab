@@ -234,6 +234,6 @@ candidates.csv; these alternatives are descriptive and are not independent stati
 <pre>{escape(json.dumps(case.hashes, indent=2))}</pre></details>
 <footer>Argelius Doppler Lab {__version__} · Offline report · {result["elapsed_s"]:.2f} seconds of search.
 Inspired by <a href="https://www.youtube.com/watch?v=UytYrhYLOKI">colsto's aircraft Doppler demonstration</a>.
-Original teaching implementation; no affiliation or endorsement implied.</footer></main></body></html>"""
+Original implementation by Argelius Labs; no affiliation or endorsement implied.</footer></main></body></html>"""
     (output / "report.html").write_text(page, encoding="utf-8")
     return output / "report.html"

@@ -1,17 +1,18 @@
 # Argelius Doppler Lab
 
-![Argelius Doppler Lab: aircraft sounds, testable hypotheses](assets/banner.svg)
+![Argelius Doppler Lab: open source, built for investigations](assets/investigation-banner.svg)
 
 **Turn aircraft sounds into testable location hypotheses. Learn when the evidence is insufficient.**
 
-An open-source aircraft-audio investigation toolkit, with a 110-minute OSINT teaching lab, inspired by
+An open-source aircraft-audio investigation toolkit for OSINT practitioners, inspired by
 [colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
 Original implementation by Argelius Labs. No affiliation with colsto is implied.
 
-The package generates fictional flight tracks and noisy audio, predicts the sound each
-candidate microphone position would receive, and ranks the matches under one shared
-recording clock. Every run produces an inspectable HTML report, spectrogram overlays,
-a score map, complete candidate CSV and a JSON record with input hashes.
+Acquire aircraft trajectories, screen flyover timing across a supported search area,
+and compare candidate recorder locations against observed Doppler curves. Preserve the
+recording clock, source hashes, assumptions and competing explanations in inspectable
+reports. Generated practice data and optional teaching materials support learning the
+investigation workflow.
 
 **Status: experimental release — testing in progress.** Automated checks and real-data
 archive/search benchmarks have passed. Original-recording field tests are still being
@@ -36,7 +37,7 @@ produce test artifacts; publication requires an explicit release action.
 
 ## Build it with us
 
-This is an early community project. Corrections, reproducible failures, classroom
+This is an early community project. Corrections, reproducible failures, practitioner
 feedback and careful field validation are welcome. Start with the
 [community roadmap](docs/ROADMAP.md) and [contribution guide](CONTRIBUTING.md).
 Use [Issues](https://github.com/ArgeliusLabs/DopplerLab/issues) for bugs, proposals,
@@ -44,7 +45,7 @@ questions and shared experiments. Include unsuccessful experiments too.
 
 [Download the experimental release](https://github.com/ArgeliusLabs/DopplerLab/releases)
 for native Windows/Linux/macOS executables, the source ZIP, student pack, Python wheel
-and checksums. Every v0.2.1 native archive includes the quick start and guided practice.
+and checksums. Current native archives include the quick start and guided practice.
 
 ## Start in five minutes
 
@@ -134,7 +135,7 @@ The [portable student pack guide](docs/STUDENT_PACK.md) describes the interpreta
 | Audio constraints | Filter existing candidates by separate speed/slant bounds for each flyover, with source hashes and retained alternatives |
 | Local handoff | Export candidate tracks, coordinate origin and time basis for analyst-reviewed local matching |
 | Evidence | Source hashes, full configuration, per-event scores, spatial alternatives, unsupported trials |
-| Classroom | Student handout, instructor guide, answer key, rubric, extensions and a blind field protocol |
+| Optional teaching materials | Student handout, instructor guide, answer key, rubric, extensions and a blind field protocol |
 
 Start with [the investigation workflow](docs/INVESTIGATION_WORKFLOW.md),
 [the public guide](docs/GUIDE.md), or [the research review](docs/RESEARCH.md).
@@ -180,5 +181,5 @@ terrain retain their own licenses; they are not bundled or relicensed by this pr
 
 Related work: [DOPPLERGEIST](https://github.com/1337isnot1337/DOPPLERGEIST) is a separate,
 broader experimental implementation. This repository emphasizes inspectable investigation
-experiments, auditable candidate preparation and a reproducible classroom lab. No source
+workflows, auditable candidate preparation and transparent reports. No source
 code from that project was copied.

@@ -1,7 +1,8 @@
 # Argelius Doppler Lab — start here
 
-This folder contains the experimental aircraft-audio investigation toolkit prepared for
-Argelius Labs, with a classroom lab inspired by colsto's aircraft Doppler video.
+This folder contains Argelius Labs' experimental aircraft-audio investigation toolkit
+for OSINT practitioners, inspired by colsto's aircraft Doppler video. Optional practice
+and teaching materials accompany the investigation workflow.
 
 | Start with | What you get |
 | --- | --- |

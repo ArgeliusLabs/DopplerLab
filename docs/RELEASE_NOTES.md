@@ -1,58 +1,44 @@
-# v0.2.1 — native quick start and guided practice
+# v0.2.2 — built for investigations
 
-**Experimental — testing in progress.** Automated checks and archived-flight processing
-benchmarks are complete; original-recording location accuracy remains unvalidated.
+**Experimental — testing in progress.** Argelius Doppler Lab is an aircraft-audio
+investigation toolkit for OSINT practitioners. Real-recording location accuracy remains
+unvalidated; the existing automated checks and archive-processing benchmarks are documented.
 
-## Start here
+## Branding corrections
 
-- [Five-minute quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.1/QUICKSTART.md): choose a binary, extract it, open a terminal, generate a fictional case and view the report.
-- [15–20 minute guided practice](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.1/docs/PRACTICE.md): inspect both flyovers, compare candidate locations, run a noise-only control and check your assessment.
+The banner now reads **OPEN SOURCE · BUILT FOR INVESTIGATIONS**. The README and start
+page lead with acquiring aircraft trajectories, screening candidate areas, comparing
+Doppler curves and preserving evidence. Reports use neutral implementation attribution.
 
-Both work without installing Python, buying flight data or supplying a recording. The
-executable generates the fictional audio and tracks locally; the practice runs offline.
+Guided practice and classroom materials remain optional resources for learning and
+teaching the investigation workflow. They do not define the tool's primary purpose.
+The analysis algorithms and candidate-scoring behavior are unchanged.
 
-## What changed
+## Get started
 
-Every native archive now opens with a quick-start `README.md` and also contains
-`QUICKSTART.md`, `docs/PRACTICE.md` and `docs/BINARIES.md`. The instructions stay with the
-download. Source and student packages include the same guides.
+- [Native quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.2/QUICKSTART.md)
+- [Investigation workflow](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.2/docs/INVESTIGATION_WORKFLOW.md)
+- [Guided practice](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.2/docs/PRACTICE.md)
 
-The repository home page now starts with native downloads and the guided practice.
-The full 110-minute lab's core steps use the native executable and a text editor;
-Python is only needed for optional source helpers and benchmark scripts. The short
-practice contains a clearly marked self-check for the default fictional fixture.
+The quick start and practice guides remain bundled in every native archive.
 
-This is a documentation and packaging update. The Doppler model, archive-processing
-logic and candidate-scoring behavior are unchanged from v0.2.0. Existing v0.2.0 binaries
-can follow the new walkthrough too.
+## Downloads
 
-## Native downloads
+- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-windows-x86_64.zip)
+- [Linux x86-64 archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-linux-x86_64.tar.gz)
+- [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-macos-x86_64.tar.gz)
+- [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-macos-arm64.tar.gz)
 
-- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-windows-x86_64.zip)
-- [Linux x86-64 archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-linux-x86_64.tar.gz)
-- [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-x86_64.tar.gz)
-- [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-arm64.tar.gz)
+The source ZIP, student pack, Python wheel, source distribution, inventory and checksums
+are also included. Native packages contain build provenance and dependency notices.
+See [platform requirements](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.2/docs/BINARIES.md).
 
-Also included: source ZIP, student pack, Python wheel, source distribution, source
-inventory and `SHA256SUMS.txt`. Native packages contain dependency license notices and
-build provenance. Builds are unsigned and not notarized; see the
-[native guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.1/docs/BINARIES.md)
-for tested platforms and requirements. Video extraction needs separate FFmpeg; the
-fictional practice does not.
+Publication requires all 39 regression tests across the Windows/Linux matrix, package
+checks and native executable checks on all four supported platforms. The corrected
+SVG was rendered and visually checked; the static example report's input hashes remain
+unchanged. Existing versioned releases remain available.
 
-## Validation and next steps
-
-Publication requires the 39-test Windows/Linux matrix, source/student package checks,
-and native executable smoke checks on Windows, Linux, Intel Mac and Apple Silicon.
-The guides distinguish a ranked hypothesis from an accepted location, including the
-noise-only example where the search still has a winner.
-
-See the [real-data benchmark](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.1/docs/REAL_DATA_BENCHMARK.md)
-and [validation record](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.2.1/docs/VALIDATION.md)
-for completed checks and remaining field work. Reproducible community feedback is welcome
+Original implementation by Argelius Labs, inspired by
+[colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
+No affiliation or endorsement is implied. Community investigation feedback is welcome
 in [Issues](https://github.com/ArgeliusLabs/DopplerLab/issues).
-
-Inspired by [colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
-Original implementation by Argelius Labs; no affiliation is implied. Code and generated
-fixtures are MIT-licensed; third-party data retain their own terms. The previous
-[v0.2.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.2.0) remains available.

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">Argelius Doppler Lab</title>
-  <desc id="desc">Aircraft sounds. Testable hypotheses. A practical OSINT lab.</desc>
+  <desc id="desc">Aircraft-audio OSINT for practitioners. Open source. Built for investigations.</desc>
   <rect width="1200" height="360" fill="#142539"/>
   <rect y="354" width="1200" height="6" fill="#ef7e46"/>
   <g stroke="#2a4056" stroke-width="1">
@@ -16,6 +16,6 @@
     <text x="64" y="79" fill="#9fb5c7" font-size="16" letter-spacing="4">ARGELIUS LABS / SIGNAL &amp; EVIDENCE</text>
     <text x="60" y="165" fill="#ffffff" font-size="65" font-weight="700">Doppler Lab</text>
     <text x="64" y="218" fill="#d0dce6" font-size="23">Aircraft sounds. Testable hypotheses.</text>
-    <text x="64" y="291" fill="#72e4c3" font-size="16">OPEN SOURCE · OFFLINE · BUILT FOR THE CLASSROOM</text>
+    <text x="64" y="291" fill="#72e4c3" font-size="16">OPEN SOURCE · BUILT FOR INVESTIGATIONS</text>
   </g>
 </svg>

@@ -32,7 +32,7 @@ def parser():
     )
     root.add_argument("--version", action="version", version=__version__)
     commands = root.add_subparsers(dest="command", required=True)
-    demo = commands.add_parser("demo", help="Generate an original fictional classroom case")
+    demo = commands.add_parser("demo", help="Generate an original fictional practice case")
     demo.add_argument("--output", type=Path, required=True)
     demo.add_argument("--seed", type=int, default=7)
     demo.add_argument("--noise-only", action="store_true")

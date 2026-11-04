@@ -10,20 +10,20 @@ location accuracy remains unvalidated.
 
 ## 1. Download your build
 
-Use the [v0.2.1 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.2.1).
+Use the [v0.2.2 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.2.2).
 Choose one native archive, then extract it into a folder you can write to, such as Downloads:
 
 | Your computer | Download |
 | --- | --- |
-| Windows, Intel/AMD 64-bit | [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-windows-x86_64.zip) |
-| Mac with Apple Silicon, such as M1/M2/M3/M4 | [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-arm64.tar.gz) |
-| Mac with an Intel processor | [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-x86_64.tar.gz) |
-| Linux, Intel/AMD 64-bit | [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-linux-x86_64.tar.gz) |
+| Windows, Intel/AMD 64-bit | [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-windows-x86_64.zip) |
+| Mac with Apple Silicon, such as M1/M2/M3/M4 | [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-macos-arm64.tar.gz) |
+| Mac with an Intel processor | [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-macos-x86_64.tar.gz) |
+| Linux, Intel/AMD 64-bit | [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.2/doppler-lab-0.2.2-linux-x86_64.tar.gz) |
 
 The native archive contains the executable. GitHub's automatic **Source code** downloads
 contain source, not a precompiled application. Keep the bundled license files.
 See [platform requirements and checksum instructions](docs/BINARIES.md) if needed.
-These commands also work with the earlier v0.2.0 binaries.
+These commands also work with earlier 0.2.x binaries.
 
 ## 2. Open a terminal in the executable's folder
 
@@ -87,7 +87,7 @@ You can also open `practice/report/report.html` with your browser's file-open co
 On a machine without a desktop, copy the HTML file to a computer with a browser; its
 plots are embedded. No local web server is needed.
 
-**Checkpoint:** the version should say `0.2.1` (or `0.2.0` for the earlier release).
+**Checkpoint:** the version should say `0.2.2`; earlier 0.2.x binaries also support these commands.
 The report should show **289 declared locations**, **2 independent flyovers**, a
 spectrogram, a location score map, and **Accepted location: no**. That last label is
 expected: a ranked hypothesis is not an independently verified location.
