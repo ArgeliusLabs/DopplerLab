@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "status": "terrain_pipeline_checked_audio_validation_pending",
+  "user_facing_date": "2026-11-03",
+  "timezone": "America/Phoenix",
+  "tool_version": "0.3.0",
+  "recording_used": false,
+  "accepted_location": false,
+  "download": {
+    "schema_version": 1,
+    "tool_version": "0.3.0",
+    "status": "complete",
+    "provider": "USGS 3DEP",
+    "dataset": "National Elevation Dataset (NED) 1/3 arc-second Current",
+    "bounds": [
+      32.1,
+      -111.15,
+      32.55,
+      -110.55
+    ],
+    "source_crs": "EPSG:5498",
+    "target_crs": "EPSG:4979",
+    "source_height_units": "metres",
+    "sampling": "bilinear; no nodata substitution",
+    "query_url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=National+Elevation+Dataset+%28NED%29+1%2F3+arc-second+Current&bbox=-111.152%2C32.098%2C-110.548%2C32.552&prodFormats=GeoTIFF&max=100",
+    "query_sha256": "b12d4d477f00c239a62dab9ddc0023c37b81a955c3c4604afd2c5da3a70a54bb",
+    "created_utc": "2026-11-04T01:09:05.957966+00:00",
+    "tiles": [
+      {
+        "name": "USGS_13_n33w111_20261027.tif",
+        "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n33w111/USGS_13_n33w111_20261027.tif",
+        "expected_bytes": 443259865,
+        "bounds": [
+          31.999444443806908,
+          -111.00055555639324,
+          33.00055555599499,
+          -109.99944444420515
+        ],
+        "title": "USGS 1/3 Arc Second n33w111 20261027",
+        "source_id": "6ae2ab081ba49b24c5984e5a",
+        "metadata_url": "https://www.sciencebase.gov/catalog/item/6ae2ab081ba49b24c5984e5a",
+        "publication_date": "2026-10-27",
+        "bytes": 443259865,
+        "sha256": "bdf3a0751fbc9d31c20b472498d7a6bf87146364b2f8de09787b9be96571505a",
+        "raster": {
+          "crs": "GEOGCS[\"NAD83\",DATUM[\"North_American_Datum_1983\",SPHEROID[\"GRS 1980\",6378137,298.257222101004,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"6269\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4269\"]]",
+          "shape": [
+            10812,
+            10812
+          ],
+          "resolution_deg": [
+            9.259259269220167e-05,
+            9.259259269220167e-05
+          ],
+          "nodata": -999999.0
+        }
+      },
+      {
+        "name": "USGS_13_n33w112_20260601.tif",
+        "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/historical/n33w112/USGS_13_n33w112_20260601.tif",
+        "expected_bytes": 382514757,
+        "bounds": [
+          31.999444443806908,
+          -112.00055555619338,
+          33.00055555599499,
+          -110.99944444400529
+        ],
+        "title": "USGS 1/3 Arc Second n33w112 20260601",
+        "source_id": "6a1e3b91b66b019f32f2b339",
+        "metadata_url": "https://www.sciencebase.gov/catalog/item/6a1e3b91b66b019f32f2b339",
+        "publication_date": "2026-06-01",
+        "bytes": 382514757,
+        "sha256": "54a6273d1c54a8c181063ac2c27b6df2468b3f930be32ae89da66b69830ce055",
+        "raster": {
+          "crs": "GEOGCS[\"NAD83\",DATUM[\"North_American_Datum_1983\",SPHEROID[\"GRS 1980\",6378137,298.257222101004,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"6269\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4269\"]]",
+          "shape": [
+            10812,
+            10812
+          ],
+          "resolution_deg": [
+            9.259259269220167e-05,
+            9.259259269220167e-05
+          ],
+          "nodata": -999999.0
+        }
+      }
+    ],
+    "operation": {
+      "description": "NAD83 to NAD83(HARN) (2) + Inverse of NAD83(HARN) to NAVD88 height (6) + NAD83(HARN) to WGS 84 (3)",
+      "accuracy_m": 1.1,
+      "pipeline": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=hgridshift +grids=us_noaa_azhpgn.tif +step +proj=vgridshift +grids=us_noaa_g1999u06.tif +multiplier=1 +step +proj=cart +ellps=GRS80 +step +proj=helmert +x=-0.991 +y=1.9072 +z=0.5129 +rx=-0.0257899075194932 +ry=-0.0096500989602704 +rz=-0.0116599432323421 +s=0 +convention=coordinate_frame +step +inv +proj=cart +ellps=WGS84 +step +proj=unitconvert +xy_in=rad +xy_out=deg +step +proj=axisswap +order=2,1",
+      "axis_order": "latitude_longitude_height",
+      "grids": [
+        {
+          "name": "us_noaa_azhpgn.tif",
+          "url": "https://cdn.proj.org/us_noaa_azhpgn.tif",
+          "bytes": 8939,
+          "sha256": "8f68eab36ba65b54e87b850a83f14eddab08b9a0d85abf70c912838beb06d038"
+        },
+        {
+          "name": "us_noaa_g1999u06.tif",
+          "url": "https://cdn.proj.org/us_noaa_g1999u06.tif",
+          "bytes": 2594890,
+          "sha256": "290f3c6480473d7ab5b533bf96e922c390a3b358460796512baaf5a4039a6c8e"
+        }
+      ],
+      "area": [
+        31.33,
+        -112.0,
+        37.01,
+        -109.04
+      ]
+    },
+    "versions": {
+      "pyproj": "3.8.0",
+      "proj": "9.8.1",
+      "rasterio": "1.5.2",
+      "gdal": "3.12.2"
+    },
+    "licenses": [
+      "USGS 3DEP: public domain",
+      "Correction grids: see PROJ-data us_noaa_README.txt"
+    ],
+    "limitations": [
+      "Terrain elevations do not model acoustic blockage, reflections, wind or refraction.",
+      "Operation accuracy describes the coordinate transformation, not DEM or location accuracy.",
+      "The DEM represents bare ground; specify the microphone height separately."
+    ],
+    "grid_notice": {
+      "name": "grids/us_noaa_README.txt",
+      "url": "https://cdn.proj.org/us_noaa_README.txt",
+      "bytes": 19653,
+      "sha256": "38561c43f20756a77d33406c54cda8c250d18b6b30bff1e00ff51578e3682723"
+    },
+    "elapsed_s": 137.089,
+    "downloaded_bytes": 828398104
+  },
+  "terrain_manifest_sha256": "89f8e04acd98a08f56dda0d24ab5d5ce3623c0ad8a6210cabdef4eaee80c795a",
+  "screen": {
+    "index_sha256": "445c57dc939e3ee0ddd51167fb858d20b24bc02092701a6940eccd9c4eb02ddf",
+    "interval_s": 920.0,
+    "tolerance_s": 10,
+    "grid_km": 1.0,
+    "radius_km": 10,
+    "receiver_nodes": 1707,
+    "receiver_height_range_m": [
+      614.9319078158587,
+      2729.908374211751
+    ],
+    "elapsed_s": 13.049,
+    "counts": {
+      "edge_receiver_evaluations": 7850859,
+      "max_evaluations": 500000000,
+      "speed_filtered_edges": 4048,
+      "segments_processed": 2326,
+      "passages": 212533,
+      "merged_nearby_minima": 35042,
+      "candidates": 54200
+    },
+    "candidates_sha256": "6f5fb327330530528045165f848ac8ed60f47ba461611708a372c58e86eee1d1"
+  },
+  "flat_comparison": {
+    "receiver_height_m": 0.0,
+    "candidates": 51156,
+    "note": "Same index and search parameters; earlier run. Timings are not a controlled performance comparison."
+  },
+  "local_receivers": {
+    "bounds": [
+      32.27,
+      -110.86,
+      32.37,
+      -110.74
+    ],
+    "spacing_m": 100.0,
+    "origin_wgs84": [
+      32.32,
+      -110.8,
+      1077.8906291592866
+    ],
+    "observer_count": 12882,
+    "height_range_m": [
+      724.7260886663571,
+      2086.8390920925885
+    ],
+    "observers_sha256": "1b3f9a6975c51fa3de4673e8fda909936b5c05d032f8790efe8d6fd15b89dc4d",
+    "geographic_sha256": "a9f28f162e6325fa81dc23c7cf8d110490b10f45eb3a99c713b9650d4e18bb5c"
+  },
+  "usgs_service_checks": [
+    {
+      "latitude_nad83": 32.3,
+      "longitude_nad83": -110.8,
+      "local_dem_navd88_m": 811.6275634765625,
+      "epqs": {
+        "location": {
+          "x": -110.8,
+          "y": 32.3,
+          "spatialReference": {
+            "wkid": 4269,
+            "latestWkid": 4269
+          }
+        },
+        "locationId": 0,
+        "value": "811.625854492",
+        "rasterId": 118072,
+        "resolution": 1,
+        "attributes": {
+          "AcquisitionDate": "10/6/2021"
+        }
+      },
+      "url": "https://epqs.nationalmap.gov/v1/json?x=-110.8&y=32.3&units=Meters&wkid=4269&includeDate=true",
+      "difference_m": 0.0017089845624695954
+    },
+    {
+      "latitude_nad83": 32.35,
+      "longitude_nad83": -110.8,
+      "local_dem_navd88_m": 1288.6982421875,
+      "epqs": {
+        "location": {
+          "x": -110.8,
+          "y": 32.35,
+          "spatialReference": {
+            "wkid": 4269,
+            "latestWkid": 4269
+          }
+        },
+        "locationId": 0,
+        "value": "1286.884887695",
+        "rasterId": 118072,
+        "resolution": 1,
+        "attributes": {
+          "AcquisitionDate": "10/6/2021"
+        }
+      },
+      "url": "https://epqs.nationalmap.gov/v1/json?x=-110.8&y=32.35&units=Meters&wkid=4269&includeDate=true",
+      "difference_m": 1.8133544924999114
+    },
+    {
+      "latitude_nad83": 32.4,
+      "longitude_nad83": -110.75,
+      "local_dem_navd88_m": 2193.41748046875,
+      "epqs": {
+        "location": {
+          "x": -110.75,
+          "y": 32.4,
+          "spatialReference": {
+            "wkid": 4269,
+            "latestWkid": 4269
+          }
+        },
+        "locationId": 0,
+        "value": "2191.811767578",
+        "rasterId": 128314,
+        "resolution": 1,
+        "attributes": {
+          "AcquisitionDate": "10/6/2021"
+        }
+      },
+      "url": "https://epqs.nationalmap.gov/v1/json?x=-110.75&y=32.4&units=Meters&wkid=4269&includeDate=true",
+      "difference_m": 1.6057128907500555
+    }
+  ],
+  "interpretation": [
+    "The 920-second interval is hypothetical, not measured from a recording.",
+    "USGS EPQS returned 1-metre source resolutions; the downloaded DEM is approximately 10 metres.",
+    "Point-service agreement checks sampling/reference handling, not survey accuracy or audio geolocation.",
+    "No private recording, address or ground truth was used or published."
+  ]
+}

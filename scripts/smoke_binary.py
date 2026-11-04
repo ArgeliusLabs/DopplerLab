@@ -2,6 +2,7 @@
 
 import argparse
 import gzip
+import hashlib
 import io
 import json
 import math
@@ -10,6 +11,72 @@ import subprocess
 import tarfile
 import tempfile
 from pathlib import Path
+
+import numpy as np
+import rasterio
+from rasterio.transform import from_origin
+
+
+def terrain_fixture(root):
+    """Small invented DEM/geoid; no network and no real elevation-data dependency."""
+    folder = root / "fictional terrain"
+    (folder / "grids").mkdir(parents=True)
+    values = (400 + np.arange(64)[:, None] + np.arange(64)[None, :]).astype("float32")
+    for name, crs, transform, data in [
+        ("dem.tif", "EPSG:4269", from_origin(-110.83, 32.33, 0.001, 0.001), values),
+        (
+            "grids/geoid.tif",
+            "EPSG:4326",
+            from_origin(-112, 34, 0.5, 0.5),
+            np.full((8, 8), -30, dtype="float32"),
+        ),
+    ]:
+        with rasterio.open(
+            folder / name,
+            "w",
+            driver="GTiff",
+            width=data.shape[1],
+            height=data.shape[0],
+            count=1,
+            dtype="float32",
+            crs=crs,
+            transform=transform,
+        ) as dst:
+            dst.write(data, 1)
+            if "geoid" in name:
+                dst.update_tags(TYPE="VERTICAL_OFFSET_GEOGRAPHIC_TO_VERTICAL")
+                dst.set_band_description(1, "geoid_undulation")
+
+    def record(path):
+        return {
+            "name": path.name,
+            "bytes": path.stat().st_size,
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        }
+
+    info = {
+        "schema_version": 1,
+        "status": "complete",
+        "provider": "fictional native fixture",
+        "source_crs": "EPSG:5498",
+        "target_crs": "EPSG:4979",
+        "bounds": [32.27, -110.825, 32.325, -110.77],
+        "sampling": "bilinear",
+        "limitations": ["Invented DEM/geoid; never use for real observations."],
+        "tiles": [record(folder / "dem.tif")],
+        "operation": {
+            "axis_order": "latitude_longitude_height",
+            "accuracy_m": 0,
+            "pipeline": "+proj=pipeline +step +proj=axisswap +order=2,1 "
+            "+step +proj=unitconvert +xy_in=deg +xy_out=rad "
+            "+step +proj=vgridshift +grids=geoid.tif +multiplier=1 "
+            "+step +proj=unitconvert +xy_in=rad +xy_out=deg "
+            "+step +proj=axisswap +order=2,1",
+            "grids": [record(folder / "grids/geoid.tif")],
+        },
+    }
+    (folder / "terrain.json").write_text(json.dumps(info), encoding="utf-8")
+    return folder
 
 
 def main():
@@ -36,6 +103,35 @@ def main():
             )
 
         print(run("--version").stdout.strip())
+        terrain_fixture(root)
+        point = json.loads(
+            run(
+                "terrain-point",
+                "fictional terrain",
+                "--latitude",
+                "32.3195",
+                "--longitude",
+                "-110.8195",
+                "--microphone-height",
+                "2",
+            ).stdout
+        )
+        assert abs(point["receiver_height_ellipsoid_m"] - 392) < 1e-5
+        run(
+            "prepare-observers",
+            "fictional terrain",
+            "--bounds",
+            "32.29",
+            "-110.81",
+            "32.31",
+            "-110.79",
+            "--spacing-m",
+            "500",
+            "--output",
+            "observers",
+        )
+        prepared = json.loads((root / "observers/observers.json").read_text())
+        assert prepared["status"] == "complete" and prepared["observer_count"] > 4
         run("capture-adsb", "--help")
         run("normalize-adsb", "--help")
         run("download-day", "--help")
@@ -81,8 +177,8 @@ def main():
             "920",
             "--grid-km",
             "1",
-            "--receiver-height",
-            "400",
+            "--terrain",
+            "fictional terrain",
             "--output",
             "screen",
         )
@@ -99,6 +195,7 @@ def main():
         )
         screening = json.loads((root / "screen/screening.json").read_text())
         assert screening["status"] == "complete" and screening["counts"]["candidates"] > 0
+        assert screening["terrain"]["provider"] == "fictional native fixture"
         run(
             "filter-candidates",
             "screen",
@@ -140,7 +237,7 @@ def main():
             encoding="utf-8"
         )
         print(
-            "Bundled CLI passed: archive indexing, shortlist, handoff, audio inspection, matching and report."
+            "Bundled CLI passed: DEM/geoid reading, observers, archive indexing, terrain shortlist, handoff, audio inspection, matching and report."
         )
 
 

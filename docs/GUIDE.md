@@ -71,7 +71,8 @@ the native quick start or guided practice.
 
 This refines one local mode. It does not prove that mode is globally correct. Compare
 several spatial alternatives and preserve the broader result. Flat-grid refinement
-is supported by the helper; terrain-aware observer sets need explicit preparation.
+is supported by the helper. For terrain-aware refinement, run `prepare-observers` over
+a smaller area with finer spacing and the same origin; see [terrain preparation](TERRAIN.md).
 
 ## Moving to recordings you own
 

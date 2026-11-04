@@ -32,8 +32,10 @@ enough detail for others to reproduce a result.
    [investigation workflow](INVESTIGATION_WORKFLOW.md): regional track indexing,
    relative flyover timing, conservative screening and auditable local shortlists.
    Version 0.2.0 provides downloads, streaming indexes, coarse timing
-   shortlists, resource accounting and a local handoff. Terrain support, cross-day
-   pairing, automatic audio measurement and field completeness still need work.
+   shortlists, resource accounting and a local handoff. Version 0.3.0 adds USGS terrain
+   downloads, recorded height conversion and broad/local terrain candidates. Additional
+   terrain providers, cross-day pairing, automatic audio measurement and field completeness
+   still need work.
    See [commands and limits](BROAD_SEARCH.md) and [data measurements](DATA_VOLUME.md).
 
 These are open priorities, not promised features or deadlines. Keep the core toolkit easy

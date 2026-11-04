@@ -126,8 +126,8 @@ and explicit limits. The live two-second polling attempt on November 3 stopped a
 HTTP 429 after ten snapshots, so it does not count as a completed capture or field test.
 
 **Testing in progress:** the experimental release is available for community evaluation.
-Two initial original-recording cases are planned; those recordings have not yet been
-collected, and real-world accuracy remains unvalidated.
+Initial original-recording cases are planned. The owner reports recording an iPad video;
+it has not yet been supplied for analysis, and real-world accuracy remains unvalidated.
 Native build checks exercise archive indexing, screening and handoff, followed by
 fictional audio generation, spectrogram inspection, local matching and an embedded
 HTML report from outside the source checkout. Packaging success does not establish
@@ -150,3 +150,23 @@ The bundled README, quick start, practice and platform guide were checked for mi
 local links. Source and student archives include the new guides. These checks validate
 onboarding and packaging; they do not add field-accuracy evidence. Each published
 patch still requires the full automated and native-platform CI checks.
+
+## Terrain checks in 0.3.0
+
+The expanded suite checks bilinear pixel-centre sampling, axis order, geoid-conversion
+sign, microphone height and sensitivity offsets, observer frames, hash failures, nodata,
+bounded downloads, complete offline bundles and terrain heights carried into screening
+and local handoffs. The Windows executable passed these terrain operations through the
+native smoke workflow and matched the source implementation on the actual Tucson DEM.
+
+The Tucson acquisition retained two current USGS 3DEP tiles and the selected PROJ
+operation's correction grids: 828,398,104 downloaded bytes in 137.089 seconds. Three
+same-reference sample points differed from the independent USGS point service by
+0.002, 1.813 and 1.606 metres; that service used finer source data. This is a consistency
+check, not a survey accuracy estimate.
+
+A 1-km grid over the existing Tucson flight index produced 1,707 terrain receivers and
+54,200 coarse candidates for a hypothetical 920-second interval. A separate local grid
+prepared 12,882 terrain-following observers. Neither used the owner's recording.
+See the [terrain guide](TERRAIN.md) and
+[recorded benchmark](../examples/terrain-benchmark.json) for sources, hashes and limitations.

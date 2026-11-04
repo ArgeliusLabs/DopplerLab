@@ -130,10 +130,12 @@ More independently timed events can help; no fixed event count guarantees a solu
 
 ### 5. Run detailed local matching
 
-This is the stage DopplerLab currently implements. Prepare each shortlisted area's
+Prepare each shortlisted area's
 tracks, receiver heights and time bounds following [DATA.md](DATA.md). Use compatible
 WGS84 ellipsoid heights for aircraft and receiver, split large trajectory gaps and
 convert each local case to its declared ENU frame.
+For supported US regions, [download terrain and prepare observers](TERRAIN.md) using
+the same local origin as the aircraft tracks. Use the DEM during broad screening too.
 
 The model predicts changing frequency and sound arrival time along the actual 3D
 trajectories. All events share one recording-clock offset. A wrong flight cannot be
@@ -154,15 +156,16 @@ ambiguous and unsupported cases as such. The [field protocol](FIELD_PROTOCOL.md)
 describes how to evaluate against hidden recording truth; real-world accuracy remains
 unvalidated in the published release.
 
-## What is automatic in the experimental v0.2.0 release?
+## What is automatic in the experimental v0.3.0 release?
 
-| Stage | v0.2.0 status |
+| Stage | v0.3.0 status |
 | --- | --- |
 | WAV inspection, FFmpeg extraction, manually traced ridge fitting | Implemented |
 | Live capture or historical archive download | Implemented for adsb.lol; access limits and coverage apply |
 | Continental track index and relative-interval candidate selection | Implemented with explicit budgets and coarse-model limits |
 | Per-event speed/slant filtering and local track handoff | Implemented; audio constraints and final case require analyst review |
-| Terrain/geoid lookup and other-provider normalization | Analyst preparation |
+| USGS terrain download, correction grids and broad/local receiver heights | Implemented for bounded contiguous-US regions; [commands and limits](TERRAIN.md) |
+| Other terrain/flight providers and unsupported height references | Analyst preparation |
 | Geographic CSV to local coordinates | Implemented; explicit time and height requirements |
 | Detailed scoring of supplied local candidates | Implemented |
 | Report, input hashes and fictional controls | Implemented |

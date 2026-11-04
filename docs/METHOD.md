@@ -122,9 +122,10 @@ lie within 50 km of the local origin. These are engineering limits, not claims o
 physical accuracy over that radius. Tracks imported from geographic data share the
 same 50 km limit; custom local CSVs remain the preparer's responsibility.
 
-The solver does not index a country's flights, retrieve terrain, infer an absolute
-date, search all possible aircraft automatically, model audibility or make a final
-location decision. Use narrow, independently justified bounds. If the true source or
+Separate preparation commands index flight archives and [retrieve supported terrain](TERRAIN.md).
+The local solver does not infer an absolute date, search all possible aircraft
+automatically, model audibility or make a final location decision.
+Use narrow, independently justified bounds. If the true source or
 location is missing from them, a plausible-looking wrong winner can still emerge.
 
 ## Uncertainty and validation

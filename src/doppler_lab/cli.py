@@ -6,6 +6,9 @@ import sys
 import time
 from pathlib import Path
 
+from pyproj.exceptions import ProjError
+from rasterio.errors import RasterioError
+
 from . import __version__
 from .adsb import capture, normalize
 from .archive import download_day
@@ -24,6 +27,7 @@ from .measure import fit_ridge
 from .report import draw_spectrogram, write_report
 from .search import search
 from .synthetic import create_case
+from .terrain import Terrain, download_terrain, prepare_observers
 
 
 def parser():
@@ -105,6 +109,41 @@ def parser():
     download.add_argument("--instance", choices=["prod-0", "prod-1", "staging-0"], default="prod-0")
     download.add_argument("--max-gb", type=float, default=6, help="Maximum download in decimal GB")
     download.add_argument("--output", type=Path, required=True)
+    terrain = commands.add_parser(
+        "download-terrain", help="Download USGS 3DEP DEMs and required height-correction grids"
+    )
+    terrain.add_argument(
+        "--bounds", type=float, nargs=4, required=True, metavar=("SOUTH", "WEST", "NORTH", "EAST")
+    )
+    terrain.add_argument("--max-gb", type=float, default=2)
+    terrain.add_argument("--output", type=Path, required=True)
+    terrain_point = commands.add_parser("terrain-point", help="Check an offline terrain height")
+    terrain_point.add_argument("terrain", type=Path)
+    terrain_point.add_argument("--latitude", type=float, required=True)
+    terrain_point.add_argument("--longitude", type=float, required=True)
+    observers = commands.add_parser(
+        "prepare-observers", help="Make terrain-following local receiver candidates"
+    )
+    observers.add_argument("terrain", type=Path)
+    observers.add_argument(
+        "--bounds", type=float, nargs=4, required=True, metavar=("SOUTH", "WEST", "NORTH", "EAST")
+    )
+    observers.add_argument("--spacing-m", type=float, default=100)
+    observers.add_argument("--origin", type=float, nargs=3, metavar=("LAT", "LON", "ELLIPSOID_M"))
+    observers.add_argument("--output", type=Path, required=True)
+    for command in (terrain_point, observers):
+        command.add_argument(
+            "--microphone-height",
+            type=float,
+            default=1.5,
+            help="Metres above bare ground (default 1.5)",
+        )
+        command.add_argument(
+            "--height-offset",
+            type=float,
+            default=0,
+            help="Metres added for a documented height-sensitivity run",
+        )
     index = commands.add_parser(
         "index-archive", help="Stream split archive parts into a regional SQLite index"
     )
@@ -129,6 +168,8 @@ def parser():
         "shortlist", help="Screen regional flight pairs by relative sound-arrival timing"
     )
     screen.add_argument("index", type=Path)
+    receiver = screen.add_mutually_exclusive_group(required=True)
+    receiver.add_argument("--terrain", type=Path, help="Offline download-terrain bundle")
     screen.add_argument(
         "--interval",
         type=float,
@@ -140,11 +181,19 @@ def parser():
     )
     screen.add_argument("--grid-km", type=float, default=5)
     screen.add_argument("--radius-km", type=float, default=10)
-    screen.add_argument(
+    receiver.add_argument(
         "--receiver-height",
         type=float,
-        required=True,
         help="Assumed WGS84 ellipsoid height, metres",
+    )
+    screen.add_argument(
+        "--microphone-height",
+        type=float,
+        default=1.5,
+        help="Metres above DEM ground (default 1.5; requires --terrain)",
+    )
+    screen.add_argument(
+        "--height-offset", type=float, default=0, help="Terrain height-sensitivity offset, metres"
     )
     screen.add_argument("--sound-speed", type=float, default=343)
     screen.add_argument("--min-speed", type=float, default=25)
@@ -327,6 +376,43 @@ def main(argv=None):
                 status,
             )
             print(json.dumps(result, indent=2))
+        elif args.command == "download-terrain":
+            print(
+                json.dumps(
+                    download_terrain(args.bounds, args.output, args.max_gb, status), indent=2
+                )
+            )
+        elif args.command == "terrain-point":
+            terrain = Terrain(args.terrain)
+            height = terrain.sample(
+                [args.latitude], [args.longitude], args.microphone_height, args.height_offset
+            )[0]
+            print(
+                json.dumps(
+                    {
+                        "latitude_deg": args.latitude,
+                        "longitude_deg": args.longitude,
+                        "receiver_height_ellipsoid_m": float(height),
+                        "terrain": terrain.provenance(args.microphone_height, args.height_offset),
+                    },
+                    indent=2,
+                )
+            )
+        elif args.command == "prepare-observers":
+            print(
+                json.dumps(
+                    prepare_observers(
+                        args.terrain,
+                        args.output,
+                        args.bounds,
+                        args.spacing_m,
+                        args.origin,
+                        args.microphone_height,
+                        args.height_offset,
+                    ),
+                    indent=2,
+                )
+            )
         elif args.command == "shortlist":
             result = shortlist(
                 args.index,
@@ -343,6 +429,9 @@ def main(argv=None):
                 args.max_passages,
                 args.max_pairs,
                 status,
+                terrain_path=args.terrain,
+                microphone_height_m=args.microphone_height,
+                height_offset_m=args.height_offset,
             )
             print(json.dumps(result, indent=2))
         elif args.command == "subset-index":
@@ -370,7 +459,14 @@ def main(argv=None):
                     indent=2,
                 )
             )
-    except (ValueError, KeyError, OSError, subprocess.SubprocessError) as error:
+    except (
+        ValueError,
+        KeyError,
+        OSError,
+        ProjError,
+        RasterioError,
+        subprocess.SubprocessError,
+    ) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 2
     return 0

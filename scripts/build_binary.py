@@ -100,6 +100,7 @@ def notices(destination):
                             ROOT / "QUICKSTART.md",
                             ROOT / "docs/PRACTICE.md",
                             ROOT / "docs/BINARIES.md",
+                            ROOT / "docs/TERRAIN.md",
                         ]
                     )
                 },
@@ -156,6 +157,10 @@ def main():
             "ijson.backends.yajl2_c",
             "--hidden-import",
             "ijson.backends.python",
+            "--collect-all",
+            "rasterio",
+            "--collect-all",
+            "pyproj",
             str(ROOT / "scripts" / "frozen_entry.py"),
         ],
         check=True,
@@ -169,7 +174,7 @@ def main():
     shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "README.md")
     shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "QUICKSTART.md")
     (bundle / "docs").mkdir()
-    for name in ["PRACTICE.md", "BINARIES.md"]:
+    for name in ["PRACTICE.md", "BINARIES.md", "TERRAIN.md"]:
         shutil.copyfile(ROOT / "docs" / name, bundle / "docs" / name)
     notices(bundle)
     archive_format = "zip" if platform.system() == "Windows" else "gztar"

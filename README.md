@@ -130,6 +130,7 @@ The [portable student pack guide](docs/STUDENT_PACK.md) describes the interpreta
 | Physics | 3D trajectories, variable radial velocity, retarded sound arrival, one common clock |
 | Matching | Small declared receiver grids, supplied candidate aircraft, per-event tone sweeps |
 | Geographic import | WGS84 ellipsoid heights and explicit UTC to one local ENU frame |
+| Terrain | USGS 3DEP downloads, recorded height-correction grids, offline broad/local receiver heights; contiguous US |
 | Daily archives | Verified downloads; stream compressed traces into a regional SQLite index |
 | Broad screening | Spatially indexed, delayed-closest-approach pairs with a shared relative interval and explicit work budgets |
 | Audio constraints | Filter existing candidates by separate speed/slant bounds for each flyover, with source hashes and retained alternatives |
@@ -141,6 +142,7 @@ Start with [the investigation workflow](docs/INVESTIGATION_WORKFLOW.md),
 [the public guide](docs/GUIDE.md), or [the research review](docs/RESEARCH.md).
 For teaching, use [the student lab](docs/STUDENT_LAB.md).
 For supplied recordings, read [data preparation](docs/DATA.md) before building a case.
+Use [the terrain guide](docs/TERRAIN.md) to download DEMs and prepare ground-following candidates.
 See [validation](docs/VALIDATION.md) for measured results and their limits.
 
 ## The technique

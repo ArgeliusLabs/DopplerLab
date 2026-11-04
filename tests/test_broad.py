@@ -162,7 +162,7 @@ def test_budget_exhaustion_is_failed_not_a_complete_shortlist(indexed, tmp_path)
     path, _ = indexed
     folder = tmp_path / "budget"
     with pytest.raises(ValueError, match="budget"):
-        shortlist(path, folder, 920, grid_km=1, max_evaluations=1)
+        shortlist(path, folder, 920, grid_km=1, receiver_height_m=0, max_evaluations=1)
     result = json.loads((folder / "screening.json").read_text())
     assert result["status"] == "failed"
     with pytest.raises(ValueError, match="completed"):
@@ -172,7 +172,7 @@ def test_budget_exhaustion_is_failed_not_a_complete_shortlist(indexed, tmp_path)
 def test_modified_candidates_cannot_be_handed_off(indexed, tmp_path):
     path, _ = indexed
     folder = tmp_path / "screen"
-    shortlist(path, folder, 920, grid_km=1)
+    shortlist(path, folder, 920, grid_km=1, receiver_height_m=0)
     with (folder / "candidates.csv").open("a") as stream:
         stream.write("tampered\n")
     with pytest.raises(ValueError, match="hash mismatch"):

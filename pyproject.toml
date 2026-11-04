@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "argelius-doppler-lab"
-version = "0.2.2"
+version = "0.3.0"
 description = "An aircraft-audio investigation toolkit with reproducible Doppler analysis"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 authors = [{name = "Argelius Labs"}]
-dependencies = ["numpy>=1.26,<3", "scipy>=1.12,<2", "matplotlib>=3.8,<4", "certifi>=2024.7.4", "ijson>=3.3,<4"]
+dependencies = ["numpy>=1.26,<3", "scipy>=1.12,<2", "matplotlib>=3.8,<4", "certifi>=2024.7.4", "ijson>=3.3,<4", "rasterio>=1.4,<2", "pyproj>=3.7,<4"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1,<2"]

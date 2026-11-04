@@ -1,6 +1,6 @@
 # Running a broad-area aircraft search
 
-This guide describes **the experimental 0.2 series**. Testing is in progress.
+This guide describes **the experimental 0.3 series**. Testing is in progress.
 The new workflow downloads a daily archive, builds a regional index, screens flight
 pairs by relative sound-arrival timing, and exports candidates for local Doppler matching.
 It does not automatically recognize aircraft in audio or establish a location from an
@@ -13,15 +13,19 @@ real-world location accuracy remains unvalidated.
 - Two separate flyovers, with an estimated interval between comparable acoustic landmarks
   and an honest uncertainty range. This screen uses delayed closest approach; the loudest
   sample is not necessarily that landmark. Use the spectrogram/ridge analysis to assess it.
-- A declared receiver **WGS84 ellipsoid height**, with sensitivity runs if uncertain.
-  The coarse screen uses one height across its region. It has no terrain model, so a
-  flat-height country-wide run is an exploratory screen with known completeness limits.
+- A [terrain bundle](TERRAIN.md) covering the receiver region, or an explicitly justified
+  constant **WGS84 ellipsoid height**. Version 0.3.0 accepts `--terrain` for supported
+  US regions. Run height sensitivity checks; flat-height country-wide examples below
+  remain exploratory screens with known completeness limits.
 - Enough local disk space for the archive, index and results. See [DATA_VOLUME.md](DATA_VOLUME.md).
 
 The commands below are reproducible examples using a complete archived UTC day and a
 **hypothetical 920-second interval**. They are a performance/exploration example, not a
 claim that our own real recording has those events. Replace bounds, times, interval,
 height and source assumptions with evidence from your investigation.
+For a terrain run, replace `--receiver-height 0` with `--terrain PATH_TO_BUNDLE` and set
+`--microphone-height` from the recording setup. DEM coverage must include the whole
+receiver region; use a smaller index when necessary.
 
 ## 1. Download one UTC day
 

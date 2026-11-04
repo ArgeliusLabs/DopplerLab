@@ -4,6 +4,9 @@ This folder contains Argelius Labs' experimental aircraft-audio investigation to
 for OSINT practitioners, inspired by colsto's aircraft Doppler video. Optional practice
 and teaching materials accompany the investigation workflow.
 
+For real US recordings, use [terrain preparation](docs/TERRAIN.md) to download and apply
+DEM heights in both broad screening and local matching.
+
 | Start with | What you get |
 | --- | --- |
 | [Native quick start](QUICKSTART.md) | Choose a binary, generate fictional audio and open a report without installing Python |

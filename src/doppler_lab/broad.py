@@ -1,7 +1,7 @@
 """Coarse geographic screening by delayed closest approach, with an auditable local handoff.
 
 This is a shortlist generator, not an audio detector or a validated location solver.
-It uses piecewise-linear WGS84 ECEF trajectories and a declared receiver height.
+It uses piecewise-linear WGS84 ECEF trajectories and explicit flat or DEM receiver heights.
 """
 
 import csv
@@ -23,6 +23,7 @@ from .archive import archive_traces
 from .case import digest
 from .importers import import_tracks, parse_utc
 from .physics import geodetic_to_ecef, geodetic_to_enu
+from .terrain import Terrain
 
 REGIONS = {"conus": [24, -125, 50, -66], "europe": [34, -25, 72, 45]}
 FIELDS = [
@@ -375,7 +376,7 @@ def shortlist(
     tolerance_s=10,
     grid_km=5,
     radius_km=10,
-    receiver_height_m=0,
+    receiver_height_m=None,
     sound_speed=343,
     min_speed=25,
     max_speed=300,
@@ -383,6 +384,9 @@ def shortlist(
     max_passages=5_000_000,
     max_pairs=500_000,
     progress=None,
+    terrain_path=None,
+    microphone_height_m=1.5,
+    height_offset_m=0,
 ):
     """Coarse two-event timing filter; preserve alternatives, limits and assumptions."""
     values = [
@@ -390,11 +394,16 @@ def shortlist(
         tolerance_s,
         grid_km,
         radius_km,
-        receiver_height_m,
         sound_speed,
         min_speed,
         max_speed,
     ]
+    if (terrain_path is None) == (receiver_height_m is None):
+        raise ValueError("Choose exactly one terrain bundle or explicit flat receiver height.")
+    if terrain_path is None:
+        values.append(receiver_height_m)
+        if microphone_height_m != 1.5 or height_offset_m != 0:
+            raise ValueError("Microphone height and height offset options require terrain.")
     if not all(number(v) for v in values):
         raise ValueError("Search parameters must be finite.")
     if not 10 <= interval_s <= 86400 or not 0 <= tolerance_s <= 600:
@@ -433,7 +442,11 @@ def shortlist(
         "created_utc": utc(),
         "warnings": [
             "Candidate timing screen only; no audio has been matched.",
-            "One flat ellipsoid receiver height is assumed; terrain and height uncertainty are not modeled.",
+            (
+                "DEM heights are used at grid nodes; terrain between nodes, obstacles and height uncertainty can still affect screening."
+                if terrain_path is not None
+                else "One flat ellipsoid receiver height is assumed; terrain and height uncertainty are not modeled."
+            ),
             "Grid timing allowance assumes locally straight, steady flight; completeness is not guaranteed for curved or noisy paths.",
             "Radius, speed, missing-height and coverage filters can exclude the true flight.",
             "Two distinct aircraft are required; repeated passes of one airframe are excluded.",
@@ -448,7 +461,15 @@ def shortlist(
       CREATE INDEX passage_time ON passages(cell,arrival);
     """)
     try:
-        geo, xyz = receiver_grid(metadata["bounds"], grid_km * 1000, receiver_height_m)
+        geo, xyz = receiver_grid(metadata["bounds"], grid_km * 1000, receiver_height_m or 0)
+        if terrain_path is not None:
+            terrain = Terrain(terrain_path)
+            heights = terrain.sample(geo[:, 0], geo[:, 1], microphone_height_m, height_offset_m)
+            xyz = geodetic_to_ecef(geo[:, 0], geo[:, 1], heights)
+            manifest["terrain"] = terrain.provenance(microphone_height_m, height_offset_m)
+            manifest["receiver_height_range_m"] = [float(heights.min()), float(heights.max())]
+        else:
+            heights = np.full(len(geo), receiver_height_m)
         tree = cKDTree(xyz)
         # Allow a half-cell diagonal for corridor selection and conservative timing screening.
         cell_radius = grid_km * 1000 / math.sqrt(2) * 1.02
@@ -522,7 +543,7 @@ def shortlist(
                                 budget["candidates"],
                                 cell,
                                 *geo[cell],
-                                receiver_height_m,
+                                heights[cell],
                                 a,
                                 b,
                                 ia,
@@ -634,6 +655,7 @@ def export_candidate(index_path, screening_dir, candidate_id, output, window_s=1
         "max_track_gap_s": max(float(np.diff(p[:, 0]).max()) for _, p in selected),
         "input_index_sha256": info["index_sha256"],
         "tracks_sha256": digest(output / "tracks.csv"),
+        "terrain": info.get("terrain"),
         "next_steps": [
             "Verify receiver ellipsoid height/terrain and repeat screening if necessary.",
             "Inspect trajectory gaps and derived velocity before choosing max_track_gap_s.",

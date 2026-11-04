@@ -1,7 +1,10 @@
 # Reference environment: Windows, Python 3.13.11, 2026-11-03.
 # Not a cross-platform lock. Install pyproject.toml normally on other Python/OS versions.
+affine==3.0.1
+attrs==26.1.0
 build==1.6.1
 certifi==2026.10.23
+click==8.5.0
 colorama==0.4.6
 contourpy==1.4.0
 cycler==0.12.1
@@ -17,8 +20,10 @@ pluggy==1.7.0
 Pygments==2.21.0
 pyparsing==3.3.3
 pyproject_hooks==1.3.3
+pyproj==3.8.0
 pytest==9.2.0
 python-dateutil==4.0.0
+rasterio==1.5.2
 ruff==0.17.3
 scipy==1.18.1
 tzdata==2026.6

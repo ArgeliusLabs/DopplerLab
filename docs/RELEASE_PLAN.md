@@ -113,7 +113,7 @@ are described in [BINARIES.md](BINARIES.md).
 | 2 | Source-pitch and propagation sensitivity | Recovery and abstention behavior across realistic perturbations |
 | 3 | Licensed provider-specific importers | Fixtures with explicit units, datums, gaps and timestamp semantics |
 | 4 | Ridge annotation interface | Usability test; provenance for analyst choices |
-| 5 | Terrain-aware broad screening and cross-day event pairing | Complete-search accounting, boundary tests, representative accuracy/runtime |
+| 5 | Terrain completeness studies, more DEM providers and cross-day event pairing | Complete-search accounting, boundary tests, representative accuracy/runtime |
 
 Large-area indexing and timing screening are now implemented and
 [benchmarked](REAL_DATA_BENCHMARK.md). Their millions of alternatives make local-model

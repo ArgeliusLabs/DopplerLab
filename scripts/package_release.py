@@ -84,6 +84,7 @@ def main():
         "FIELD_PROTOCOL.md",
         "STUDENT_PACK.md",
         "PRACTICE.md",
+        "TERRAIN.md",
     }
     student = {ROOT / "LICENSE", ROOT / "QUICKSTART.md"}
     student.update(

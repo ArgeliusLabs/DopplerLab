@@ -128,6 +128,11 @@ ready for geometric matching. See [NOAA vertical datums](https://geodesy.noaa.go
 
 ## Receiver points and terrain
 
+Version 0.3.0 adds `download-terrain`, `terrain-point` and `prepare-observers` for
+USGS 3DEP in the contiguous US. The [terrain guide](TERRAIN.md) provides native commands,
+offline reuse, recorded datum-conversion grids and height-sensitivity instructions.
+Broad screening accepts `--terrain` instead of a constant `--receiver-height`.
+
 A small flat demonstration can use `grid.up_m`. A real sloping site should supply an
 `observers.csv` with `east_m,north_m,up_m` for every candidate, converted into the **same**
 ENU frame as the aircraft. Include microphone height above ground before conversion.
@@ -135,8 +140,10 @@ Set `"observers": "observers.csv"` in the case instead of `"grid"`.
 
 An ENU `up` coordinate is not simply a global height minus the origin height over a
 large area; the ECEF-to-ENU transformation accounts for the curved reference geometry.
-Terrain, geoid lookup and inverse coordinate export are preparation tasks in this release.
-The output retains ENU values to avoid silently inventing a geographic datum.
+`prepare-observers` writes terrain-following ENU candidates, their geographic coordinates
+and the exact origin. Use that same origin for aircraft-track import. Other terrain
+providers and arbitrary coordinate-reference conversions remain analyst preparation.
+Detailed matching retains ENU values; `geographic.csv` preserves the candidate mapping.
 
 ## Manifest
 
