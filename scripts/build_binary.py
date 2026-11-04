@@ -3,7 +3,9 @@
 import argparse
 import hashlib
 import importlib.metadata
+import importlib.util
 import json
+import os
 import platform
 import re
 import shutil
@@ -19,6 +21,47 @@ import certifi
 from doppler_lab import __version__
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def stage_macos_rasterio(work):
+    """Give Rasterio's vendored dylibs unique names before PyInstaller flattens rpaths.
+
+    Rasterio/GDAL and pyproj wheels can ship incompatible libtiff.6.dylib files.
+    Only a build-directory copy is modified; installed packages remain untouched.
+    PyInstaller subsequently processes and signs the changed Mach-O files normally.
+    """
+    if platform.system() != "Darwin":
+        return None
+    source = Path(importlib.util.find_spec("rasterio").origin).parent
+    staging = work / "isolated-packages"
+    package = staging / "rasterio"
+    shutil.copytree(source, package, ignore=shutil.ignore_patterns("__pycache__"))
+    library_dir = package / ".dylibs"
+    renames = {path.name: "doppler_rasterio_" + path.name for path in library_dir.glob("*.dylib")}
+    if not renames:
+        raise ValueError("Expected a macOS Rasterio wheel with vendored dylibs.")
+    binaries = sorted([*package.rglob("*.so"), *library_dir.glob("*.dylib")])
+    for binary in binaries:
+        linked = subprocess.check_output(["otool", "-L", str(binary)], text=True)
+        changes = []
+        for line in linked.splitlines()[1:]:
+            dependency = line.strip().split(" (", 1)[0]
+            name = Path(dependency).name
+            if name in renames:
+                replacement = dependency[: -len(name)] + renames[name]
+                changes.extend(["-change", dependency, replacement])
+        if binary.parent == library_dir:
+            changes.extend(["-id", "@rpath/" + renames[binary.name]])
+        if changes:
+            subprocess.run(["install_name_tool", *changes, str(binary)], check=True)
+    for old, new in renames.items():
+        (library_dir / old).rename(library_dir / new)
+    # Analysis imports the staged package before PyInstaller performs its own signing.
+    # Restore valid ad-hoc signatures after install_name_tool modified these copies.
+    for binary in sorted([*package.rglob("*.so"), *library_dir.glob("*.dylib")]):
+        subprocess.run(["codesign", "--force", "--sign", "-", str(binary)], check=True)
+    print(f"Isolated {len(renames)} Rasterio dylibs in a build-only staging directory.", flush=True)
+    return staging
 
 
 def platform_tag():
@@ -79,6 +122,7 @@ def notices(destination):
                 "platform": platform.platform(),
                 "python": platform.python_version(),
                 "architecture": platform.machine(),
+                "macos_library_isolation": platform.system() == "Darwin",
                 "git_commit": subprocess.check_output(
                     ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
                 ).strip(),
@@ -129,6 +173,11 @@ def main():
         raise ValueError("Choose new build/output directories to preserve previous candidates.")
     output.mkdir(parents=True)
     work.mkdir(parents=True)
+    staging = stage_macos_rasterio(work)
+    environment = dict(os.environ)
+    if staging:
+        existing = environment.get("PYTHONPATH", "")
+        environment["PYTHONPATH"] = str(staging) + (os.pathsep + existing if existing else "")
     subprocess.run(
         [
             sys.executable,
@@ -147,6 +196,7 @@ def main():
             str(work),
             "--paths",
             str(ROOT / "src"),
+            *(["--paths", str(staging)] if staging else []),
             "--exclude-module",
             "tkinter",
             "--exclude-module",
@@ -165,6 +215,7 @@ def main():
         ],
         check=True,
         cwd=ROOT,
+        env=environment,
     )
     bundle = output / f"doppler-lab-{__version__}-{args.target}"
     bundle.mkdir()

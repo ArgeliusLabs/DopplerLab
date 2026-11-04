@@ -23,6 +23,10 @@ source commit when selecting development artifacts.
 
 ## Choose a build
 
+Mac builds isolate Rasterio's vendored dynamic libraries before packaging, avoiding
+same-name TIFF-library conflicts with pyproj. This changes only a temporary build copy;
+normal executable checks still exercise both the DEM reader and coordinate conversion.
+
 | v0.3.0 download | Target |
 | --- | --- |
 | [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-windows-x86_64.zip) | 64-bit Intel/AMD Windows; tested on Windows Server 2022 |
