@@ -137,3 +137,16 @@ For development source commit `0b7e47a`, all four Python/OS test jobs and all fo
 build/smoke jobs passed in [run 41739232065](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41739232065).
 The local Windows development executable also passed that smoke workflow outside the
 checkout. See [BINARIES.md](BINARIES.md) for target OS versions and artifact availability.
+
+## Native onboarding checks in 0.2.1
+
+The quick-start commands were run against the actual Windows 0.2.1 executable extracted
+from its archive. The generated seed-7 case recovered A/B, (100, -200, 0) m and an
+11.25-second clock offset. The noise-only practice still returned a ranked hypothesis
+with weaker line contrast, and neither run accepted a location. The full lab's manual
+one-event and 331 m/s manifest edits were also exercised through that executable.
+
+The bundled README, quick start, practice and platform guide were checked for missing
+local links. Source and student archives include the new guides. These checks validate
+onboarding and packaging; they do not add field-accuracy evidence. Each published
+patch still requires the full automated and native-platform CI checks.

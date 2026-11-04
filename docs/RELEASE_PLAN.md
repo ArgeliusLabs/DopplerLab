@@ -79,8 +79,10 @@ release notes distinguish completed automated/benchmark checks from unfinished f
 tests. Original recordings are not a publication prerequisite; field-accuracy claims
 still require appropriate evidence.
 
-Update the version in `pyproject.toml` and `src/doppler_lab/__init__.py`, then revise the
-release notes around the actual testing status. Publish by manually dispatching with
+Update the version in `pyproject.toml` and `src/doppler_lab/__init__.py`, the versioned
+download links/checkpoint in `QUICKSTART.md` and `docs/BINARIES.md`, and the release notes
+around the actual testing status. Exercise the quick-start and practice commands from
+an extracted native archive, including its local documentation links. Publish by manually dispatching with
 `publish_release` set to true, or by pushing an explicit publishing commit to `main`
 whose complete subject is `release: publish vVERSION` (matching the package version).
 Both routes require all four test jobs and all four native build/smoke jobs to pass.

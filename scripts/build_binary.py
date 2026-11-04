@@ -97,6 +97,9 @@ def notices(destination):
                             ROOT / "pyproject.toml",
                             ROOT / "scripts/build_binary.py",
                             ROOT / "scripts/smoke_binary.py",
+                            ROOT / "QUICKSTART.md",
+                            ROOT / "docs/PRACTICE.md",
+                            ROOT / "docs/BINARIES.md",
                         ]
                     )
                 },
@@ -163,7 +166,11 @@ def main():
     executable = "doppler-lab.exe" if platform.system() == "Windows" else "doppler-lab"
     shutil.copy2(work / "app" / executable, bundle / executable)
     shutil.copyfile(ROOT / "LICENSE", bundle / "LICENSE")
-    shutil.copyfile(ROOT / "docs" / "BINARIES.md", bundle / "README.md")
+    shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "README.md")
+    shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "QUICKSTART.md")
+    (bundle / "docs").mkdir()
+    for name in ["PRACTICE.md", "BINARIES.md"]:
+        shutil.copyfile(ROOT / "docs" / name, bundle / "docs" / name)
     notices(bundle)
     archive_format = "zip" if platform.system() == "Windows" else "gztar"
     archive = Path(

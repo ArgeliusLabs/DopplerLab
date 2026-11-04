@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TOP_FILES = [
     "README.md",
     "START_HERE.md",
+    "QUICKSTART.md",
     "LICENSE",
     "CONTRIBUTING.md",
     "CODE_OF_CONDUCT.md",
@@ -82,8 +83,9 @@ def main():
         "BINARIES.md",
         "FIELD_PROTOCOL.md",
         "STUDENT_PACK.md",
+        "PRACTICE.md",
     }
-    student = {ROOT / "LICENSE"}
+    student = {ROOT / "LICENSE", ROOT / "QUICKSTART.md"}
     student.update(
         path for path in files if path.parent == ROOT / "docs" and path.name in student_docs
     )

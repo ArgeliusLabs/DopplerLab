@@ -5,16 +5,17 @@ Historical flight positions let us ask a reverse question: **what frequency curv
 each candidate microphone position have heard?** Comparing those predictions with a
 recording can narrow a location hypothesis.
 
-This guide accompanies Argelius Doppler Lab, an original educational implementation
+This guide accompanies Argelius Doppler Lab, an original aircraft-audio investigation toolkit
 inspired by [colsto's demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI). It is
 designed to make the method inspectable. Start with fictional data, then use controlled
 recordings to learn which assumptions survive outside the lab.
 
 ## A complete first experiment
 
-Follow the [installation commands](../README.md#start-in-five-minutes). Generate and run
+Follow the [native quick start](../QUICKSTART.md). Generate and run
 the default case. Open `report.html`. Nothing is uploaded, and the report contains its
 own plots; it does not load map tiles, fonts or analytics from external services.
+The [guided practice](PRACTICE.md) walks through this report and a noise-only comparison.
 
 The first plot shows time along the horizontal axis and frequency vertically. Brighter
 regions contain stronger energy relative to that frequency's typical level. Mint curves
@@ -59,6 +60,9 @@ Do not use the control examples here to promise a false-positive rate in real ca
 
 A finer grid can reduce sampling error after a broad local search. The helper uses
 the current leader without reading hidden truth:
+
+This optional extension uses Python and the source checkout; it is not required for
+the native quick start or guided practice.
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\refine_case.py work\class-case\case.json work\class-result\results.json --output work\class-case\case-fine.json

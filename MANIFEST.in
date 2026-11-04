@@ -1,4 +1,4 @@
-include LICENSE README.md START_HERE.md CONTRIBUTING.md CODE_OF_CONDUCT.md requirements-tested-win-py313.txt .gitignore .gitattributes
+include LICENSE README.md START_HERE.md QUICKSTART.md CONTRIBUTING.md CODE_OF_CONDUCT.md requirements-tested-win-py313.txt .gitignore .gitattributes
 recursive-include docs *.md
 recursive-include scripts *.py
 recursive-include tests *.py

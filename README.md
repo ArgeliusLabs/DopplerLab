@@ -28,8 +28,10 @@ transfer estimates. The [real-data benchmark](docs/REAL_DATA_BENCHMARK.md) recor
 U.S., European and Tucson indexing/search measurements. These guides distinguish the
 implemented workflow from the analysis and validation that still require an investigator.
 
-**Get started:** [run a broad-area search](docs/BROAD_SEARCH.md) or download
-[native Windows, Linux and macOS builds](docs/BINARIES.md). Ordinary development pushes
+**New here?** Start with the [native quick start](QUICKSTART.md), then the
+[15–20 minute guided practice](docs/PRACTICE.md). Both run without installing Python.
+For an investigation, use the [broad-area workflow](docs/BROAD_SEARCH.md).
+Ordinary development pushes
 produce test artifacts; publication requires an explicit release action.
 
 ## Build it with us
@@ -41,11 +43,39 @@ Use [Issues](https://github.com/ArgeliusLabs/DopplerLab/issues) for bugs, propos
 questions and shared experiments. Include unsuccessful experiments too.
 
 [Download the experimental release](https://github.com/ArgeliusLabs/DopplerLab/releases)
-for the complete source ZIP, portable student pack, Python wheel and checksums.
+for native Windows/Linux/macOS executables, the source ZIP, student pack, Python wheel
+and checksums. Every v0.2.1 native archive includes the quick start and guided practice.
 
 ## Start in five minutes
 
-Requires Python 3.11 or later. Internet access is needed to install packages; the demo
+Follow [QUICKSTART.md](QUICKSTART.md) to choose and extract your native download, then
+open a terminal in the folder containing the executable. The example generates its
+own fictional recording and aircraft tracks and runs offline.
+
+Windows PowerShell:
+
+```powershell
+.\doppler-lab.exe demo --seed 7 --output practice/case
+.\doppler-lab.exe run practice/case/case.json --output practice/report
+Start-Process "practice/report/report.html"
+```
+
+macOS/Linux:
+
+```bash
+./doppler-lab demo --seed 7 --output practice/case
+./doppler-lab run practice/case/case.json --output practice/report
+# Open practice/report/report.html in your browser.
+```
+
+Use new output directories. The [guided practice](docs/PRACTICE.md) explains the report,
+adds a noise-only comparison and provides a self-check after you record your assessment.
+Keep `practice/case/truth.json` closed until that evaluation step.
+
+## Install from source (optional)
+
+For Python users and contributors, this route requires Python 3.11 or later.
+Internet access is needed to install packages; the demo
 runs offline afterward. FFmpeg is optional, needed only to decode non-WAV media.
 Download a release or clone the repository:
 

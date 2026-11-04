@@ -45,11 +45,13 @@ documentation and original fictional fixtures, not to third-party inputs.
 
 ## Audio extraction and inspection
 
-From the repository directory, on Windows:
+From the native executable's folder, in Windows PowerShell. On macOS/Linux use
+`./doppler-lab` and forward slashes; source installs can use their environment's
+`doppler-lab` command. Replace the example recording path with your original file:
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe extract C:\recordings\owned-recording.webm --start 120 --duration 180 --output work\field\recording.wav
-.\.venv\Scripts\doppler-lab.exe inspect work\field\recording.wav --channel 0 --window 2 --hop 0.25 --max-hz 600 --output work\field\inspection.png
+.\doppler-lab.exe extract "C:\recordings\owned-recording.webm" --start 120 --duration 180 --output work\field\recording.wav
+.\doppler-lab.exe inspect work\field\recording.wav --channel 0 --window 2 --hop 0.25 --max-hz 600 --output work\field\inspection.png
 ```
 
 FFmpeg is optional for PCM WAV input. Extraction preserves the input's channel layout;
@@ -75,7 +77,7 @@ time_s,frequency_hz
 Provide at least 12 actual points spanning >=10 seconds, then run:
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe fit-ridge work\field\ridge.csv
+.\doppler-lab.exe fit-ridge work\field\ridge.csv
 ```
 
 The two rows above describe the schema, not a valid complete fit. Use the estimates as
@@ -108,7 +110,7 @@ example,2026-11-03T20:00:02Z,33.101,-112.1,1601
 Those are fictional schema examples. Convert a complete file using a declared origin:
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe import-tracks work\field\geographic.csv --origin 33.1 -112.1 400 --time-origin 2026-11-03T20:00:00Z --output work\field\tracks.csv
+.\doppler-lab.exe import-tracks work\field\geographic.csv --origin 33.1 -112.1 400 --time-origin 2026-11-03T20:00:00Z --output work\field\tracks.csv
 ```
 
 The importer requires WGS84 ellipsoid heights and timezone-aware timestamps. It converts

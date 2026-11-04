@@ -5,12 +5,14 @@ Argelius Labs, with a classroom lab inspired by colsto's aircraft Doppler video.
 
 | Start with | What you get |
 | --- | --- |
+| [Native quick start](QUICKSTART.md) | Choose a binary, generate fictional audio and open a report without installing Python |
+| [Guided practice](docs/PRACTICE.md) | A 15–20 minute walkthrough, noise-only comparison and self-check |
 | [README](README.md) | Installation, CLI and project scope |
 | [Investigation workflow](docs/INVESTIGATION_WORKFLOW.md) | How a broad region and recording date lead to candidate areas and local matching |
 | [Download and storage guide](docs/DATA_VOLUME.md) | Verified daily archive sizes, transfer estimates and working-space planning |
 | [Real-data benchmark](docs/REAL_DATA_BENCHMARK.md) | Measured U.S., European and Tucson processing times, retained storage and limitations |
 | [Broad-search commands](docs/BROAD_SEARCH.md) | Download, regional index, timing shortlist and local handoff |
-| [Native binaries](docs/BINARIES.md) | Windows, Linux and macOS build candidates and release packaging |
+| [Native binaries](docs/BINARIES.md) | Windows, Linux and macOS downloads, platform requirements and checksums |
 | [Example report](examples/report/report.html) | A complete offline result; open in a browser |
 | [Research review](docs/RESEARCH.md) | Video analysis, sources, physical limits and related work |
 | [Public guide](docs/GUIDE.md) | A practical walkthrough from sound to a testable hypothesis |

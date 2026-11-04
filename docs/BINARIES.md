@@ -1,6 +1,10 @@
 # Native downloads
 
-The [experimental v0.2.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.2.0)
+New here? Follow [Quick start](../QUICKSTART.md), then the
+[guided practice](PRACTICE.md). Both guides ship inside each v0.2.1 native archive;
+open its `README.md` or `QUICKSTART.md` first.
+
+The [experimental v0.2.1 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.2.1)
 includes standalone command-line executables for Windows x86-64, Linux x86-64,
 macOS Intel and macOS Apple Silicon. Python and the runtime dependencies are bundled.
 **Testing is in progress:** automated and native smoke checks have passed; original
@@ -12,19 +16,19 @@ sign-in to download workflow artifacts; they expire after 30 days. They are not 
 published release. Use the versioned release assets above for persistent public downloads,
 including source distributions, dependency notices and checksums.
 
-All four native build/smoke jobs passed for source commit `0b7e47a` in
-[this verified development run](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41739232065).
-Its `native-*` artifacts are available while their retention period lasts. This records
-one tested build; inspect the conclusion and source commit of any newer run you select.
+The earlier v0.2.0 release passed all four native build/smoke jobs in
+[this verified run](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41743374711).
+Every published patch release must pass those jobs again. Inspect the conclusion and
+source commit when selecting development artifacts.
 
 ## Choose a build
 
-| v0.2.0 download | Target |
+| v0.2.1 download | Target |
 | --- | --- |
-| [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-windows-x86_64.zip) | 64-bit Intel/AMD Windows; tested on Windows Server 2022 |
-| [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-linux-x86_64.tar.gz) | Intel/AMD Linux with glibc 2.35 or newer; built on Ubuntu 22.04 |
-| [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-macos-x86_64.tar.gz) | Intel Mac; built and tested on macOS 15 |
-| [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.0/doppler-lab-0.2.0-macos-arm64.tar.gz) | Apple Silicon Mac; built and tested on macOS 15 |
+| [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-windows-x86_64.zip) | 64-bit Intel/AMD Windows; tested on Windows Server 2022 |
+| [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-linux-x86_64.tar.gz) | Intel/AMD Linux with glibc 2.35 or newer; built on Ubuntu 22.04 |
+| [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-x86_64.tar.gz) | Intel Mac; built and tested on macOS 15 |
+| [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.2.1/doppler-lab-0.2.1-macos-arm64.tar.gz) | Apple Silicon Mac; built and tested on macOS 15 |
 
 Older macOS versions, Windows ARM and Linux ARM are not currently tested. Builds run
 on each target OS; PyInstaller is not a cross-compiler. These candidates are unsigned

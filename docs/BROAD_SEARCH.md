@@ -1,6 +1,6 @@
 # Running a broad-area aircraft search
 
-This guide describes **the experimental 0.2.0 release**. Testing is in progress.
+This guide describes **the experimental 0.2 series**. Testing is in progress.
 The new workflow downloads a daily archive, builds a regional index, screens flight
 pairs by relative sound-arrival timing, and exports candidates for local Doppler matching.
 It does not automatically recognize aircraft in audio or establish a location from an
@@ -25,9 +25,11 @@ height and source assumptions with evidence from your investigation.
 
 ## 1. Download one UTC day
 
-After installing from the current branch, run `doppler-lab` from your environment.
-On Windows without activating the environment, replace it with
-`.\.venv\Scripts\doppler-lab.exe`. A native candidate uses `.\doppler-lab.exe`.
+Start with [Quick start](../QUICKSTART.md). The examples below use the generic
+`doppler-lab` command. From a native executable's folder, replace that name with
+`.\doppler-lab.exe` in Windows PowerShell or `./doppler-lab` on macOS/Linux; keep all
+arguments unchanged. Source installations can use their environment's command
+(for example `.\.venv\Scripts\doppler-lab.exe` on Windows).
 
 ```text
 doppler-lab download-day --date 2026-11-02 --output work/archive-2026-11-02

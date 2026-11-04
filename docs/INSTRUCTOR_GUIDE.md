@@ -17,16 +17,25 @@ public slides. Obtain permission before redistributing third-party video or fiel
 
 ## Preparation checklist
 
-One week before: install the toolkit on the classroom OS image, run tests and the
-benchmark, and retain the exact dependency versions. Pre-download the Python packages
-for the classroom OS if network access is unreliable. A wheelhouse is platform-specific;
-do not distribute a Windows-only cache as if it also installs on macOS/Linux.
+One week before: download the native archive for each classroom platform, verify its
+checksum and complete [Quick start](../QUICKSTART.md) and [guided practice](PRACTICE.md)
+on the actual classroom machines. Keep the archive and `BUILD_INFO.json` with the course
+materials. The core lab runs offline with the executable, a browser and a text editor;
+Python is only needed for optional source helpers and benchmark scripts. If using that
+route, pre-download packages for each classroom OS and retain exact dependency versions.
 
 One day before: generate `work/class-case`, run its report, and prepare the no-flyover
-case. Give students the source release and student handout. Keep a static report ready
+case. Give students the matching native archive and student pack. Rehearse the handout's
+two JSON edits, or prepare its one-event and sound-speed copies in advance if editing
+would distract from the lesson. Keep a static report ready
 for learners whose installation fails. The supplied student handout pack supports the
 interpretation exercise without Python. Have headphones available, but grade the
 spectrogram analysis rather than hearing acuity.
+
+The short practice uses the same default fixture and includes a collapsible self-check.
+It is an onboarding exercise, not a separate blind assessment. If you want to delay
+the truth reveal in class, distribute the relevant handout sections accordingly;
+the full public project already includes the answers. Grade reasoning and controls.
 
 Do not make students buy a flight-data plan, surrender an API key or reveal a personal
 recording location. Real-data acquisition is a separate optional exercise.
@@ -119,10 +128,12 @@ winning coordinate alone earns very little without an evidence assessment.
 
 | Symptom | Action |
 | --- | --- |
-| `python` opens Microsoft Store | Install a supported Python interpreter before class; use the provided report today |
-| PowerShell blocks activation | Use the explicit `.venv\Scripts\...exe` paths; activation is unnecessary |
+| Native window opens then closes | Run the executable from PowerShell/Terminal in its extracted folder |
+| `python` opens Microsoft Store | Use the native executable for the core lab; Python is only needed for source extensions |
+| PowerShell blocks activation in a source install | Use the explicit `.venv\Scripts\...exe` paths; activation is unnecessary |
 | “Output directory is not empty” | Choose a new output name; preserve previous experiments |
-| No NumPy/SciPy | Install with the same virtual environment's Python, not a different global interpreter |
+| No NumPy/SciPy in a source install | Install with that virtual environment's Python; native builds already bundle these libraries |
+| JSON error after making a control | Check brackets, commas and the file's `.json` extension; preserve the original manifest |
 | `ffmpeg` missing | Use the generated WAV; the core lab does not need FFmpeg |
 | Very different results | Compare version, manifest hash, seed, modifications and selected audio channel |
 | No supported candidates | Check track coverage, event windows, frequency band and clock basis |

@@ -9,15 +9,16 @@ controls, and write a conclusion that distinguishes a hypothesis from a verified
 
 ## Before class
 
-Install the toolkit using [README.md](../README.md). Run the two demo commands once
-to verify the environment, then use new directories for class. You need a browser,
-Python 3.11+, and a text editor. No GIS license, flight-data account or payment is needed.
-Use an instructor-provided prebuilt report if your environment is unavailable; the
-analysis and assessment portions still work. Installation is not graded.
+Follow [Quick start](../QUICKSTART.md) to extract and check the native executable.
+The core lab needs that executable, a browser and a text editor; it does not require
+Python, a flight-data account or a GIS license. Use new directories for class.
+An instructor-provided report also supports the interpretation and assessment portions.
+Installation is not graded. For a shorter introduction, use [guided practice](PRACTICE.md).
 
-Commands below are for Windows PowerShell. On macOS/Linux replace
-`.\.venv\Scripts\doppler-lab.exe` with `.venv/bin/doppler-lab`, and
-`.\.venv\Scripts\python.exe` with `.venv/bin/python`. Use forward slashes in paths.
+Commands below are for Windows PowerShell, from the executable's folder. On macOS/Linux
+replace `.\doppler-lab.exe` with `./doppler-lab`, use forward slashes in paths, and
+replace `Start-Process` with `open` (macOS) or `xdg-open` (Linux desktop).
+Source installations can substitute their installed `doppler-lab` command.
 
 ## 1. Make a prediction — 10 minutes
 
@@ -35,8 +36,8 @@ Write down your prediction before running the search:
 ## 2. Inspect the evidence — 15 minutes
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe demo --output work\class-case
-.\.venv\Scripts\doppler-lab.exe inspect work\class-case\recording.wav --max-hz 450 --output work\class-inspection.png
+.\doppler-lab.exe demo --output work\class-case
+.\doppler-lab.exe inspect work\class-case\recording.wav --max-hz 450 --output work\class-inspection.png
 Start-Process work\class-inspection.png
 ```
 
@@ -53,7 +54,7 @@ subtracts the median power at each frequency, so it suppresses that steady hum.
 ## 3. Fit the joint hypothesis — 20 minutes
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe run work\class-case\case.json --output work\class-result
+.\doppler-lab.exe run work\class-case\case.json --output work\class-result
 Start-Process work\class-result\report.html
 ```
 
@@ -68,12 +69,22 @@ produce a winning score for the wrong candidate.
 
 ## 4. Challenge the explanation — 25 minutes
 
-Create copies of the manifest with a supplied helper:
+Using your file manager or text editor, make two copies of `case.json` **inside the
+same `work/class-case` folder** so their relative audio/track paths still work. Keep the
+original unchanged. Save plain UTF-8 JSON with these exact names:
+
+1. `case-one-event.json`: in the `events` array, keep only the `Flyover 1` object.
+   Remove the `Flyover 2` object and the comma between them; leave valid JSON.
+   Set `title` to `One flyover control` to label that report clearly.
+2. `case-cold.json`: keep both events and change only `sound_speed_m_s` from `343` to `331`.
+
+Watch for editors that append an extra `.txt` extension. The source checkout's optional
+Python helper `scripts/make_variants.py` can create these same copies, but manual editing
+works with the native executable alone.
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\make_variants.py work\class-case\case.json
-.\.venv\Scripts\doppler-lab.exe run work\class-case\case-one-event.json --output work\one-event-result
-.\.venv\Scripts\doppler-lab.exe run work\class-case\case-cold.json --output work\cold-result
+.\doppler-lab.exe run work\class-case\case-one-event.json --output work\one-event-result
+.\doppler-lab.exe run work\class-case\case-cold.json --output work\cold-result
 ```
 
 The first variant uses only flyover 1. The second changes sound speed from 343 to
@@ -84,8 +95,8 @@ does not establish that it is better geographic evidence than the two-event resu
 Now generate a recording with no flyover tones and run the same search:
 
 ```powershell
-.\.venv\Scripts\doppler-lab.exe demo --noise-only --output work\noise-case
-.\.venv\Scripts\doppler-lab.exe run work\noise-case\case.json --output work\noise-result
+.\doppler-lab.exe demo --noise-only --output work\noise-case
+.\doppler-lab.exe run work\noise-case\case.json --output work\noise-result
 ```
 
 The noise case still has a highest-scoring candidate. Explain why that is expected.
@@ -125,6 +136,9 @@ A strong submission may conclude that an attractive hypothesis remains unverifie
 The assignment rewards disciplined interpretation, not the most precise-looking number.
 
 ## Optional extensions
+
+The first two extensions use Python and the source checkout. The remaining commands
+are available in the native executable.
 
 - Run `scripts/benchmark.py --output work/full-benchmark` for the full suite and retain
   its machine-readable table. It repeats the search on reversed time and three noise seeds.
