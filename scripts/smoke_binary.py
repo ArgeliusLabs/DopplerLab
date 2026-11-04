@@ -7,6 +7,7 @@ import io
 import json
 import math
 import os
+import re
 import subprocess
 import sys
 import tarfile
@@ -85,6 +86,13 @@ def main():
     parser.add_argument("executable", type=Path)
     args = parser.parse_args()
     executable = args.executable.resolve()
+    # Native documentation must retain its referenced local evidence assets.
+    for guide in [*executable.parent.glob("*.md"), *executable.parent.glob("docs/*.md")]:
+        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", guide.read_text(encoding="utf-8")):
+            if not target.startswith(("https:", "http:", "#")):
+                assert (guide.parent / target.split("#", 1)[0]).is_file(), (
+                    f"Missing bundled documentation reference: {guide.name}: {target}"
+                )
     env = dict(os.environ)
     env.pop("PYTHONPATH", None)
     env.pop("PYTHONHOME", None)

@@ -143,6 +143,9 @@ def notices(destination):
                             ROOT / "scripts/smoke_binary.py",
                             ROOT / "QUICKSTART.md",
                             *ROOT.glob("docs/*.md"),
+                            ROOT / "assets/archive-benchmark.png",
+                            ROOT / "examples/archive-benchmark.json",
+                            ROOT / "examples/terrain-benchmark.json",
                         ]
                     )
                 },
@@ -225,6 +228,14 @@ def main():
     (bundle / "docs").mkdir()
     for guide in sorted((ROOT / "docs").glob("*.md")):
         shutil.copyfile(guide, bundle / "docs" / guide.name)
+    for relative in [
+        "assets/archive-benchmark.png",
+        "examples/archive-benchmark.json",
+        "examples/terrain-benchmark.json",
+    ]:
+        target = bundle / relative
+        target.parent.mkdir(exist_ok=True)
+        shutil.copyfile(ROOT / relative, target)
     notices(bundle)
     archive_format = "zip" if platform.system() == "Windows" else "gztar"
     archive = Path(

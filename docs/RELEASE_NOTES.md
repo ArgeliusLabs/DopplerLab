@@ -1,10 +1,16 @@
-# v0.4.0 — original-recording workflow and first field result
+# v0.4.1 — original-recording workflow and first field result
 
 **Experimental — testing in progress.** This release comes from working an actual
 47-minute iPad recording through public aircraft data, Tucson terrain and acoustic
 controls. The acquisition and analysis pipeline ran; **the recording did not support
-an accepted location**. Read the [field-test report](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/FIELD_TEST_2026_11.md).
+an accepted location**. Read the [field-test report](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/docs/FIELD_TEST_2026_11.md).
 Real-world location accuracy remains unvalidated.
+
+## Packaging correction
+
+Version 0.4.1 includes the benchmark chart and JSON evidence files referenced by the
+native guides. Native smoke checks now reject broken local Markdown references.
+The acoustic analysis and the insufficient-evidence field outcome are unchanged.
 
 ## What changed
 
@@ -21,10 +27,10 @@ Real-world location accuracy remains unvalidated.
 
 ## Start here
 
-- [Native quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/QUICKSTART.md)
-- [Original-recording walkthrough](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/REAL_RECORDING.md)
-- [Terrain guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/TERRAIN.md)
-- [Field result and limits](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/FIELD_TEST_2026_11.md)
+- [Native quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/QUICKSTART.md)
+- [Original-recording walkthrough](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/docs/REAL_RECORDING.md)
+- [Terrain guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/docs/TERRAIN.md)
+- [Field result and limits](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/docs/FIELD_TEST_2026_11.md)
 
 FFmpeg/ffprobe are separate requirements for media review. The native executable
 bundles Python, scientific libraries and terrain dependencies. Generated practice
@@ -50,13 +56,13 @@ Windows/Linux test matrix and all four native smoke checks.
 
 ## Downloads
 
-- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-windows-x86_64.zip)
-- [Linux x86-64](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-linux-x86_64.tar.gz)
-- [Intel Mac](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-x86_64.tar.gz)
-- [Apple Silicon](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-arm64.tar.gz)
+- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.1/doppler-lab-0.4.1-windows-x86_64.zip)
+- [Linux x86-64](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.1/doppler-lab-0.4.1-linux-x86_64.tar.gz)
+- [Intel Mac](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.1/doppler-lab-0.4.1-macos-x86_64.tar.gz)
+- [Apple Silicon](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.1/doppler-lab-0.4.1-macos-arm64.tar.gz)
 
 Source ZIP, student pack, wheel, source distribution, inventory and SHA-256 checksums
-are included. See [platform requirements](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/BINARIES.md).
+are included. See [platform requirements](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.1/docs/BINARIES.md).
 
 The replay adapter uses public map resources whose format and retention can change;
 use daily archives for broader historical searches. Rate-limit/authentication errors
