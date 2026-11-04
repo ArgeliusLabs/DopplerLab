@@ -24,6 +24,8 @@ from .broad import (
 from .case import load_case
 from .importers import import_tracks
 from .measure import fit_ridge
+from .media import review_media
+from .replay import download_window
 from .report import draw_spectrogram, write_report
 from .search import search
 from .synthetic import create_case
@@ -62,6 +64,18 @@ def parser():
     extract.add_argument("--output", type=Path, required=True)
     extract.add_argument("--start", type=float, default=0)
     extract.add_argument("--duration", type=float, default=120)
+    review = commands.add_parser(
+        "review-media", help="Review a long local recording in timed audio/spectrogram chunks"
+    )
+    review.add_argument("media", type=Path)
+    review.add_argument("--output", type=Path, required=True)
+    review.add_argument("--chunk-seconds", type=float, default=300)
+    review.add_argument("--overlap-seconds", type=float, default=20)
+    review.add_argument("--max-minutes", type=float, default=120)
+    review.add_argument("--start-utc", help="Override sample-zero time, with Z or UTC offset")
+    review.add_argument("--clock-uncertainty", type=float, default=60)
+    review.add_argument("--ffmpeg", default="ffmpeg")
+    review.add_argument("--ffprobe", default="ffprobe")
     fit = commands.add_parser("fit-ridge", help="Fit manually measured time_s,frequency_hz CSV")
     fit.add_argument("ridge", type=Path)
     fit.add_argument("--sound-speed", type=float, default=343)
@@ -99,6 +113,12 @@ def parser():
         "--bounds", type=float, nargs=4, metavar=("SOUTH", "WEST", "NORTH", "EAST"), required=True
     )
     norm.add_argument("--max-gap", type=float, default=5)
+    norm.add_argument(
+        "--conflicts",
+        choices=["error", "quarantine"],
+        default="error",
+        help="Fail on conflicting fixes, or explicitly exclude and audit the whole aircraft",
+    )
     norm.add_argument("--output", type=Path, required=True)
     download = commands.add_parser(
         "download-day", help="Download one adsb.lol global UTC-day archive"
@@ -109,6 +129,21 @@ def parser():
     download.add_argument("--instance", choices=["prod-0", "prod-1", "staging-0"], default="prod-0")
     download.add_argument("--max-gb", type=float, default=6, help="Maximum download in decimal GB")
     download.add_argument("--output", type=Path, required=True)
+    window = commands.add_parser(
+        "download-window",
+        help="Acquire a local historical hour through public replay and detailed traces",
+    )
+    window.add_argument("--start", required=True)
+    window.add_argument("--end", required=True)
+    window.add_argument(
+        "--bounds", type=float, nargs=4, required=True, metavar=("SOUTH", "WEST", "NORTH", "EAST")
+    )
+    window.add_argument("--padding", type=float, default=180)
+    window.add_argument("--max-gb", type=float, default=1)
+    window.add_argument("--max-aircraft", type=int, default=150)
+    window.add_argument("--max-gap", type=float, default=5)
+    window.add_argument("--conflicts", choices=["error", "quarantine"], default="error")
+    window.add_argument("--output", type=Path, required=True)
     terrain = commands.add_parser(
         "download-terrain", help="Download USGS 3DEP DEMs and required height-correction grids"
     )
@@ -272,6 +307,30 @@ def main(argv=None):
             draw_spectrogram(spec, args.output)
             print(json.dumps(metadata, indent=2))
             print(f"Saved {args.output}")
+        elif args.command == "review-media":
+            result = review_media(
+                args.media,
+                args.output,
+                args.chunk_seconds,
+                args.overlap_seconds,
+                args.max_minutes,
+                args.start_utc,
+                args.clock_uncertainty,
+                args.ffmpeg,
+                args.ffprobe,
+                progress=lambda value: print(json.dumps(value), file=sys.stderr, flush=True),
+            )
+            print(
+                json.dumps(
+                    {
+                        "status": result["status"],
+                        "chunks": len(result["chunks"]),
+                        "review": str((args.output / "review.html").resolve()),
+                        "timing": result["timing"],
+                    },
+                    indent=2,
+                )
+            )
         elif args.command == "extract":
             ffmpeg = shutil.which("ffmpeg")
             if not ffmpeg:
@@ -347,6 +406,7 @@ def main(argv=None):
                 args.end,
                 args.bounds,
                 args.max_gap,
+                conflicts=args.conflicts,
             )
             print(json.dumps(result, indent=2))
             if not result["segments"]:
@@ -354,6 +414,33 @@ def main(argv=None):
                     "No usable segments. Review summary.json; no geometry-ready tracks were produced.",
                     file=sys.stderr,
                 )
+                return 2
+        elif args.command == "download-window":
+            result = download_window(
+                args.start,
+                args.end,
+                args.bounds,
+                args.output,
+                args.padding,
+                args.max_gb,
+                args.max_aircraft,
+                args.max_gap,
+                args.conflicts,
+                progress=status,
+            )
+            print(
+                json.dumps(
+                    {
+                        "status": result["status"],
+                        "aircraft_count": result.get("aircraft_count", 0),
+                        "downloaded_bytes": result.get("downloaded_bytes", 0),
+                        "missing_resources": result.get("missing_resources", []),
+                        "output": str(args.output.resolve()),
+                    },
+                    indent=2,
+                )
+            )
+            if result["status"] != "complete":
                 return 2
         elif args.command == "download-day":
             result = download_day(

@@ -126,8 +126,8 @@ and explicit limits. The live two-second polling attempt on November 3 stopped a
 HTTP 429 after ten snapshots, so it does not count as a completed capture or field test.
 
 **Testing in progress:** the experimental release is available for community evaluation.
-Initial original-recording cases are planned. The owner reports recording an iPad video;
-it has not yet been supplied for analysis, and real-world accuracy remains unvalidated.
+The first original iPad recording has now been analyzed; the exploratory outcome was
+[insufficient acoustic evidence](FIELD_TEST_2026_11.md). Real-world accuracy remains unvalidated.
 Native build checks exercise archive indexing, screening and handoff, followed by
 fictional audio generation, spectrogram inspection, local matching and an embedded
 HTML report from outside the source checkout. Packaging success does not establish
@@ -170,3 +170,22 @@ A 1-km grid over the existing Tucson flight index produced 1,707 terrain receive
 prepared 12,882 terrain-following observers. Neither used the owner's recording.
 See the [terrain guide](TERRAIN.md) and
 [recorded benchmark](../examples/terrain-benchmark.json) for sources, hashes and limitations.
+
+## Original-recording workflow in 0.4.0
+
+All 58 local automated tests pass. New checks cover timezone-aware recording metadata,
+GPS-value exclusion, midnight date selection, replay decoding, overlapping historical/
+current trace handling, rate-limit aborts and explicit whole-aircraft quarantine.
+
+The live `download-window` command acquired the actual recording window in 175.658
+seconds (58,933,188 bytes), producing 47 segments and 1,885 positions. The Windows
+standalone executable processed the full 5.89 GB recording into 11 review chunks; every
+derived WAV hash and original-media offset matched the Python implementation. Its
+full native smoke workflow also passed. Review assets were checked (11 audio elements,
+22 valid chart images, 34 resolved local references). Browser security blocked opening
+the local HTML file, so browser playback/layout was not interactively verified.
+
+The acoustic comparison was negative: channel disagreement, a reversed-event control
+scoring at least as well as the original grid search, and weak finer-resolution
+reference checks. See the [complete outcome and limitations](FIELD_TEST_2026_11.md).
+Publication requires all Windows/Linux test jobs and all four native build/smoke jobs.

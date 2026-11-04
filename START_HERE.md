@@ -11,6 +11,8 @@ DEM heights in both broad screening and local matching.
 | --- | --- |
 | [Native quick start](QUICKSTART.md) | Choose a binary, generate fictional audio and open a report without installing Python |
 | [Guided practice](docs/PRACTICE.md) | A 15–20 minute walkthrough, noise-only comparison and self-check |
+| [Original-recording walkthrough](docs/REAL_RECORDING.md) | Review a long video, acquire a local historical window, prepare terrain and test the hypothesis |
+| [First field-test outcome](docs/FIELD_TEST_2026_11.md) | Real recording and flight data; insufficient acoustic evidence, with controls and limitations |
 | [README](README.md) | Installation, CLI and project scope |
 | [Investigation workflow](docs/INVESTIGATION_WORKFLOW.md) | How a broad region and recording date lead to candidate areas and local matching |
 | [Download and storage guide](docs/DATA_VOLUME.md) | Verified daily archive sizes, transfer estimates and working-space planning |

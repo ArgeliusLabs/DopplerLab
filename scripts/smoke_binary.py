@@ -141,6 +141,8 @@ def main():
         run("capture-adsb", "--help")
         run("normalize-adsb", "--help")
         run("download-day", "--help")
+        run("download-window", "--help")
+        run("review-media", "--help")
         with tarfile.open(root / "traces.tar", "w") as archive:
             for identity, offset, north in [("a00001", 0, False), ("a00002", 920, True)]:
                 points = []

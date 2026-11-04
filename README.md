@@ -15,11 +15,11 @@ reports. Generated practice data and optional teaching materials support learnin
 investigation workflow.
 
 **Status: experimental release — testing in progress.** Automated checks and real-data
-archive/search benchmarks have passed. Original-recording field tests are still being
-prepared; real-world location accuracy is not established. The solver reports hypotheses,
-never an accepted location. Version 0.2.0 adds daily archive acquisition, regional
-candidate screening and native downloads. It does not automatically identify aircraft
-from audio.
+archive/search benchmarks have passed. The [first original-recording test](docs/FIELD_TEST_2026_11.md)
+ran the real-data pipeline but ended with **insufficient acoustic evidence**; real-world
+location accuracy is not established. The solver reports hypotheses, never an accepted
+location. Version 0.4.0 adds long-recording review, local historical-window downloads
+and explicit conflict quarantine. It does not automatically identify aircraft from audio.
 
 **How do you start with only a country or continent?** Read the
 [investigation workflow](docs/INVESTIGATION_WORKFLOW.md) for aircraft-data acquisition,
@@ -32,6 +32,7 @@ implemented workflow from the analysis and validation that still require an inve
 **New here?** Start with the [native quick start](QUICKSTART.md), then the
 [15–20 minute guided practice](docs/PRACTICE.md). Both run without installing Python.
 For an investigation, use the [broad-area workflow](docs/BROAD_SEARCH.md).
+For your own video, start with the [original-recording walkthrough](docs/REAL_RECORDING.md).
 Ordinary development pushes
 produce test artifacts; publication requires an explicit release action.
 

@@ -5,8 +5,8 @@ and practice guides for running the native executable without installing Python.
 
 For a hands-on start, download the native build for your OS and follow `QUICKSTART.md`
 at the root of this pack, then `docs/PRACTICE.md`. The same guides are included in each
-v0.3.0 native archive. Download links are on the
-[release page](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.3.0).
+v0.4.0 native archive. Download links are on the
+[release page](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.4.0).
 
 ## Start in five minutes
 

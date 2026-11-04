@@ -156,8 +156,9 @@ The November 3 live-polling attempt also stopped at HTTP 429 after ten snapshots
 is not a completed live capture. The completed benchmarks use **yesterday's archived
 day**, not a recording collected today.
 
-The experimental release is available with **testing in progress**. Two initial
-original-recording cases are planned; field recordings have not yet been collected. See
+The experimental release is available with **testing in progress**. A subsequent
+[original-recording analysis](FIELD_TEST_2026_11.md) used a different date/window and
+ended with insufficient acoustic evidence. See
 [the validation record](https://github.com/ArgeliusLabs/DopplerLab/blob/main/docs/VALIDATION.md)
 and the [field protocol](FIELD_PROTOCOL.md). Cross-day
 event pairing, terrain-aware broad screening, unknown-date search and real-world

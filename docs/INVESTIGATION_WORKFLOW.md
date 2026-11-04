@@ -5,12 +5,14 @@ Start with the geographic and time bounds that the evidence supports. A country 
 a recording date can be enough to begin candidate selection; they do not guarantee a
 unique answer. A city and precise recording time make the first controlled test easier.
 
-**Implementation status, 3 November 2026:** The experimental 0.2.0 release implements
+**Implementation status, 3 November 2026:** The experimental release implements
 archive download, regional indexing, coarse interval screening, per-event speed/slant
 filters and a handoff to detailed local matching. See the
 [runnable broad-search guide](BROAD_SEARCH.md) for commands and limits. **Testing is in
-progress:** automated checks and archive benchmarks are complete; original-recording
-field tests are being prepared. This document identifies the stages that still require
+progress:** automated checks and archive benchmarks are complete; the
+[first original-recording analysis](FIELD_TEST_2026_11.md) ended with insufficient
+acoustic evidence. Version 0.4.0 adds [long-recording review and local-window acquisition](REAL_RECORDING.md).
+This document identifies the stages that still require
 analyst preparation or future development. The classroom lab demonstrates the local
 stage with fictional data.
 
@@ -156,11 +158,13 @@ ambiguous and unsupported cases as such. The [field protocol](FIELD_PROTOCOL.md)
 describes how to evaluate against hidden recording truth; real-world accuracy remains
 unvalidated in the published release.
 
-## What is automatic in the experimental v0.3.0 release?
+## What is automatic in the experimental v0.4.0 release?
 
-| Stage | v0.3.0 status |
+| Stage | v0.4.0 status |
 | --- | --- |
 | WAV inspection, FFmpeg extraction, manually traced ridge fitting | Implemented |
+| Long-media review with offsets, hashes and per-channel spectrograms | Implemented; FFmpeg/ffprobe required |
+| Small historical time window across midnight UTC | Experimental public replay/trace adapter; coverage and retention limits apply |
 | Live capture or historical archive download | Implemented for adsb.lol; access limits and coverage apply |
 | Continental track index and relative-interval candidate selection | Implemented with explicit budgets and coarse-model limits |
 | Per-event speed/slant filtering and local track handoff | Implemented; audio constraints and final case require analyst review |

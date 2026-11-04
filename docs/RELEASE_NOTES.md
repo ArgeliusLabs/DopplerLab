@@ -1,72 +1,68 @@
-# v0.3.0 — terrain for real investigation workflows
+# v0.4.0 — original-recording workflow and first field result
 
-**Experimental — testing in progress.** This release adds automatic USGS DEM acquisition
-and applies terrain heights in both broad screening and detailed local preparation.
-Real-recording location accuracy remains unvalidated; the owner's iPad recording has
-not yet been supplied for analysis.
+**Experimental — testing in progress.** This release comes from working an actual
+47-minute iPad recording through public aircraft data, Tucson terrain and acoustic
+controls. The acquisition and analysis pipeline ran; **the recording did not support
+an accepted location**. Read the [field-test report](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/FIELD_TEST_2026_11.md).
+Real-world location accuracy remains unvalidated.
 
-## New capabilities
+## What changed
 
-- `download-terrain`: fetch current contiguous-US USGS 3DEP 1/3 arc-second tiles and
-  the correction grids required by an explicit NAD83/NAVD88 to WGS84 height operation.
-- `terrain-point`: inspect a verified local bundle's receiver height offline.
-- `prepare-observers`: create terrain-following local candidates, geographic coordinates,
-  an explicit origin and provenance for detailed Doppler matching.
-- `shortlist --terrain`: use each candidate's actual ground-derived height. Exported
-  candidates preserve those heights and terrain provenance.
-- Microphone height and height-sensitivity offsets, bounded streaming downloads,
-  SHA-256 checks, and explicit errors for missing terrain or correction grids.
-
-These commands are included in the Windows, Linux and Mac executables. No separate
-Python/GIS installation is needed for terrain operations in the native builds. DEMs
-are downloaded for the chosen region and reused offline; they are not bundled globally.
+- `review-media`: review long local videos in overlapping audio/spectrogram chunks,
+  preserve channel separation, offsets and hashes, and distinguish recording-date claims
+  from container/export time. GPS values are excluded from its intake manifest.
+- `download-window`: fetch a bounded local historical hour through public adsb.lol
+  replay and detailed traces, including UTC midnight and recent full-trace fallback.
+  Heatmap altitude is never used for acoustic geometry. Gaps, missing data, source
+  rejections and resource budgets remain explicit.
+- `normalize-adsb --conflicts quarantine`: optionally exclude and audit an entire
+  aircraft with conflicting timestamped positions; default behavior still stops.
+- Native archives now include the investigation documentation and first field outcome.
 
 ## Start here
 
-- [Native quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.3.0/QUICKSTART.md)
-- [Step-by-step terrain guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.3.0/docs/TERRAIN.md)
-- [Investigation workflow](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.3.0/docs/INVESTIGATION_WORKFLOW.md)
-- [Recorded Tucson terrain checks](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.3.0/examples/terrain-benchmark.json)
+- [Native quick start](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/QUICKSTART.md)
+- [Original-recording walkthrough](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/REAL_RECORDING.md)
+- [Terrain guide](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/TERRAIN.md)
+- [Field result and limits](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/FIELD_TEST_2026_11.md)
 
-Quick start, guided practice, platform instructions and the terrain guide ship inside
-each native archive. Video extraction still uses a separately installed FFmpeg.
+FFmpeg/ffprobe are separate requirements for media review. The native executable
+bundles Python, scientific libraries and terrain dependencies. Generated practice
+and existing WAV analysis still work offline without FFmpeg.
 
-## Evidence so far
+## Evidence
 
-The Tucson download retained two real DEM tiles plus correction grids/notices:
-**828,398,104 bytes in 137.089 seconds**. Three same-reference terrain samples differed
-from the independent USGS point service by 0.002, 1.813 and 1.606 metres; the service
-used finer source data. Those are consistency checks, not survey accuracy estimates.
+The real window acquisition downloaded **58,933,188 bytes in 175.658 seconds**, retaining
+42 candidate aircraft, 44 dated trace files, 47 geometry-ready segments and 1,885
+positions. Eight traces used the recent full-trace fallback. Coverage is not guaranteed.
 
-A real Tucson aircraft index was screened using 1,707 terrain nodes with heights from
-614.932 to 2,729.908 metres. The 920-second interval was hypothetical. A separate local
-preparation produced 12,882 terrain-following candidates. Neither used the owner's video.
+A terrain-following 720-node diagnostic gave different winners on the two audio
+channels. Reversing each event's time/frequency frames scored at least as well as the
+original grid search. Finer pitch/clock sampling and sound-speed sensitivity at the
+metadata reference did not produce persuasive evidence. The correct outcome is
+**insufficient evidence**, not a coordinate. GPS was visible at intake, so this was
+exploratory and not blind validation. Raw recording, precise coordinates and private
+reports are excluded from the release.
 
-All 51 regression tests pass locally. Publication requires the Windows/Linux test matrix
-and native executable checks on Windows, Linux, Intel Mac and Apple Silicon. The actual
-Windows executable also reproduced the source implementation's height on the real Tucson DEM.
+Automated tests cover midnight boundaries, overlapping trace fallback, timestamp/GPS
+handling, rate-limit aborts and conflict quarantine. Publication requires the
+Windows/Linux test matrix and all four native smoke checks.
 
 ## Downloads
 
-- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-windows-x86_64.zip)
-- [Linux x86-64 archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-linux-x86_64.tar.gz)
-- [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-x86_64.tar.gz)
-- [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-arm64.tar.gz)
+- [Windows x86-64 ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-windows-x86_64.zip)
+- [Linux x86-64](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-linux-x86_64.tar.gz)
+- [Intel Mac](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-x86_64.tar.gz)
+- [Apple Silicon](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-arm64.tar.gz)
 
-Source ZIP, student pack, Python wheel, source distribution, inventory and SHA-256 checksums
-are also included. Read [platform requirements](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.3.0/docs/BINARIES.md).
+Source ZIP, student pack, wheel, source distribution, inventory and SHA-256 checksums
+are included. See [platform requirements](https://github.com/ArgeliusLabs/DopplerLab/blob/v0.4.0/docs/BINARIES.md).
 
-## Limits and community work
-
-Automatic terrain support currently covers bounded contiguous-US regions, up to 32 tiles
-per download and one supported coordinate operation per region. Other terrain providers
-and arbitrary GeoTIFF import are not implemented. Coarse grid sampling does not prove
-search completeness in steep terrain. The DEM does not model acoustic blockage,
-reflections, buildings, wind or refraction. See the terrain guide for uncertainty and
-height-sensitivity instructions.
+The replay adapter uses public map resources whose format and retention can change;
+use daily archives for broader historical searches. Rate-limit/authentication errors
+stop without retry. Aircraft data retains its ODbL terms, separate from MIT code.
 
 Original implementation by Argelius Labs, inspired by
-[colsto's aircraft Doppler demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI).
-No affiliation or endorsement is implied. Share reproducible successes and failures in
-[Issues](https://github.com/ArgeliusLabs/DopplerLab/issues); avoid posting private recordings
-or precise recording locations without permission.
+[colsto's demonstration](https://www.youtube.com/watch?v=UytYrhYLOKI). No affiliation
+or endorsement is implied. Share reproducible successes and failures through
+[Issues](https://github.com/ArgeliusLabs/DopplerLab/issues).

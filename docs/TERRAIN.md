@@ -139,7 +139,8 @@ The terrain tests cover interpolation, axes, geoid sign, microphone height, loca
 conversion, hash failures, nodata, download truncation and propagation into broad-search
 candidate heights. The real Tucson terrain run also exercised the existing November 2
 flight index with a hypothetical interval. **Neither is a successful geolocation test
-of the owner's iPad recording; that recording is not yet part of the validation record.**
+of the owner's iPad recording.** A later [original-recording analysis](FIELD_TEST_2026_11.md)
+used this terrain and ended with insufficient acoustic evidence.
 
 The Tucson archive check sampled 1,707 terrain nodes, with receiver ellipsoid heights
 from 614.932 to 2,729.908 m. It produced 54,200 timing candidates, compared with 51,156

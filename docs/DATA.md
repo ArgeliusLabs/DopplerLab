@@ -45,6 +45,11 @@ documentation and original fictional fixtures, not to third-party inputs.
 
 ## Audio extraction and inspection
 
+For a long original video, begin with [`review-media`](REAL_RECORDING.md). It creates
+overlapping review chunks and keeps their original-media offsets. For a known local
+time window, the same guide explains `download-window` and its ready-to-import
+`tracks/geographic.csv`. Daily archives remain available for broader searches.
+
 From the native executable's folder, in Windows PowerShell. On macOS/Linux use
 `./doppler-lab` and forward slashes; source installs can use their environment's
 `doppler-lab` command. Replace the example recording path with your original file:

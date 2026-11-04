@@ -142,9 +142,7 @@ def notices(destination):
                             ROOT / "scripts/build_binary.py",
                             ROOT / "scripts/smoke_binary.py",
                             ROOT / "QUICKSTART.md",
-                            ROOT / "docs/PRACTICE.md",
-                            ROOT / "docs/BINARIES.md",
-                            ROOT / "docs/TERRAIN.md",
+                            *ROOT.glob("docs/*.md"),
                         ]
                     )
                 },
@@ -225,8 +223,8 @@ def main():
     shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "README.md")
     shutil.copyfile(ROOT / "QUICKSTART.md", bundle / "QUICKSTART.md")
     (bundle / "docs").mkdir()
-    for name in ["PRACTICE.md", "BINARIES.md", "TERRAIN.md"]:
-        shutil.copyfile(ROOT / "docs" / name, bundle / "docs" / name)
+    for guide in sorted((ROOT / "docs").glob("*.md")):
+        shutil.copyfile(guide, bundle / "docs" / guide.name)
     notices(bundle)
     archive_format = "zip" if platform.system() == "Windows" else "gztar"
     archive = Path(

@@ -10,3 +10,10 @@ __pycache__/
 .ruff_cache/
 *.pyc
 .DS_Store
+# Original field recordings dropped into the project root stay local.
+/*.mov
+/*.MOV
+/*.mp4
+/*.MP4
+/*.m4v
+/*.webm

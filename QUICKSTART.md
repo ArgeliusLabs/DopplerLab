@@ -10,15 +10,15 @@ location accuracy remains unvalidated.
 
 ## 1. Download your build
 
-Use the [v0.3.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.3.0).
+Use the [v0.4.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.4.0).
 Choose one native archive, then extract it into a folder you can write to, such as Downloads:
 
 | Your computer | Download |
 | --- | --- |
-| Windows, Intel/AMD 64-bit | [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-windows-x86_64.zip) |
-| Mac with Apple Silicon, such as M1/M2/M3/M4 | [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-arm64.tar.gz) |
-| Mac with an Intel processor | [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-x86_64.tar.gz) |
-| Linux, Intel/AMD 64-bit | [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-linux-x86_64.tar.gz) |
+| Windows, Intel/AMD 64-bit | [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-windows-x86_64.zip) |
+| Mac with Apple Silicon, such as M1/M2/M3/M4 | [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-arm64.tar.gz) |
+| Mac with an Intel processor | [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-x86_64.tar.gz) |
+| Linux, Intel/AMD 64-bit | [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-linux-x86_64.tar.gz) |
 
 The native archive contains the executable. GitHub's automatic **Source code** downloads
 contain source, not a precompiled application. Keep the bundled license files.
@@ -87,7 +87,7 @@ You can also open `practice/report/report.html` with your browser's file-open co
 On a machine without a desktop, copy the HTML file to a computer with a browser; its
 plots are embedded. No local web server is needed.
 
-**Checkpoint:** the version should say `0.3.0`; earlier 0.2.x binaries also support these commands.
+**Checkpoint:** the version should say `0.4.0`; earlier 0.2.x binaries also support these commands.
 The report should show **289 declared locations**, **2 independent flyovers**, a
 spectrogram, a location score map, and **Accepted location: no**. That last label is
 expected: a ranked hypothesis is not an independently verified location.
@@ -124,6 +124,19 @@ For a different failure, keep the complete error, OS, tool version and command w
 
 ## After the practice
 
+Start an original video with the bundled [recording walkthrough](docs/REAL_RECORDING.md).
+Version 0.4.0 can review a long recording and retrieve a small historical flight window:
+
+```powershell
+.\doppler-lab.exe review-media "C:\recordings\owned-video.mov" --output work\review-01
+Start-Process "work\review-01\review.html"
+```
+
+This command needs separate FFmpeg/ffprobe executables. The walkthrough covers timestamp
+review, both audio channels, `download-window`, terrain and case preparation. Read the
+[first field-test outcome](docs/FIELD_TEST_2026_11.md): the real pipeline ran, but the
+recording did not support an accepted location.
+
 For an original recording, follow the
 [investigation workflow](https://github.com/ArgeliusLabs/DopplerLab/blob/main/docs/INVESTIGATION_WORKFLOW.md)
 and [data-preparation guide](https://github.com/ArgeliusLabs/DopplerLab/blob/main/docs/DATA.md).
@@ -132,5 +145,5 @@ recording times, flight data and analyst-selected audio events. The fictional de
 not automatically analyze an arbitrary video.
 
 For terrain, follow the bundled [DEM download and preparation guide](docs/TERRAIN.md).
-Version 0.3.0 can retrieve USGS elevation tiles and apply their heights during broad
+The tool can retrieve USGS elevation tiles and apply their heights during broad
 screening and detailed local preparation. Download once, then reuse the files offline.

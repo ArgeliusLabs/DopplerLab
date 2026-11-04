@@ -22,6 +22,8 @@ enough detail for others to reproduce a result.
 1. **Blind field validation.** Collect authorized recordings with documented sample-zero
    time and microphone position. Hold truth out of analysis and publish failures as well
    as successes. Begin with the [field protocol](FIELD_PROTOCOL.md).
+   The [first exploratory field test](FIELD_TEST_2026_11.md) ended with insufficient
+   evidence and is published as a negative result. It is not blind accuracy validation.
 2. **Model mismatch.** Evaluate source-pitch drift, wind, trajectory noise, height error
    and edited recordings. A concentrated score peak alone is not acceptance evidence.
 3. **Data preparation.** Add small provider-specific importers with explicit source terms,
@@ -36,6 +38,9 @@ enough detail for others to reproduce a result.
    downloads, recorded height conversion and broad/local terrain candidates. Additional
    terrain providers, cross-day pairing, automatic audio measurement and field completeness
    still need work.
+   Version 0.4.0 adds local time-window acquisition across UTC midnight, long-media
+   review and auditable conflict quarantine. Continental cross-day pairing remains
+   separate work.
    See [commands and limits](BROAD_SEARCH.md) and [data measurements](DATA_VOLUME.md).
 
 These are open priorities, not promised features or deadlines. Keep the core toolkit easy

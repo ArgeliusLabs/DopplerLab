@@ -1,14 +1,16 @@
 # Native downloads
 
 New here? Follow [Quick start](../QUICKSTART.md), then the
-[guided practice](PRACTICE.md). Both guides ship inside each v0.3.0 native archive;
-open its `README.md` or `QUICKSTART.md` first. The [terrain guide](TERRAIN.md) is also bundled.
+[guided practice](PRACTICE.md). Both guides ship inside each v0.4.0 native archive;
+open its `README.md` or `QUICKSTART.md` first. Investigation guides, including
+[original recordings](REAL_RECORDING.md), [terrain](TERRAIN.md) and the
+[first field-test outcome](FIELD_TEST_2026_11.md), are bundled too.
 
-The [experimental v0.3.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.3.0)
+The [experimental v0.4.0 release](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.4.0)
 includes standalone command-line executables for Windows x86-64, Linux x86-64,
 macOS Intel and macOS Apple Silicon. Python and the runtime dependencies are bundled.
-**Testing is in progress:** automated and native smoke checks have passed; original
-recording tests are still being prepared. Real-world location accuracy is unvalidated.
+**Testing is in progress:** the first original-recording analysis ran but did not
+support accepting a location. Real-world location accuracy remains unvalidated.
 
 Development candidates appear as `native-*` artifacts on successful runs of
 [GitHub Actions](https://github.com/ArgeliusLabs/DopplerLab/actions). GitHub may require
@@ -27,12 +29,12 @@ Mac builds isolate Rasterio's vendored dynamic libraries before packaging, avoid
 same-name TIFF-library conflicts with pyproj. This changes only a temporary build copy;
 normal executable checks still exercise both the DEM reader and coordinate conversion.
 
-| v0.3.0 download | Target |
+| v0.4.0 download | Target |
 | --- | --- |
-| [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-windows-x86_64.zip) | 64-bit Intel/AMD Windows; tested on Windows Server 2022 |
-| [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-linux-x86_64.tar.gz) | Intel/AMD Linux with glibc 2.35 or newer; built on Ubuntu 22.04 |
-| [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-x86_64.tar.gz) | Intel Mac; built and tested on macOS 15 |
-| [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.3.0/doppler-lab-0.3.0-macos-arm64.tar.gz) | Apple Silicon Mac; built and tested on macOS 15 |
+| [Windows ZIP](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-windows-x86_64.zip) | 64-bit Intel/AMD Windows; tested on Windows Server 2022 |
+| [Linux archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-linux-x86_64.tar.gz) | Intel/AMD Linux with glibc 2.35 or newer; built on Ubuntu 22.04 |
+| [Intel Mac archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-x86_64.tar.gz) | Intel Mac; built and tested on macOS 15 |
+| [Apple Silicon archive](https://github.com/ArgeliusLabs/DopplerLab/releases/download/v0.4.0/doppler-lab-0.4.0-macos-arm64.tar.gz) | Apple Silicon Mac; built and tested on macOS 15 |
 
 Older macOS versions, Windows ARM and Linux ARM are not currently tested. Builds run
 on each target OS; PyInstaller is not a cross-compiler. These candidates are unsigned

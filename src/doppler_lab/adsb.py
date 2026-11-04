@@ -217,7 +217,9 @@ def trace_records(data, counts):
         }
 
 
-def normalize(sources, output, source_format, start_utc, end_utc, bounds, max_gap_s=5):
+def normalize(
+    sources, output, source_format, start_utc, end_utc, bounds, max_gap_s=5, conflicts="error"
+):
     """Export a geographic CSV and audit; discontinuities get distinct segment IDs."""
     start, end = parse_utc(start_utc), parse_utc(end_utc)
     if not 0 < end - start <= 3600:
@@ -231,6 +233,8 @@ def normalize(sources, output, source_format, start_utc, end_utc, bounds, max_ga
         raise ValueError("Maximum gap must be in (0, 30] seconds.")
     if source_format not in {"capture", "readsb-trace"}:
         raise ValueError("Choose capture or readsb-trace format.")
+    if conflicts not in {"error", "quarantine"}:
+        raise ValueError("Conflicts policy must be error or quarantine.")
     sources = [Path(p) for p in sources]
     if not sources or any(not p.is_file() for p in sources):
         raise ValueError("Supply existing capture JSONL or trace JSON/JSON.GZ files.")
@@ -263,8 +267,30 @@ def normalize(sources, output, source_format, start_utc, end_utc, bounds, max_ga
                 continue
             grouped[point["icao"].lower()].append(point)
     segments = []
+    quarantined = []
     for icao, points in sorted(grouped.items()):
         points.sort(key=lambda p: p["time"])
+        collisions = [
+            a["time"]
+            for a, b in zip(points, points[1:], strict=False)
+            if a["time"] == b["time"]
+            and (a["lat"], a["lon"], a["height_ft"]) != (b["lat"], b["lon"], b["height_ft"])
+        ]
+        if collisions:
+            if conflicts == "error":
+                raise ValueError(
+                    f"Conflicting positions at one timestamp for {icao}; review sources."
+                )
+            quarantined.append(
+                {
+                    "icao": icao,
+                    "conflicting_times_utc": [utc(t) for t in sorted(set(collisions))],
+                    "excluded_points": len(points),
+                }
+            )
+            counts["quarantined_conflicting_aircraft"] += 1
+            counts["quarantined_points"] += len(points)
+            continue
         current, number_segment, last_position = [], 0, None
 
         def finish(aircraft_id=icao):
@@ -313,6 +339,8 @@ def normalize(sources, output, source_format, start_utc, end_utc, bounds, max_ga
         "window_utc": [utc(start), utc(end)],
         "bounds_south_west_north_east": bounds,
         "max_gap_s": max_gap_s,
+        "conflicts_policy": conflicts,
+        "quarantined_aircraft": quarantined,
         "counts": dict(counts),
         "exported_points": sum(len(p) for _, p in segments),
         "segments": [
@@ -331,6 +359,7 @@ def normalize(sources, output, source_format, start_utc, end_utc, bounds, max_ga
             "Snapshot geometric altitude has no separate age field; contemporaneity is unverified.",
             "Quantized, noisy or simplified positions can corrupt derived velocity; inspect curves.",
             "Use source-specific data terms and attribution; exported provider data is not MIT.",
+            "Quarantined aircraft are omitted alternatives, not evidence of aircraft absence.",
         ],
     }
     (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
