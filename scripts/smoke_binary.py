@@ -8,6 +8,7 @@ import json
 import math
 import os
 import subprocess
+import sys
 import tarfile
 import tempfile
 from pathlib import Path
@@ -92,15 +93,20 @@ def main():
         env["MPLCONFIGDIR"] = str(root / "matplotlib")
 
         def run(*items):
-            return subprocess.run(
-                [str(executable), *items],
-                cwd=root,
-                env=env,
-                capture_output=True,
-                text=True,
-                check=True,
-                timeout=180,
-            )
+            try:
+                return subprocess.run(
+                    [str(executable), *items],
+                    cwd=root,
+                    env=env,
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                    timeout=180,
+                )
+            except subprocess.CalledProcessError as error:
+                print(error.stdout or "", flush=True)
+                print(error.stderr or "", file=sys.stderr, flush=True)
+                raise
 
         print(run("--version").stdout.strip())
         terrain_fixture(root)
