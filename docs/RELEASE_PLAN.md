@@ -52,23 +52,25 @@ rate, interpretation errors and student feedback.
 Use the synthetic 39 m coarse-grid result only with its synthetic qualification on
 screen. The stronger story is “you can test this yourself,” not “we can locate anyone.”
 
-## Original v0.1.0 announcement draft
+## Current community announcement draft
 
-> We're releasing Argelius Doppler Lab: an open-source toolkit and classroom exercise
+> We're developing Argelius Doppler Lab: an open-source investigation toolkit
 > inspired by colsto's aircraft Doppler demonstration.
 >
-> It generates fictional aircraft recordings, predicts the sounds candidate microphone
-> positions would hear, and makes the results inspectable. The lab includes working
-> code, original data, negative controls, an instructor guide and a rubric.
+> It retrieves aircraft tracks and terrain, reviews original recordings, and compares
+> the sounds candidate microphone positions would hear. Windows, Linux and Mac builds
+> include a quickstart and generated practice; optional teaching materials are included.
 >
-> One of our favorite lessons: remove the correct aircraft from the search and a wrong
-> location can still score well. Learning to challenge the result is part of the method.
+> Testing is in progress. Our first original-recording test ran the data pipeline but
+> did not support a location: a reversed-event control scored as well as the original
+> search. Real-world location finding remains unproven. We publish failures so the
+> community can inspect the evidence and improve the method.
 >
-> This release is validated on synthetic cases. Blind field validation is the next step,
-> and the protocol is included. Credit to colsto for the inspiration and to the broader
-> community exploring this technique.
+> Help with independent physics review, clear flyover recordings, controls and later
+> blind evaluation. Credit to colsto for the inspiration and to the broader community
+> exploring this technique.
 
-Link the released version and its validation record when sharing this announcement.
+Link the released version, field-test outcome and validation record when sharing this announcement.
 The draft is provided for reuse; it does not imply that an announcement was posted elsewhere.
 
 ## Release checklist
@@ -109,7 +111,7 @@ are described in [BINARIES.md](BINARIES.md).
 
 | Priority | Work | Evidence required before claiming completion |
 | --- | --- | --- |
-| 1 | Blind field benchmark with appropriate clocks and heights | Frozen predictions, held-out truth, representative failures |
+| 1 | Known-site acoustic diagnosis, then a separate blind field benchmark | Independently identified flyover and controls; later frozen predictions, held-out truth and representative failures |
 | 2 | Source-pitch and propagation sensitivity | Recovery and abstention behavior across realistic perturbations |
 | 3 | Licensed provider-specific importers | Fixtures with explicit units, datums, gaps and timestamp semantics |
 | 4 | Ridge annotation interface | Usability test; provenance for analyst choices |

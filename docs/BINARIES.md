@@ -18,9 +18,9 @@ sign-in to download workflow artifacts; they expire after 30 days. They are not 
 published release. Use the versioned release assets above for persistent public downloads,
 including source distributions, dependency notices and checksums.
 
-The earlier v0.2.1 release passed all four native build/smoke jobs in
-[this verified run](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41746624938).
-Every published patch release must pass those jobs again. Inspect the conclusion and
+The v0.4.1 release passed all four test jobs and all four native build/smoke jobs in
+[this verified run](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41764948654).
+The release job also completed. Every published patch must pass those checks again. Inspect the conclusion and
 source commit when selecting development artifacts.
 
 ## Choose a build

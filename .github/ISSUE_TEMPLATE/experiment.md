@@ -8,6 +8,13 @@ about: Share a reproducible result, including a failure or confusing lesson
 **Question being tested**
 
 **Version, environment and reproduction steps**
+State native executable or source installation, OS, input hashes and declared search settings.
+
+**For field work: clock, aircraft-data coverage and terrain/height assumptions**
+Describe sample-zero UTC and uncertainty without exposing a private location.
+
+**Was the location known to the analyst before the search?**
+Include exposure through metadata. Separate a known-site diagnostic from a blind evaluation.
 
 **What happened, including unsuccessful outcomes**
 

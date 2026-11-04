@@ -7,7 +7,7 @@ a location claim. Read the [first field-test outcome](FIELD_TEST_2026_11.md).
 
 ## 1. Review the recording and its clock
 
-Use the v0.4.0 native executable. Install [FFmpeg and ffprobe](https://ffmpeg.org/download.html)
+Use the [v0.4.1 native executable](BINARIES.md). Install [FFmpeg and ffprobe](https://ffmpeg.org/download.html)
 separately for media review. They are not bundled. From PowerShell:
 
 ```powershell

@@ -176,4 +176,8 @@ audio hypothesis; do not download and parse the global day again unnecessarily.
 
 Those searches used a hypothetical interval and a flat receiver height, with millions
 of broad alternatives. Audio interpretation, terrain, candidate comparison and detailed
-matching add work. Their complete real-recording cost and accuracy remain unmeasured.
+matching add work. A later [local original-recording test](FIELD_TEST_2026_11.md)
+downloaded its flight window in 175.658 seconds (58,933,188 bytes) and ran each declared
+acoustic grid search in about 100 seconds, excluding media review and preparation.
+It did not recover a defensible location. Those local timings do not measure a complete
+continental audio search; its end-to-end cost and accuracy remain unestablished.

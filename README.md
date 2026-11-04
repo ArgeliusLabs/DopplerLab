@@ -17,8 +17,10 @@ investigation workflow.
 **Status: experimental release — testing in progress.** Automated checks and real-data
 archive/search benchmarks have passed. The [first original-recording test](docs/FIELD_TEST_2026_11.md)
 ran the real-data pipeline but ended with **insufficient acoustic evidence**; real-world
-location accuracy is not established. The solver reports hypotheses, never an accepted
-location. Version 0.4.0 adds long-recording review, local historical-window downloads
+location finding remains unproven. In that test, a reversed-event control scored as well
+as the original search. Working downloads, DEMs and software tests do not establish
+investigative accuracy. The solver reports hypotheses, never an accepted location.
+Version 0.4.1 includes long-recording review, local historical-window downloads
 and explicit conflict quarantine. It does not automatically identify aircraft from audio.
 
 **How do you start with only a country or continent?** Read the

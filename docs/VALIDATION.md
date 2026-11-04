@@ -189,3 +189,22 @@ The acoustic comparison was negative: channel disagreement, a reversed-event con
 scoring at least as well as the original grid search, and weak finer-resolution
 reference checks. See the [complete outcome and limitations](FIELD_TEST_2026_11.md).
 Publication requires all Windows/Linux test jobs and all four native build/smoke jobs.
+
+## Published v0.4.1 checkpoint
+
+Release [v0.4.1](https://github.com/ArgeliusLabs/DopplerLab/releases/tag/v0.4.1) was
+published from commit `35769d7252ad6277c30ed44434ab6b14b0b0e8f0`.
+[Run 41764948654](https://github.com/ArgeliusLabs/DopplerLab/actions/runs/41764948654)
+completed all nine jobs successfully: 58 tests on each Windows/Linux and Python
+3.11/3.13 combination, native build/smoke checks on Windows, Linux, Intel Mac and
+Apple Silicon, followed by publication.
+
+This patch includes the benchmark chart and JSON evidence referenced by the native
+guides, and checks bundled local Markdown links during native smoke tests. All ten
+public release assets were present; the nine entries in the downloaded `SHA256SUMS.txt`
+matched their GitHub asset digests. That comparison checks the published inventory;
+users should still hash their own downloads.
+
+These are software and packaging checks. The acoustic model and negative field outcome
+are unchanged. Real-world location recovery, blind accuracy and false-localization
+rates remain unproven; see the [field-validation issue](https://github.com/ArgeliusLabs/DopplerLab/issues/2).

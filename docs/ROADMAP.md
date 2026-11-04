@@ -8,7 +8,7 @@ failure report can be more valuable than another attractive screenshot.
 
 | Area | Useful first contribution | Evidence to include |
 | --- | --- | --- |
-| Installation and teaching | Try the quickstart on a fresh machine or teach the lab | OS/Python versions, confusing steps, timing, suggested wording |
+| Installation and workflow | Try the native quickstart, guided practice or optional lab | Tool version, OS, installation route, confusing steps and timing |
 | Negative cases | Produce a fictional case where the model is wrong or ambiguous | Generator/seed, unchanged search settings, complete results |
 | Physics review | Check signs, units, interpolation or propagation assumptions | Independent derivation or analytic test, including the failing case |
 | Reporting and accessibility | Improve labels, table readability, keyboard access or printable output | Before/after example and an explanation of the user benefit |
@@ -19,13 +19,19 @@ enough detail for others to reproduce a result.
 
 ## Research priorities
 
-1. **Blind field validation.** Collect authorized recordings with documented sample-zero
-   time and microphone position. Hold truth out of analysis and publish failures as well
-   as successes. Begin with the [field protocol](FIELD_PROTOCOL.md).
+1. **Establish real-recording capability, then test it blind.** First use a clear,
+   independently identified flyover at a known recording site to diagnose the acoustic
+   model and compare appropriate controls. Keep this development evidence separate
+   from a subsequent, held-out recording whose location is hidden from the analyst.
+   Document sample-zero time, microphone height, search choices and all failures.
+   Follow the [field protocol](FIELD_PROTOCOL.md) and track progress in
+   [issue #2](https://github.com/ArgeliusLabs/DopplerLab/issues/2).
    The [first exploratory field test](FIELD_TEST_2026_11.md) ended with insufficient
    evidence and is published as a negative result. It is not blind accuracy validation.
 2. **Model mismatch.** Evaluate source-pitch drift, wind, trajectory noise, height error
    and edited recordings. A concentrated score peak alone is not acceptance evidence.
+   Contribute reproducible failure cases through
+   [issue #3](https://github.com/ArgeliusLabs/DopplerLab/issues/3).
 3. **Data preparation.** Add small provider-specific importers with explicit source terms,
    units, coordinate references, time semantics and gap handling. Do not bundle restricted databases.
 4. **Measurement workflow.** Improve ridge annotation and preserve the analyst's event

@@ -5,7 +5,8 @@ about: Report a reproducible problem using non-sensitive evidence
 
 **Observed behavior and expected behavior**
 
-**Tool version, Python version and OS**
+**Tool version, OS and installation route (native executable or Python/source)**
+Include Python/dependency versions for a source installation; native users do not need Python installed.
 
 **Minimal reproduction commands**
 

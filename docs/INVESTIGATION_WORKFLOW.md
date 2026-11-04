@@ -158,9 +158,9 @@ ambiguous and unsupported cases as such. The [field protocol](FIELD_PROTOCOL.md)
 describes how to evaluate against hidden recording truth; real-world accuracy remains
 unvalidated in the published release.
 
-## What is automatic in the experimental v0.4.0 release?
+## What is automatic in the experimental v0.4.1 release?
 
-| Stage | v0.4.0 status |
+| Stage | v0.4.1 status |
 | --- | --- |
 | WAV inspection, FFmpeg extraction, manually traced ridge fitting | Implemented |
 | Long-media review with offsets, hashes and per-channel spectrograms | Implemented; FFmpeg/ffprobe required |

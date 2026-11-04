@@ -5,8 +5,10 @@ Allow about five minutes after downloading; startup can take longer on some syst
 Python is bundled with the executable. This example runs offline and generates its own
 audio and flight tracks. No flight-data account or FFmpeg is needed for the practice.
 
-**Experimental — testing in progress.** The practice is synthetic. Real-recording
-location accuracy remains unvalidated.
+**Experimental — testing in progress.** This practice uses generated audio. Successful
+practice does not establish real-world location accuracy: the
+[first original-recording test](docs/FIELD_TEST_2026_11.md) returned insufficient evidence.
+Treat search results as hypotheses requiring independent evidence.
 
 ## 1. Download your build
 
